@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Marked code preview extension</title>
+  </head>
+  <body>
+    <div id="content"></div>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="./dist/index.umd.cjs"></script>
+    <script>
+      const md = `# Example
+
+\`\`\`html preview title="Code title"
+<div class='foo'>Hello, World!</div>
+\`\`\`
+`
+
+      document.getElementById("content").innerHTML = new marked.Marked()
+        .use(markedCodePreview())
+        .parse(md)
+    </script>
+  </body>
+</html>

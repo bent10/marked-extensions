@@ -1,0 +1,25 @@
+name: PR title format
+
+on:
+  pull_request:
+    branches:
+      - '*'
+    types:
+      - opened
+      - reopened
+      - edited
+      - synchronize
+
+jobs:
+  pr-title:
+    name: Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Check PR Title
+        uses: clowdhaus/actions/pr-title@v0.4.0
+        with:
+          on-fail-message: "Your PR title doesn't match the required format. The title should be in the conventional commit (https://www.conventionalcommits.org) format. e.g.\n\n```\nchore(plugin-name): add pr title workflow\n```"
+          title-regex: '^(build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test)(\([\w|,|\-|\|]+\))?(!)?\:\s.*$'
+          github-token: ${{ secrets.GH_TOKEN }}

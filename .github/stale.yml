@@ -1,0 +1,23 @@
+name: 'Close stale issues and PRs'
+on:
+  schedule:
+    - cron: '60 1 * * *'
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@v8
+        with:
+          stale-issue-label: 'no-issue-activity'
+          stale-pr-label: 'no-pr-activity'
+          exempt-issue-labels: 'awaiting-approval,wip'
+          exempt-pr-labels: 'awaiting-approval,wip'
+          stale-issue-message: >
+            Hey folks! This issue has been inactive for 60 days. If it's still relevant,
+            could you please provide additional information or confirm whether it's still an ongoing concern?
+            Otherwise, we may consider closing this issue. Thank you! :wave:
+          stale-pr-message: >
+            Hey there! This pull request has been inactive for 60 days. If you're still working on it,
+            please provide an update or let us know if you need any assistance.
+            If we don't hear back, we may consider closing this pull request. Thanks! :wave:

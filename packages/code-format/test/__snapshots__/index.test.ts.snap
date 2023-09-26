@@ -1,0 +1,51 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`should format code blocks using Prettier with default options 1`] = `
+"<pre><code class=\\"language-js\\">foo(
+  reallyLongArg(),
+  omgSoManyParameters(),
+  IShouldRefactorThis(),
+  isThereSeriouslyAnotherOne()
+)
+</code></pre>
+"
+`;
+
+exports[`should format code blocks using Prettier with specified parser 1`] = `
+"<pre><code class=\\"language-ts\\">@observer
+class OrderLine {
+  @observable price: number = 0
+}
+</code></pre>
+"
+`;
+
+exports[`should handle extended language mappings 1`] = `
+"<pre><code class=\\"language-svelte\\">&lt;span
+  &gt;&lt;div&gt;foo&lt;/div&gt;
+  &lt;span&gt;bar&lt;/span&gt;&lt;/span
+&gt;
+&lt;div pretend break&gt;content&lt;/div&gt;
+</code></pre>
+"
+`;
+
+exports[`should handle formatting failures and preserve the original code block 1`] = `
+"<pre><code class=\\"language-ts\\">const x number = 1 // missing :
+</code></pre>
+"
+`;
+
+exports[`should handle unsupported code block languages 1`] = `
+"<pre><code class=\\"language-unsupported-language\\">const user: { [key: string]: string 
+| number | boolean } = {
+ name: &quot;John Doe&quot;, age: 30 };
+</code></pre>
+"
+`;
+
+exports[`should not transform code blocks that do not have \`prettier\` attribute 1`] = `
+"<pre><code class=\\"language-js\\">foo(reallyLongArg(), omgSoManyParameters(), IShouldRefactorThis(), isThereSeriouslyAnotherOne());
+</code></pre>
+"
+`;

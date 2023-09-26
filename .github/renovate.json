@@ -1,0 +1,14 @@
+{
+  "extends": [
+    "config:recommended",
+    "schedule:weekends",
+    "schedule:automergeWeekly",
+    "npm:unpublishSafe"
+  ],
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    }
+  ]
+}

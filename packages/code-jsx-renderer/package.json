@@ -1,0 +1,58 @@
+{
+  "name": "marked-code-jsx-renderer",
+  "description": "A marked extension to render JSX code blocks using a custom renderer and components",
+  "version": "0.0.0-development",
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Beni Arisandi (https://stilearning.com)",
+  "repository": "https://github.com/bent10/marked-extensions",
+  "homepage": "https://github.com/bent10/marked-extensions/tree/main/packages/code-jsx-renderer",
+  "license": "MIT",
+  "keywords": [
+    "marked",
+    "marked-extension",
+    "jsx",
+    "react",
+    "javascriptreact",
+    "render",
+    "renderer",
+    "code",
+    "codefence",
+    "stilearning-marked-extensions"
+  ],
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "changelog.md",
+    "readme.md"
+  ],
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "vite build --watch",
+    "build": "vite build && npm run types",
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
+    "types": "tsc -d --emitDeclarationOnly --outDir ./dist",
+    "lint": "tsc --noEmit && eslint . --cache --cache-location ../../node_modules/.eslint",
+    "format": "prettier . --write --cache-location ../../node_modules/.prettier --ignore-path ../../.prettierignore"
+  },
+  "dependencies": {
+    "@babel/core": "^7.22.20",
+    "@babel/preset-react": "^7.22.15",
+    "attributes-parser": "^1.0.1"
+  },
+  "peerDependencies": {
+    "marked": ">=7.0.0"
+  }
+}

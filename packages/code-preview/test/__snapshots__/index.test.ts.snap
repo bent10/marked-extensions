@@ -1,0 +1,36 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`should not transform code blocks that do not have \`preview\` attribute 1`] = `
+"<pre><code class=\\"language-jsx\\">&lt;Foo /&gt;
+</code></pre>
+"
+`;
+
+exports[`should transform code blocks into code previews 1`] = `
+"<h1>Example</h1>
+
+<figure class='preview'>
+  <figcaption>Code title</figcaption>
+  <div class='preview-showcase'>
+    <div class='foo'>Hello, World!</div>
+  </div>
+  <div class='preview-code'>
+    <pre><code class=\\"language-html\\">&lt;div class=&#39;foo&#39;&gt;Hello, World!&lt;/div&gt;
+</code></pre>
+
+  </div>
+</figure>
+"
+`;
+
+exports[`should use a custom template when provided in options 1`] = `
+"<h1>Example</h1>
+
+<figure>
+  <div class='preview-container'>
+    <div class='foo'>Hello, World!</div>
+  </div>
+  <figcaption>Code title</figcaption>
+</figure>
+"
+`;

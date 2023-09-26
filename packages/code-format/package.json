@@ -1,0 +1,57 @@
+{
+  "name": "marked-code-format",
+  "description": "A marked extension for formatting code blocks using Prettier",
+  "version": "0.0.0-development",
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Beni Arisandi (https://stilearning.com)",
+  "repository": "https://github.com/bent10/marked-extensions",
+  "homepage": "https://github.com/bent10/marked-extensions/tree/main/packages/code-format",
+  "license": "MIT",
+  "keywords": [
+    "marked",
+    "marked-extension",
+    "format",
+    "prettier",
+    "beautify",
+    "code",
+    "codefence",
+    "stilearning-marked-extensions"
+  ],
+  "type": "module",
+  "main": "dist/index.umd.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.umd.cjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "changelog.md",
+    "readme.md"
+  ],
+  "scripts": {
+    "start": "npm run prod",
+    "prod": "vite build && vite",
+    "dev": "vite build:ssr --watch",
+    "build": "npm run build:ssr && npm run build:prod && npm run types",
+    "build:ssr": "vite build --ssr src/index.ts",
+    "build:prod": "vite build",
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
+    "types": "tsc -d --emitDeclarationOnly --outDir ./dist",
+    "lint": "tsc --noEmit && eslint . --cache --cache-location ../../node_modules/.eslint",
+    "format": "prettier . --write --cache-location ../../node_modules/.prettier --ignore-path ../../.prettierignore"
+  },
+  "dependencies": {
+    "attributes-parser": "^1.0.4"
+  },
+  "peerDependencies": {
+    "marked": ">=7.0.0"
+  }
+}

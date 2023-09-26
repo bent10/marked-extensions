@@ -1,0 +1,37 @@
+name: Release
+on:
+  repository_dispatch:
+    # curl -v -H "Accept: application/vnd.github.everest-preview+json" -H "Authorization: token ${GH_TOKEN}"
+    # https://api.github.com/repos/bent10/marked-extensions/dispatches -d '{ "event_type": "semantic-release" }'
+    types: [multi-semantic-release]
+  push:
+    branches:
+      - main
+      - next
+      - next-major
+      - beta
+      - alpha
+      - '*.x'
+
+jobs:
+  release:
+    name: Releasing
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18 # required by semantic-release
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run build
+      - run: npm test
+
+      - name: Installing release dependencies
+        run: |
+          npm i -D @qiwi/multi-semantic-release @semantic-release/changelog @semantic-release/git
+      - name: Semantic release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npx multi-semantic-release
