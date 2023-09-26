@@ -137,6 +137,24 @@ it('should handle formatting failures and preserve the original code block', () 
 `)
 })
 
+it('should call errorHandler if an error occurs during transformation', () => {
+  const content = '```jsx renderable\n<div>Missing closing tag\n```\n'
+
+  expect(() =>
+    new Marked()
+      .use(
+        markedCodeJsxRenderer({
+          ...runtime,
+          renderer: renderToStaticMarkup,
+          errorHandler(e) {
+            throw e
+          }
+        })
+      )
+      .parse(content)
+  ).toThrowError()
+})
+
 it('should not render JSX code block without `renderable` attribute', () => {
   const content = '```jsx\n<div>Hello, World!</div>;\n```\n'
   const html = new Marked()
@@ -175,7 +193,8 @@ it('should not render JSX code block without `renderer`', () => {
   const html = new Marked()
     .use(
       markedCodeJsxRenderer({
-        ...runtime
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        ...(runtime as any)
       })
     )
     .parse(content)

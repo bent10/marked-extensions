@@ -38,7 +38,7 @@ This is some code:
 ```
 ````
 
-**🚨 Important:** The `renderable` attribute must be specified in code fence blocks for formatting the code.
+**🚨 Important:** The `renderable` attribute must be specified in code fence blocks!
 
 And our module `example.js` looks as follows:
 
@@ -180,6 +180,17 @@ function sanitizeJSX(jsxCode) {
 }
 ```
 
+### `errorHandler`
+
+Implement monitoring and logging mechanisms to keep track of any unusual or potentially malicious activities during transformation, if the markdown input contains untrusted or user-generated content.
+
+```js
+// in this example, errors will be logged to the console for debugging and monitoring purposes.
+marked.use(markedCodeJsxRenderer({ errorHandler: console.error }))
+// you can replace console.error with a more advanced logging solution like Winston or Morgan
+// for better error tracking and management.
+```
+
 ### `unwrap`
 
 If `true`, the extension will not wrap the rendered code in a `codefence` element. Based on the example above, this will result in the following output:
@@ -202,6 +213,16 @@ If `true`, the extension will not wrap the rendered code in a `codefence` elemen
   </div>
 </div>
 ```
+
+## Security considerations
+
+It's essential to be aware of potential security risks, especially when the markdown input contains untrusted or user-generated content. Here are some security considerations when using this extension:
+
+- **Code Injection:** This extension uses the `new Function` constructor to dynamically create a function from the transformed code. While this is a common technique for rendering JSX, it can be risky if the input code contains malicious code. Ensure that you thoroughly [sanitize](#sanitizer) and validate the input code to prevent code injection attacks.
+
+- **Untrusted Markdown:** If your application allows users to input markdown content, there is a risk of users injecting malicious code within code blocks. Make sure to [sanitize](#sanitizer) and validate user-generated markdown content to prevent any security vulnerabilities.
+
+- **Error Handling:** The code includes an error handling mechanism ([`errorHandler`](#errorhandler)) to catch and handle exceptions. While this is a good practice, be cautious not to expose sensitive information in error messages, which could aid attackers in understanding your system's architecture.
 
 ## Related
 

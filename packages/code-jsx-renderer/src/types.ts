@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { Token, TokensList } from 'marked'
+import type { Token, TokensList } from 'marked'
 
 /**
  * Options for configuring the `remarkCodeJsxRenderer` plugin.
@@ -39,6 +39,13 @@ export interface Options {
    * @param code - The code to sanitize.
    */
   sanitizer?: (code: string) => string
+
+  /**
+   * Implement monitoring and logging mechanisms to keep track of any
+   * unusual or potentially malicious activities during transformation, if the
+   * markdown input contains untrusted or user-generated content.
+   */
+  errorHandler?: (e: Error) => void
 
   /**
    * If `true`, the plugin will not wrap the rendered code in a `codefence`

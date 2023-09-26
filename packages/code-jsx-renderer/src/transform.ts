@@ -20,7 +20,8 @@ export function transform(token: Tokens.Generic, options: TransformOptions) {
     jsxs,
     renderer,
     sanitizer,
-    unwrap
+    unwrap,
+    errorHandler
   } = options
 
   if (!jsx || !renderer) return
@@ -71,7 +72,9 @@ export function transform(token: Tokens.Generic, options: TransformOptions) {
     }
 
     parent.splice(index, 1, newToken)
-  } catch {
-    // preserve the original code block
+  } catch (e) {
+    if (typeof errorHandler === 'function') {
+      errorHandler(e as Error)
+    }
   }
 }
