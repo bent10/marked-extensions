@@ -34,7 +34,7 @@ Say we have the following file `example.html`:
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://unpkg.com/prettier@3.0.3/standalone.js"></script>
     <script src="https://unpkg.com/prettier@3.0.3/plugins/graphql.js"></script>
-    <script src="./dist/index.umd.cjs"></script>
+    <script src="./node_modules/marked-code-format/dist/index.umd.cjs"></script>
     <script>
       ;(async () => {
         const md = `# Example
