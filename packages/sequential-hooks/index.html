@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Marked sequential hooks</title>
+  </head>
+  <body>
+    <div id="content"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="./dist/index.umd.cjs"></script>
+    <script>
+      ;(async () => {
+        const md = "# {title}\n\n{body}\n"
+
+        const myAsyncHook = async (markdown, data) => {
+          const res = await fetch("https://dummyjson.com/posts/2")
+
+          Object.assign(data, await res.json())
+
+          return markdown
+        }
+
+        document.getElementById("content").innerHTML = await new marked.Marked({
+          async: true
+        })
+          .use(
+            markedSequentialHooks({
+              markdownHooks: [
+                myAsyncHook,
+                (markdown, data) => {
+                  document.title = data.id
+
+                  return markdown
+                    .replace("{title}", data.title)
+                    .replace("{body}", data.body)
+                }
+              ]
+            })
+          )
+          .parse(md)
+      })()
+    </script>
+  </body>
+</html>

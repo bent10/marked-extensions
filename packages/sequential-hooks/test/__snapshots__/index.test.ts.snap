@@ -1,0 +1,19 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`should apply markdownHooks and htmlHooks in sequence 1`] = `
+"<!doctype html>
+<html lang=\\"en\\">
+  <head>
+    <meta charset=\\"UTF-8\\" />
+    <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1.0\\" />
+    <title>Hello, world!</title>
+  </head>
+
+  <body>
+    <h1>Content</h1>
+<p>This is the main content of your Markdown file autored by <strong>John Doe</strong>.</p>
+
+  </body>
+</html>
+"
+`;
