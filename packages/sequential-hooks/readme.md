@@ -31,8 +31,6 @@ author: John Doe
 This is the main content of your Markdown file autored by **{author}**.
 ```
 
-**🚨 Important:** The `prettier` attribute must be specified in code fence blocks for formatting the code.
-
 And our module `example.js` looks as follows:
 
 ```ts
