@@ -1,5 +1,5 @@
 import type { MarkedExtension } from 'marked'
-import { reducer } from './utils.js'
+import { reducer } from './reducer.js'
 import type { HooksWithData, Options } from './types.js'
 
 /**
