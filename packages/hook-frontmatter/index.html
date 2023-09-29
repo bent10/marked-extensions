@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Marked hook frontmatter</title>
+  </head>
+  <body>
+    <div id="content"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="./node_modules/marked-sequential-hooks/dist/index.umd.cjs"></script>
+    <script src="./dist/index.umd.cjs"></script>
+    <script>
+      const md = `---
+title: Hello, world!
+author: John Doe
+---
+
+# Content
+
+This is the main content of your Markdown file autored by **{author}**.
+`
+
+      document.getElementById("content").innerHTML = new marked.Marked()
+        .use(
+          markedSequentialHooks({
+            markdownHooks: [markedHookFrontmatter()]
+          })
+        )
+        .parse(md)
+    </script>
+  </body>
+</html>
