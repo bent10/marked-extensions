@@ -1,3 +1,10 @@
+## marked-code-jsx-renderer [1.1.1](https://github.com/bent10/marked-extensions/compare/marked-code-jsx-renderer@1.1.0...marked-code-jsx-renderer@1.1.1) (2023-09-29)
+
+
+### Bug Fixes
+
+* build for esm only ([5b9beaa](https://github.com/bent10/marked-extensions/commit/5b9beaa634cad0ace6864aecd3016dc66cbb7ba2))
+
 # marked-code-jsx-renderer [1.1.0](https://github.com/bent10/marked-extensions/compare/marked-code-jsx-renderer@1.0.0...marked-code-jsx-renderer@1.1.0) (2023-09-26)
 
 
