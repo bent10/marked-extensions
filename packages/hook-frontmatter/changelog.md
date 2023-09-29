@@ -1,3 +1,10 @@
+## marked-hook-frontmatter [1.0.1](https://github.com/bent10/marked-extensions/compare/marked-hook-frontmatter@1.0.0...marked-hook-frontmatter@1.0.1) (2023-09-29)
+
+
+### Bug Fixes
+
+* **deps:** bundled `pupa` for ssr build ([1ae6427](https://github.com/bent10/marked-extensions/commit/1ae642787e0214f3ad925378af304d3f04c05090))
+
 # marked-hook-frontmatter 1.0.0 (2023-09-29)
 
 
