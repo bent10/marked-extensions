@@ -54,7 +54,7 @@
     "moo": "^0.5.2"
   },
   "devDependencies": {
-    "marked-sequential-hooks": "^1.0.0"
+    "marked-sequential-hooks": "^1.1.0"
   },
   "peerDependencies": {
     "marked": ">=7.0.0",

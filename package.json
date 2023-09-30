@@ -29,14 +29,14 @@
   "devDependencies": {
     "@types/babel__core": "^7.20.2",
     "@types/js-yaml": "^4.0.6",
-    "@types/moo": "^0.5.6",
-    "@types/react-dom": "^18.2.7",
-    "doogu": "^3.2.6",
+    "@types/moo": "^0.5.7",
+    "@types/react-dom": "^18.2.8",
+    "doogu": "^3.2.7",
     "marked": "^9.0.3",
     "prettier-plugin-svelte": "^3.0.3",
     "pupa": "^3.1.0",
     "react-dom": "^18.2.0",
-    "vite-plugin-cachedir": "^1.1.0"
+    "vite-plugin-cachedir": "^1.1.1"
   },
   "config": {
     "commitizen": {
