@@ -12,10 +12,12 @@ export function reducer(
   if (!this.data) this.data = {}
 
   return hooks.reduce((prev, transformer) => {
-    return this.options?.async
+    const isAsync = !!this.options?.async
+
+    return isAsync
       ? (Promise.all([prev, this.data]).then(([resolvedPrev, resolvedData]) =>
-          transformer(resolvedPrev, resolvedData)
+          transformer(resolvedPrev, resolvedData, isAsync)
         ) as unknown as string)
-      : (transformer(prev, this.data) as string)
+      : (transformer(prev, this.data, isAsync) as string)
   }, content)
 }

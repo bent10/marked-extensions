@@ -26,7 +26,8 @@ export interface Options {
  */
 export type MarkdownHook = (
   markdown: string,
-  data: UnknownData
+  data: UnknownData,
+  isAsync: boolean
 ) => string | Promise<string>
 
 /**
@@ -38,7 +39,8 @@ export type MarkdownHook = (
  */
 export type HtmlHook = (
   html: string,
-  data: UnknownData
+  data: UnknownData,
+  isAsync: boolean
 ) => string | Promise<string>
 
 /**
