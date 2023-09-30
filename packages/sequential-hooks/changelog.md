@@ -1,3 +1,10 @@
+# marked-sequential-hooks [1.1.0](https://github.com/bent10/marked-extensions/compare/marked-sequential-hooks@1.0.1...marked-sequential-hooks@1.1.0) (2023-09-30)
+
+
+### Features
+
+* pass `async` option through the hook arguments ([96036f1](https://github.com/bent10/marked-extensions/commit/96036f14815d52d8086d66e1b2d2a84389df82d3))
+
 ## marked-sequential-hooks [1.0.1](https://github.com/bent10/marked-extensions/compare/marked-sequential-hooks@1.0.0...marked-sequential-hooks@1.0.1) (2023-09-29)
 
 
