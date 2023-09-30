@@ -1,3 +1,10 @@
+# marked-hook-frontmatter [1.1.0](https://github.com/bent10/marked-extensions/compare/marked-hook-frontmatter@1.0.2...marked-hook-frontmatter@1.1.0) (2023-09-30)
+
+
+### Features
+
+* pass `dataPrefix` option as `data.matterDataPrefix` ([af595a0](https://github.com/bent10/marked-extensions/commit/af595a0774356eed7cdfd4e4b0ea6ab908aca052))
+
 ## marked-hook-frontmatter [1.0.2](https://github.com/bent10/marked-extensions/compare/marked-hook-frontmatter@1.0.1...marked-hook-frontmatter@1.0.2) (2023-09-30)
 
 
