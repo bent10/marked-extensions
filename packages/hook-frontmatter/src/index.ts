@@ -12,6 +12,10 @@ export interface Options extends Pick<LoadOptions, 'schema' | 'json'> {
   dataPrefix?: boolean | string
 }
 
+type UnknownData = {
+  [key: string]: unknown
+}
+
 /**
  * A [sequential hook](https://github.com/bent10/marked-extensions/tree/main/packages/sequential-hooks) for marked to support frontmatter in Markdown
  * documents.
@@ -26,12 +30,19 @@ export default function markedHookFrontmatter(
       Object.assign(parseOptions, { filename: data.filename })
     }
 
-    const { matter, content } = parse(markdown, parseOptions)
+    const { matter = {}, content } = parse(markdown, parseOptions)
+    const { matterDataPrefix = dataPrefix } = matter as UnknownData
 
-    if (typeof dataPrefix === 'boolean') {
-      Object.assign(data, dataPrefix ? { matter } : matter)
-    } else if (typeof dataPrefix === 'string') {
-      data[dataPrefix] = matter
+    if (typeof matterDataPrefix === 'boolean') {
+      Object.assign(
+        data,
+        matterDataPrefix
+          ? { matter, matterDataPrefix: 'matter' }
+          : { ...(matter as UnknownData), matterDataPrefix }
+      )
+    } else if (typeof matterDataPrefix === 'string') {
+      data.matterDataPrefix = matterDataPrefix
+      data[matterDataPrefix] = matter
     }
 
     return pupa(content, data, { ignoreMissing: true })

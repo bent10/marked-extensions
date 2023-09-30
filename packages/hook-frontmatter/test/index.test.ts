@@ -12,7 +12,11 @@ it('should parse frontmatter and add it to the extended hook data property', () 
         markdownHooks: [markedHookFrontmatter()],
         htmlHooks: [
           (html, data) => {
-            expect(data).toEqual({ foo: 'bar', baz: 'qux' })
+            expect(data).toEqual({
+              foo: 'bar',
+              baz: 'qux',
+              matterDataPrefix: false
+            })
 
             return html
           }
@@ -32,7 +36,7 @@ it('should replace placeholders in the content with data from the extended hook'
         markdownHooks: [markedHookFrontmatter()],
         htmlHooks: [
           (html, data) => {
-            expect(data).toEqual({ foo: 'bar' })
+            expect(data).toEqual({ foo: 'bar', matterDataPrefix: false })
 
             return html
           }
@@ -52,7 +56,10 @@ it('should add frontmatter to the extended hook data property with a custom data
         markdownHooks: [markedHookFrontmatter({ dataPrefix: 'page' })],
         htmlHooks: [
           (html, data) => {
-            expect(data).toEqual({ page: { foo: 'bar' } })
+            expect(data).toEqual({
+              page: { foo: 'bar' },
+              matterDataPrefix: 'page'
+            })
 
             return html
           }
@@ -72,7 +79,10 @@ it('should use `matter` as dataPrefix when the option set to true', () => {
         markdownHooks: [markedHookFrontmatter({ dataPrefix: true })],
         htmlHooks: [
           (html, data) => {
-            expect(data).toEqual({ matter: { foo: 'bar' } })
+            expect(data).toEqual({
+              matter: { foo: 'bar' },
+              matterDataPrefix: 'matter'
+            })
 
             return html
           }
@@ -92,7 +102,10 @@ it('should support spaces nor tabs inside placehholder', () => {
         markdownHooks: [markedHookFrontmatter({ dataPrefix: true })],
         htmlHooks: [
           (html, data) => {
-            expect(data).toEqual({ matter: { foo: 'bar' } })
+            expect(data).toEqual({
+              matter: { foo: 'bar' },
+              matterDataPrefix: 'matter'
+            })
 
             return html
           }
