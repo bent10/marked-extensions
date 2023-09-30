@@ -1,3 +1,13 @@
+## marked-hook-frontmatter [1.0.2](https://github.com/bent10/marked-extensions/compare/marked-hook-frontmatter@1.0.1...marked-hook-frontmatter@1.0.2) (2023-09-30)
+
+
+
+
+
+### Dependencies
+
+* **marked-sequential-hooks:** upgraded to 1.1.0
+
 ## marked-hook-frontmatter [1.0.1](https://github.com/bent10/marked-extensions/compare/marked-hook-frontmatter@1.0.0...marked-hook-frontmatter@1.0.1) (2023-09-29)
 
 
