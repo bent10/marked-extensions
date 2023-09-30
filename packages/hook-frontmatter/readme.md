@@ -166,6 +166,7 @@ Compatibility with `JSON.parse` behavior. If `true`, it indicates compatibility 
 
 - [marked-sequential-hooks](https://github.com/bent10/marked-extensions/tree/main/packages/sequential-hooks)
 - [marked-hook-data](https://github.com/bent10/marked-extensions/tree/main/packages/hook-data)
+- [marked-hook-layout](https://github.com/bent10/marked-extensions/tree/main/packages/hook-layout)
 
 ## Contributing
 
