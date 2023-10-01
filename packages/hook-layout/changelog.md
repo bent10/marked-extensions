@@ -1,3 +1,14 @@
+## marked-hook-layout [1.0.5](https://github.com/bent10/marked-extensions/compare/marked-hook-layout@1.0.4...marked-hook-layout@1.0.5) (2023-10-01)
+
+
+
+
+
+### Dependencies
+
+* **marked-hook-data:** upgraded to 1.0.5
+* **marked-hook-frontmatter:** upgraded to 1.3.2
+
 ## marked-hook-layout [1.0.4](https://github.com/bent10/marked-extensions/compare/marked-hook-layout@1.0.3...marked-hook-layout@1.0.4) (2023-10-01)
 
 
