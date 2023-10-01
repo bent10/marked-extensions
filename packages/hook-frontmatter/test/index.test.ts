@@ -117,6 +117,18 @@ it('should support spaces nor tabs inside placehholder', () => {
   expect(html).toBe('<p>Hello, bar!</p>\n')
 })
 
+it('should closed with double lines', () => {
+  const html = new Marked({ gfm: true })
+    .use(
+      markedSequentialHooks({
+        markdownHooks: [markedHookFrontmatter()]
+      })
+    )
+    .parse('---\nfoo: bar\n\n---\n# Content\n')
+
+  expect(html).toBe('<hr>\n<h1>Content</h1>\n')
+})
+
 it('should pass the filename option when available in data', () => {
   const md = '---\nfoo: bar\nfoo: baz\n---\nContent'
 

@@ -8,6 +8,11 @@ const lexer = moo.states({
   },
   matter: {
     closeTag: { match: /^---\n/, lineBreaks: true, push: 'content' },
+    closeTagWithDoubleLines: {
+      match: /\n{2}/,
+      lineBreaks: true,
+      push: 'content'
+    },
     data: /.+/,
     lineBreak: { match: /\n+/, lineBreaks: true }
   },
