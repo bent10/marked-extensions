@@ -25,13 +25,34 @@ Follows the steps below to get up and running:
 
 ### Sequential hooks
 
-List of [sequential hooks](packages/sequential-hooks) for marked:
+Incorporate the power of sequential hooks using the following packages within [sequential hooks](packages/sequential-hooks):
 
-| Package                                              | Description                                          | Version (click for changelog)                                                                          |
-| :--------------------------------------------------- | :--------------------------------------------------- | :----------------------------------------------------------------------------------------------------- |
-| [marked-hook-data](packages/hook-data)               | A sequential hook to load data from files or objects | [![npm](https://img.shields.io/npm/v/marked-hook-data)](packages/hook-data/changelog.md)               |
-| [marked-hook-frontmatter](packages/hook-frontmatter) | A sequential hook to support frontmatter             | [![npm](https://img.shields.io/npm/v/marked-hook-frontmatter)](packages/hook-frontmatter/changelog.md) |
-| [marked-hook-layout](packages/hook-layout)           | A sequential hook that handles layouts               | [![npm](https://img.shields.io/npm/v/marked-hook-layout)](packages/hook-layout/changelog.md)           |
+<details>
+<summary>Show the example code 🚀</summary>
+
+```js
+import { Marked } from 'marked'
+import markedSequentialHooks from 'marked-sequential-hooks'
+
+const html = new Marked()
+  .use(
+    markedSequentialHooks({
+      markdownHooks: [mdHoook1(), mdHook2],
+      htmlHooks: [htmlHook1(), htmlHook2]
+    })
+  )
+  .parse('# Content')
+
+console.log(html)
+```
+
+</details>
+
+| Package                                              | Types          | Description                                          | Version (click for changelog)                                                                          |
+| :--------------------------------------------------- | :------------- | :--------------------------------------------------- | :----------------------------------------------------------------------------------------------------- |
+| [marked-hook-data](packages/hook-data)               | `MarkdownHook` | A sequential hook to load data from files or objects | [![npm](https://img.shields.io/npm/v/marked-hook-data)](packages/hook-data/changelog.md)               |
+| [marked-hook-frontmatter](packages/hook-frontmatter) | `MarkdownHook` | A sequential hook to support frontmatter             | [![npm](https://img.shields.io/npm/v/marked-hook-frontmatter)](packages/hook-frontmatter/changelog.md) |
+| [marked-hook-layout](packages/hook-layout)           | `HtmlHook`     | A sequential hook that handles layouts               | [![npm](https://img.shields.io/npm/v/marked-hook-layout)](packages/hook-layout/changelog.md)           |
 
 ## Contributing
 
