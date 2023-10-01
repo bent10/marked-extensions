@@ -1,3 +1,10 @@
+# marked-hook-frontmatter [1.3.0](https://github.com/bent10/marked-extensions/compare/marked-hook-frontmatter@1.2.0...marked-hook-frontmatter@1.3.0) (2023-10-01)
+
+
+### Features
+
+* add `interpolation` option ([2f2049f](https://github.com/bent10/marked-extensions/commit/2f2049f472dfa34ffcab6dd6e987d4f1dd9c03bd))
+
 # marked-hook-frontmatter [1.2.0](https://github.com/bent10/marked-extensions/compare/marked-hook-frontmatter@1.1.0...marked-hook-frontmatter@1.2.0) (2023-10-01)
 
 
