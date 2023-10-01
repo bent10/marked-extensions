@@ -1,3 +1,10 @@
+## marked-hook-frontmatter [1.3.2](https://github.com/bent10/marked-extensions/compare/marked-hook-frontmatter@1.3.1...marked-hook-frontmatter@1.3.2) (2023-10-01)
+
+
+### Bug Fixes
+
+* resolves markdown without frontmatter ([1799a0e](https://github.com/bent10/marked-extensions/commit/1799a0ebdf798296faa2d42d9bde6e4a301a2ef3))
+
 ## marked-hook-frontmatter [1.3.1](https://github.com/bent10/marked-extensions/compare/marked-hook-frontmatter@1.3.0...marked-hook-frontmatter@1.3.1) (2023-10-01)
 
 
