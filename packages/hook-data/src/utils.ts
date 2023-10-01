@@ -11,3 +11,15 @@ export function isBrowser() {
     !!window.document.documentElement
   )
 }
+
+/**
+ * Checks if all items in an array are strings.
+ */
+export function isSpecificSources(items: unknown[]) {
+  for (const item of items) {
+    if (typeof item !== 'string') {
+      return false
+    }
+  }
+  return true
+}

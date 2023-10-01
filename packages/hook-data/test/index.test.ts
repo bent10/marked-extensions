@@ -32,7 +32,7 @@ it('should load data from files and attach it to the context', () => {
         ]
       })
     )
-    .parse('foo')
+    .parse('# content')
 })
 
 it('should load data from files and attach it to the context asynchronously', async () => {
@@ -49,7 +49,7 @@ it('should load data from files and attach it to the context asynchronously', as
         ]
       })
     )
-    .parse('foo')
+    .parse('# content')
 })
 
 it('should load data from an object and attach it to the context', () => {
@@ -66,24 +66,43 @@ it('should load data from an object and attach it to the context', () => {
         ]
       })
     )
-    .parse('foo')
+    .parse('# content')
 })
 
-it('should handle array input types and attach them as "unknown" key', () => {
+it('should handle array input as specific sources', () => {
   new Marked()
     .use(
       markedSequentialHooks({
-        markdownHooks: [markedHookData(['foo', 'bar'])],
+        markdownHooks: [
+          markedHookData(['./test/fixtures/*.json', './no-exist/file.json'])
+        ],
         htmlHooks: [
           (html, data) => {
-            expect(data).toEqual({ unknown: ['foo', 'bar'] })
+            expect(data).toEqual({ posts })
 
             return html
           }
         ]
       })
     )
-    .parse('foo')
+    .parse('# content')
+})
+
+it('should handle array input types and attach them as "unknown" key', () => {
+  new Marked()
+    .use(
+      markedSequentialHooks({
+        markdownHooks: [markedHookData(['foo', 1])],
+        htmlHooks: [
+          (html, data) => {
+            expect(data).toEqual({ unknown: ['foo', 1] })
+
+            return html
+          }
+        ]
+      })
+    )
+    .parse('# content')
 })
 
 it('should use datasource from matter data if provided', () => {

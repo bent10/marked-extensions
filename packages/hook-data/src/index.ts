@@ -2,7 +2,7 @@ import { basename, extname } from 'node:path'
 import fg from 'fast-glob'
 import { loadFile, loadFileSync } from 'loadee'
 import type { MarkdownHook } from 'marked-sequential-hooks'
-import { isBrowser } from './utils.js'
+import { isBrowser, isSpecificSources } from './utils.js'
 
 /**
  * A [sequential hook](https://github.com/bent10/marked-extensions/tree/main/packages/sequential-hooks) for marked to load additional data from files or objects
@@ -37,7 +37,10 @@ export default function markedHookData(
     // use datasource from matter data if provided
     source = matter.datasource ? matter.datasource : source
 
-    if (typeof source === 'string') {
+    if (
+      typeof source === 'string' ||
+      (Array.isArray(source) && isSpecificSources(source))
+    ) {
       if (isBrowser()) {
         console.warn(
           'Loading data from files is not supported in the browser. Data will be ignored.'
