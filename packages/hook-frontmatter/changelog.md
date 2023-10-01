@@ -1,3 +1,10 @@
+## marked-hook-frontmatter [1.3.1](https://github.com/bent10/marked-extensions/compare/marked-hook-frontmatter@1.3.0...marked-hook-frontmatter@1.3.1) (2023-10-01)
+
+
+### Bug Fixes
+
+* **types:** resolves `js-yaml` types ([a5176d7](https://github.com/bent10/marked-extensions/commit/a5176d7fac895a28090045f7cb37d2d8d22e2460))
+
 # marked-hook-frontmatter [1.3.0](https://github.com/bent10/marked-extensions/compare/marked-hook-frontmatter@1.2.0...marked-hook-frontmatter@1.3.0) (2023-10-01)
 
 
