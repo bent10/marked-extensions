@@ -1,3 +1,10 @@
+# marked-code-preview [1.1.0](https://github.com/bent10/marked-extensions/compare/marked-code-preview@1.0.1...marked-code-preview@1.1.0) (2023-10-01)
+
+
+### Features
+
+* gives access to the hooks data through the `Lexer` object ([bd55ce7](https://github.com/bent10/marked-extensions/commit/bd55ce7bbba29112c239f88970bfd5234202b5d5))
+
 ## marked-code-preview [1.0.1](https://github.com/bent10/marked-extensions/compare/marked-code-preview@1.0.0...marked-code-preview@1.0.1) (2023-09-29)
 
 
