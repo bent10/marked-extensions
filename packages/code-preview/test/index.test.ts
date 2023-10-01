@@ -37,12 +37,32 @@ it('should use a custom template when provided in options', () => {
   expect(html).toMatchSnapshot()
 })
 
+it('should have access to the hooks data', () => {
+  const html = new Marked()
+    .use({ gfm: true })
+    .use({
+      hooks: {
+        preprocess(markdown) {
+          this.data = { foo: 'bar' }
+          return markdown
+        },
+        postprocess(html) {
+          return html
+        }
+      }
+    })
+    .use(markedCodePreview({ template: '{foo}' }))
+    .parse(md)
+
+  expect(html).toMatchSnapshot()
+})
+
 it('should not transform code blocks that do not have `preview` attribute', () => {
   const md = `
 \`\`\`jsx
 <Foo />
 \`\`\`
-    `
+`
 
   const html = new Marked()
     .use({ gfm: true })

@@ -13,10 +13,19 @@ export default function markedCodePreview(
   return {
     extensions: [
       {
-        name: 'code',
+        name: 'fences',
         level: 'block',
         tokenizer(_, parent) {
+          const hooksData: Pick<Options, 'data'> = {}
           const { data, ...restOptions } = options
+
+          if (
+            this.lexer.options.hooks &&
+            this.lexer.options.hooks !== null &&
+            'data' in this.lexer.options.hooks
+          ) {
+            Object.assign(hooksData, this.lexer.options.hooks.data)
+          }
 
           parent.forEach((token, index) => {
             if (token.type !== 'code' || !token.lang) return
@@ -28,7 +37,7 @@ export default function markedCodePreview(
             transform(token, {
               index,
               parent,
-              data: { ...data, ...meta },
+              data: { ...hooksData, ...data, ...meta },
               ...restOptions
             })
           })

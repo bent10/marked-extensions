@@ -1,5 +1,10 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`should have access to the hooks data 1`] = `
+"<h1>Example</h1>
+bar"
+`;
+
 exports[`should not transform code blocks that do not have \`preview\` attribute 1`] = `
 "<pre><code class=\\"language-jsx\\">&lt;Foo /&gt;
 </code></pre>
