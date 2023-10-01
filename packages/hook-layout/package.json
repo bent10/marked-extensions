@@ -1,0 +1,58 @@
+{
+  "name": "marked-hook-layout",
+  "description": "A sequential hook for marked that handles layouts",
+  "version": "0.0.0-development",
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Beni Arisandi (https://stilearning.com)",
+  "repository": "https://github.com/bent10/marked-extensions",
+  "homepage": "https://github.com/bent10/marked-extensions/tree/main/packages/hook-layout",
+  "license": "MIT",
+  "keywords": [
+    "marked",
+    "marked-extension",
+    "marked-hooks",
+    "layout",
+    "layouts",
+    "template",
+    "html",
+    "stilearning-marked-extensions"
+  ],
+  "type": "module",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "changelog.md",
+    "readme.md"
+  ],
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "vite build --watch",
+    "build": "vite build && npm run types",
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
+    "types": "tsc -d --emitDeclarationOnly --outDir ./dist",
+    "lint": "tsc --noEmit && eslint . --cache --cache-location ../../node_modules/.eslint",
+    "format": "prettier . --write --cache-location ../../node_modules/.prettier --ignore-path ../../.prettierignore"
+  },
+  "dependencies": {
+    "pupa": "^3.1.0"
+  },
+  "devDependencies": {
+    "marked-hook-data": "^1.0.0",
+    "marked-hook-frontmatter": "^1.1.0",
+    "marked-sequential-hooks": "^1.1.0"
+  },
+  "peerDependencies": {
+    "marked": ">=7.0.0",
+    "marked-sequential-hooks": ">=1.0.0"
+  }
+}
