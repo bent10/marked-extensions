@@ -10,6 +10,11 @@ export interface Options extends Pick<LoadOptions, 'schema' | 'json'> {
    * string is provided, the data will be added with that string as the key.
    */
   dataPrefix?: boolean | string
+
+  /**
+   * Set to `false` to disable data interpolation in the markdown content.
+   */
+  interpolation?: boolean
 }
 
 type UnknownData = {
@@ -23,7 +28,7 @@ type UnknownData = {
 export default function markedHookFrontmatter(
   options: Options = {}
 ): MarkdownHook {
-  const { dataPrefix = false, ...parseOptions } = options
+  const { dataPrefix = false, interpolation = true, ...parseOptions } = options
 
   return (markdown, data) => {
     if (data.filename) {
@@ -45,6 +50,8 @@ export default function markedHookFrontmatter(
       data[matterDataPrefix] = matter
     }
 
-    return pupa(content, data, { ignoreMissing: true })
+    return interpolation
+      ? pupa(content, data, { ignoreMissing: true })
+      : content
   }
 }

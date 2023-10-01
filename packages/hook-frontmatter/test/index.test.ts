@@ -94,6 +94,19 @@ it('should use `matter` as dataPrefix when the option set to true', () => {
   expect(html).toBe('<p>Hello, bar!</p>\n')
 })
 
+it('should disable interpolation when the option set to false', () => {
+  const md = '---\nfoo: bar\n---\nHello, { foo}!'
+  const html = new Marked()
+    .use(
+      markedSequentialHooks({
+        markdownHooks: [markedHookFrontmatter({ interpolation: false })]
+      })
+    )
+    .parse(md)
+
+  expect(html).toBe('<p>Hello, {foo}!</p>\n')
+})
+
 it('should support spaces nor tabs inside placehholder', () => {
   const md = '---\nfoo: bar\n---\nHello, {   matter.foo  }!'
   const html = new Marked()
