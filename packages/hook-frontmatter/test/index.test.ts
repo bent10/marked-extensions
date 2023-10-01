@@ -136,3 +136,15 @@ it('should pass the filename option when available in data', () => {
       .parse(md)
   ).toThrow(/test\.md/)
 })
+
+it('should ends `closeTag` with newline', () => {
+  expect(() =>
+    new Marked()
+      .use(
+        markedSequentialHooks({
+          markdownHooks: [markedHookFrontmatter()]
+        })
+      )
+      .parse('---\nfoo: bar\n------\n')
+  ).toThrow(/can not read a block mapping entry/)
+})

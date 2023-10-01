@@ -7,7 +7,7 @@ const lexer = moo.states({
     openTag: { match: /^---\n/, lineBreaks: true, push: 'matter' }
   },
   matter: {
-    closeTag: { match: /^---\n?/, lineBreaks: true, push: 'content' },
+    closeTag: { match: /^---\n/, lineBreaks: true, push: 'content' },
     data: /.+/,
     lineBreak: { match: /\n+/, lineBreaks: true }
   },
