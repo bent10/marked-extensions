@@ -54,7 +54,7 @@ import { Marked } from 'marked'
 import markedSequentialHooks from 'marked-sequential-hooks'
 import markedHookData from 'marked-hook-data'
 import markedHookFrontmatter from 'marked-hook-frontmatter'
-import markedHooklayout from 'marked-hook-layout'
+import markedHookLayout from 'marked-hook-layout'
 
 const md = readFileSync('example.md', 'utf8')
 
@@ -63,9 +63,9 @@ const html = new Marked()
     markedSequentialHooks({
       markdownHooks: [
         markedHookData({ date: new Date('2023-09-30').toDateString() }),
-        markedHookFrontmatter()
+        markedHookFrontmatter({ dataPrefix: true })
       ],
-      htmlHooks: [markedHookLayout({ dataPrefix: true })]
+      htmlHooks: [markedHookLayout()]
     })
   )
   .parse(md)
