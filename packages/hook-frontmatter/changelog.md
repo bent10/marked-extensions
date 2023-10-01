@@ -1,3 +1,15 @@
+# marked-hook-frontmatter [1.2.0](https://github.com/bent10/marked-extensions/compare/marked-hook-frontmatter@1.1.0...marked-hook-frontmatter@1.2.0) (2023-10-01)
+
+
+### Bug Fixes
+
+* resolves `closeTag` with newline ([83ebe3d](https://github.com/bent10/marked-extensions/commit/83ebe3d8f1a1f802e8dbd3f93d27623a1b595f1d))
+
+
+### Features
+
+* **spec:** the frontmatter tag can be closed with double lines ([9d1d7bf](https://github.com/bent10/marked-extensions/commit/9d1d7bf96ae60f9f43711e8c649393adf9855766))
+
 # marked-hook-frontmatter [1.1.0](https://github.com/bent10/marked-extensions/compare/marked-hook-frontmatter@1.0.2...marked-hook-frontmatter@1.1.0) (2023-09-30)
 
 
