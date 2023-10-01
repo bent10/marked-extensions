@@ -4,7 +4,8 @@ import yaml, { type LoadOptions } from 'js-yaml'
 // Define a lexer for frontmatter and content.
 const lexer = moo.states({
   main: {
-    openTag: { match: /^---\n/, lineBreaks: true, push: 'matter' }
+    openTag: { match: /^---\n/, lineBreaks: true, push: 'matter' },
+    chunk: moo.fallback
   },
   matter: {
     closeTag: { match: /^---\n/, lineBreaks: true, push: 'content' },

@@ -142,6 +142,18 @@ it('should closed with double lines', () => {
   expect(html).toBe('<hr>\n<h1>Content</h1>\n')
 })
 
+it('should handle markdown without frontmatter', () => {
+  const html = new Marked()
+    .use(
+      markedSequentialHooks({
+        markdownHooks: [markedHookFrontmatter()]
+      })
+    )
+    .parse('# Content\nfoo\n')
+
+  expect(html).toBe('<h1>Content</h1>\n<p>foo</p>\n')
+})
+
 it('should pass the filename option when available in data', () => {
   const md = '---\nfoo: bar\nfoo: baz\n---\nContent'
 
@@ -160,6 +172,18 @@ it('should pass the filename option when available in data', () => {
       )
       .parse(md)
   ).toThrow(/test\.md/)
+})
+
+it('should ends `closeTag` with newline', () => {
+  expect(() =>
+    new Marked()
+      .use(
+        markedSequentialHooks({
+          markdownHooks: [markedHookFrontmatter()]
+        })
+      )
+      .parse('---\nfoo: bar\n------\n')
+  ).toThrow(/can not read a block mapping entry/)
 })
 
 it('should ends `closeTag` with newline', () => {
