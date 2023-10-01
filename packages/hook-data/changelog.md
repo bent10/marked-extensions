@@ -1,3 +1,10 @@
+## marked-hook-data [1.0.1](https://github.com/bent10/marked-extensions/compare/marked-hook-data@1.0.0...marked-hook-data@1.0.1) (2023-10-01)
+
+
+### Bug Fixes
+
+* resolves loading data from specific files ([483a972](https://github.com/bent10/marked-extensions/commit/483a972c00b7737213c76c227d3ec7393982930f))
+
 # marked-hook-data 1.0.0 (2023-09-30)
 
 
