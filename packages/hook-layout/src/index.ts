@@ -39,3 +39,5 @@ export default function markedHookLayout(options: Options = {}): HtmlHook {
     })
   }
 }
+
+export type { Options }
