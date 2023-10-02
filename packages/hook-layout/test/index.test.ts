@@ -43,7 +43,7 @@ it('should apply layout with custom options', () => {
         ]
       })
     )
-    .parse(md.replace(/\-{3}[^-]+\-{3}\n/, ''))
+    .parse(md)
 
   expect(html).toMatchSnapshot()
 })
@@ -57,9 +57,59 @@ it('should apply layout with async option', async () => {
         htmlHooks: [markedHookLayout({ dir: 'test/fixtures', name: 'foo' })]
       })
     )
-    .parse(md.replace(/\-{3}[^-]+\-{3}\n/, ''))
+    .parse(md)
 
   expect(fsp.readFile).toHaveBeenCalledOnce()
+  expect(html).toMatchSnapshot()
+})
+
+it('should apply layout with interpolation', () => {
+  const mockData: MarkdownHook = (html, data) => {
+    Object.assign(data, {
+      layout: 'foo',
+      matter: { title: 'Marked hook layout' }
+    })
+
+    return html
+  }
+
+  const html = new Marked()
+    .use(
+      markedSequentialHooks({
+        markdownHooks: [mockData],
+        htmlHooks: [markedHookLayout({ dir: 'test/fixtures', name: 'foo' })]
+      })
+    )
+    .parse(md)
+
+  expect(html).toMatchSnapshot()
+})
+
+it('should apply layout without interpolation', () => {
+  const mockData: MarkdownHook = (html, data) => {
+    Object.assign(data, {
+      layout: 'foo',
+      matter: { title: 'Marked hook layout' }
+    })
+
+    return html
+  }
+
+  const html = new Marked()
+    .use(
+      markedSequentialHooks({
+        markdownHooks: [mockData],
+        htmlHooks: [
+          markedHookLayout({
+            dir: 'test/fixtures',
+            name: 'foo',
+            interpolation: false
+          })
+        ]
+      })
+    )
+    .parse(md)
+
   expect(html).toMatchSnapshot()
 })
 
@@ -80,7 +130,7 @@ it('should work well with frontmatter hook', () => {
         htmlHooks: [markedHookLayout({ dir: 'test/fixtures' })]
       })
     )
-    .parse(md)
+    .parse('# {matter.title}\n\nBy {matter.author} on {matter.date}')
 
   expect(html).toMatchSnapshot()
 })
@@ -89,29 +139,29 @@ it('should work well with data and frontmatter hook', () => {
   const mockFrontmatterHook: MarkdownHook = (markdown, data) => {
     Object.assign(data, {
       matterDataPrefix: false,
-      layout: 'foo',
+      layout: 'bar',
       title: 'Marked hook layout',
       author: 'John Doe'
     })
 
-    return markdown
+    return pupa(markdown, data, { ignoreMissing: true })
   }
   const mockDataHook: MarkdownHook = (markdown, data) => {
     Object.assign(data, {
-      date: new Date('2023-09-30').toDateString()
+      date: 'Sep 2023'
     })
 
-    return pupa(markdown, data, { ignoreMissing: true })
+    return markdown
   }
 
   const html = new Marked()
     .use(
       markedSequentialHooks({
-        markdownHooks: [mockFrontmatterHook, mockDataHook],
+        markdownHooks: [mockDataHook, mockFrontmatterHook],
         htmlHooks: [markedHookLayout({ dir: 'test/fixtures' })]
       })
     )
-    .parse(md)
+    .parse('# {title}\n\nBy {author} on {date}')
 
   expect(html).toMatchSnapshot()
 })

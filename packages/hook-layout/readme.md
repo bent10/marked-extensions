@@ -99,9 +99,11 @@ The `marked-hook-layout` function accepts the following configuration options:
 
 - `dir` (optional): The directory where layout templates are stored. Defaults to `'layouts'`.
 
-- `name` (optional): The name of the layout to use. Defaults to `'default'`.
+- `name` (optional): The name of the layout to use, it can be specified with or without the `.html` suffix. Defaults to `'default'`.
 
 - `placeholder` (optional): The placeholder to replace in the layout content. You can provide a string or a regular expression. Defaults to `/<Outlet[ \t]*?\/>/`.
+
+- `interpolation` (optional): Specifies whether interpolation should be performed when applying the layout. Defaults to `true`.
 
 ## Related
 

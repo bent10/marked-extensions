@@ -4,6 +4,9 @@ import cacheDir from 'vite-plugin-cachedir'
 
 export default defineConfig({
   plugins: [cacheDir()],
+  ssr: {
+    noExternal: ['pupa', 'escape-goat', 'moo']
+  },
   build: {
     ssr: 'src/index.ts'
   },

@@ -6,11 +6,11 @@ exports[`should apply layout with async option 1`] = `
   <head>
     <meta charset=\\"UTF-8\\" />
     <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1.0\\" />
-    <title>{title}</title>
+    <title>{matter.title}</title>
   </head>
   <body>
-    <h1>{title}</h1>
-<p>This is the main content of your Markdown file autored by <strong>{author}</strong> at <strong>{date}</strong>.</p>
+    <h1>Content</h1>
+<p>This is the main content of your Markdown file autored by <strong>John Doe</strong> at <strong>Sep 2023</strong>.</p>
 
   </body>
 </html>
@@ -23,11 +23,45 @@ exports[`should apply layout with custom options 1`] = `
   <head>
     <meta charset=\\"UTF-8\\" />
     <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1.0\\" />
-    <title>{title}</title>
+    <title>{matter.title}</title>
   </head>
   <body>
-    <h1>{title}</h1>
-<p>This is the main content of your Markdown file autored by <strong>{author}</strong> at <strong>{date}</strong>.</p>
+    <h1>Content</h1>
+<p>This is the main content of your Markdown file autored by <strong>John Doe</strong> at <strong>Sep 2023</strong>.</p>
+
+  </body>
+</html>
+"
+`;
+
+exports[`should apply layout with interpolation 1`] = `
+"<!doctype html>
+<html lang=\\"en\\">
+  <head>
+    <meta charset=\\"UTF-8\\" />
+    <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1.0\\" />
+    <title>Marked hook layout</title>
+  </head>
+  <body>
+    <h1>Content</h1>
+<p>This is the main content of your Markdown file autored by <strong>John Doe</strong> at <strong>Sep 2023</strong>.</p>
+
+  </body>
+</html>
+"
+`;
+
+exports[`should apply layout without interpolation 1`] = `
+"<!doctype html>
+<html lang=\\"en\\">
+  <head>
+    <meta charset=\\"UTF-8\\" />
+    <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1.0\\" />
+    <title>{matter.title}</title>
+  </head>
+  <body>
+    <h1>Content</h1>
+<p>This is the main content of your Markdown file autored by <strong>John Doe</strong> at <strong>Sep 2023</strong>.</p>
 
   </body>
 </html>
@@ -44,7 +78,7 @@ exports[`should work well with data and frontmatter hook 1`] = `
   </head>
   <body>
     <h1>Marked hook layout</h1>
-<p>This is the main content of your Markdown file autored by <strong>John Doe</strong> at <strong>Sat Sep 30 2023</strong>.</p>
+<p>By John Doe on Sep 2023</p>
 
   </body>
 </html>
@@ -57,11 +91,11 @@ exports[`should work well with frontmatter hook 1`] = `
   <head>
     <meta charset=\\"UTF-8\\" />
     <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1.0\\" />
-    <title>{title}</title>
+    <title>Marked hook layout</title>
   </head>
   <body>
-    <h1>{title}</h1>
-<p>This is the main content of your Markdown file autored by <strong>{author}</strong> at <strong>{date}</strong>.</p>
+    <h1>{matter.title}</h1>
+<p>By {matter.author} on {matter.date}</p>
 
   </body>
 </html>
