@@ -1,3 +1,16 @@
+# marked-hook-layout [1.1.0](https://github.com/bent10/marked-extensions/compare/marked-hook-layout@1.0.5...marked-hook-layout@1.1.0) (2023-10-02)
+
+
+### Bug Fixes
+
+* mocking frontmatter and data hooks ([527c438](https://github.com/bent10/marked-extensions/commit/527c438d50ded5df0f0371dbd9d1bc7fdd353ed9))
+* **types:** exports `Options` ([4def8be](https://github.com/bent10/marked-extensions/commit/4def8be65c425780eebbe7d91e1247077565be2b))
+
+
+### Features
+
+* add `interpolation` option ([ef238a4](https://github.com/bent10/marked-extensions/commit/ef238a4b91d02e887f205d34ab01b40da9452713))
+
 ## marked-hook-layout [1.0.5](https://github.com/bent10/marked-extensions/compare/marked-hook-layout@1.0.4...marked-hook-layout@1.0.5) (2023-10-01)
 
 
