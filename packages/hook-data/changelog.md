@@ -1,3 +1,10 @@
+## marked-hook-data [1.0.6](https://github.com/bent10/marked-extensions/compare/marked-hook-data@1.0.5...marked-hook-data@1.0.6) (2023-10-02)
+
+
+### Bug Fixes
+
+* **deps:** mocking frontmatter hook ([5552ae8](https://github.com/bent10/marked-extensions/commit/5552ae8495d30993504d58c4300ec3e3c4a2669d))
+
 ## marked-hook-data [1.0.5](https://github.com/bent10/marked-extensions/compare/marked-hook-data@1.0.4...marked-hook-data@1.0.5) (2023-10-01)
 
 
