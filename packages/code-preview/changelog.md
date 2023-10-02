@@ -1,3 +1,16 @@
+# marked-code-preview [1.2.0](https://github.com/bent10/marked-extensions/compare/marked-code-preview@1.1.0...marked-code-preview@1.2.0) (2023-10-02)
+
+
+### Bug Fixes
+
+* **build:** bundling moo ([44c6294](https://github.com/bent10/marked-extensions/commit/44c6294536cdb83660686a670b15221ceb249676))
+
+
+### Features
+
+* add `transformer` option ([0a9dd61](https://github.com/bent10/marked-extensions/commit/0a9dd61e187744ae18742469979d8a866e85dd14))
+* removes data related options ([3095e16](https://github.com/bent10/marked-extensions/commit/3095e16834ed5a44de2d8c5a9c0480446402efdc))
+
 # marked-code-preview [1.1.0](https://github.com/bent10/marked-extensions/compare/marked-code-preview@1.0.1...marked-code-preview@1.1.0) (2023-10-01)
 
 
