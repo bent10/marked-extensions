@@ -172,7 +172,7 @@ Now, you can open the `example.html` file in your browser to view the results.
 
 `marked-hook-data` allows you to load data from files and attach it to the hooks context.
 
-#### Loading Data from Files by File Patterns
+### Loading Data from Files by File Patterns
 
 To load data from files based on file patterns, provide a string argument with the file patterns:
 
@@ -183,7 +183,7 @@ marked.use({ async: true }).use(markedHookData('data/*.json'))
 
 This example will load all JSON files in the `data` directory and attach their content to the hooks context.
 
-#### Loading Data from Specific Files
+### Loading Data from Specific Files
 
 To load data from specific files, provide the file paths directly in an array:
 
@@ -192,6 +192,14 @@ marked.use(markedHookData(['data/file1.json', 'data/file2.yaml']))
 ```
 
 This example will load data from `file1.json` and `file2.yaml` and attach it to the hooks context.
+
+### Supported File Types
+
+`marked-hook-data` supports loading the following file types:
+
+- `.yaml` and `.yml`
+- `.json`
+- `.js`, `.mjs`, and `.cjs` – ESM files are only supported when the `async` option is set to `true`.
 
 ## Loading Data from Objects
 
@@ -213,6 +221,7 @@ This object will be attached to the hooks context.
 - [marked-sequential-hooks](https://github.com/bent10/marked-extensions/tree/main/packages/sequential-hooks)
 - [marked-hook-frontmatter](https://github.com/bent10/marked-extensions/tree/main/packages/hook-frontmatter)
 - [marked-hook-layout](https://github.com/bent10/marked-extensions/tree/main/packages/hook-layout)
+- [loadee](https://github.com/bent10/loadee)
 
 ## Contributing
 
