@@ -3,9 +3,10 @@
 import fs, { promises as fsp } from 'node:fs'
 import { default as path } from 'node:path'
 import { Marked } from 'marked'
-import markedSequentialHooks from 'marked-sequential-hooks'
-import markedHookData from 'marked-hook-data'
-import markedHookFrontmatter from 'marked-hook-frontmatter'
+import markedSequentialHooks, {
+  type MarkdownHook
+} from 'marked-sequential-hooks'
+import pupa from 'pupa'
 import markedHookLayout from '../src/index.js'
 
 const md = fs.readFileSync('./test/fixtures/example.md', 'utf8')
@@ -63,10 +64,19 @@ it('should apply layout with async option', async () => {
 })
 
 it('should work well with frontmatter hook', () => {
+  const mockFrontmatterHook: MarkdownHook = (html, data) => {
+    Object.assign(data, {
+      matterDataPrefix: 'matter',
+      matter: { layout: 'foo', title: 'Marked hook layout', author: 'John Doe' }
+    })
+
+    return html
+  }
+
   const html = new Marked()
     .use(
       markedSequentialHooks({
-        markdownHooks: [markedHookFrontmatter({ dataPrefix: true })],
+        markdownHooks: [mockFrontmatterHook],
         htmlHooks: [markedHookLayout({ dir: 'test/fixtures' })]
       })
     )
@@ -76,13 +86,28 @@ it('should work well with frontmatter hook', () => {
 })
 
 it('should work well with data and frontmatter hook', () => {
+  const mockFrontmatterHook: MarkdownHook = (markdown, data) => {
+    Object.assign(data, {
+      matterDataPrefix: false,
+      layout: 'foo',
+      title: 'Marked hook layout',
+      author: 'John Doe'
+    })
+
+    return markdown
+  }
+  const mockDataHook: MarkdownHook = (markdown, data) => {
+    Object.assign(data, {
+      date: new Date('2023-09-30').toDateString()
+    })
+
+    return pupa(markdown, data, { ignoreMissing: true })
+  }
+
   const html = new Marked()
     .use(
       markedSequentialHooks({
-        markdownHooks: [
-          markedHookData({ date: new Date('2023-09-30').toDateString() }),
-          markedHookFrontmatter()
-        ],
+        markdownHooks: [mockFrontmatterHook, mockDataHook],
         htmlHooks: [markedHookLayout({ dir: 'test/fixtures' })]
       })
     )

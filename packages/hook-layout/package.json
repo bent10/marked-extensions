@@ -47,8 +47,6 @@
     "pupa": "^3.1.0"
   },
   "devDependencies": {
-    "marked-hook-data": "^1.0.0",
-    "marked-hook-frontmatter": "^1.1.0",
     "marked-sequential-hooks": "^1.1.0"
   },
   "peerDependencies": {
