@@ -1,3 +1,10 @@
+## marked-hook-frontmatter [1.3.3](https://github.com/bent10/marked-extensions/compare/marked-hook-frontmatter@1.3.2...marked-hook-frontmatter@1.3.3) (2023-10-02)
+
+
+### Bug Fixes
+
+* **build:** bundling moo ([44c6294](https://github.com/bent10/marked-extensions/commit/44c6294536cdb83660686a670b15221ceb249676))
+
 ## marked-hook-frontmatter [1.3.2](https://github.com/bent10/marked-extensions/compare/marked-hook-frontmatter@1.3.1...marked-hook-frontmatter@1.3.2) (2023-10-01)
 
 
