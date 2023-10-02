@@ -1,7 +1,7 @@
 import { parseAttrs } from 'attributes-parser'
 import type { MarkedExtension } from 'marked'
 import { transform } from './transformer.js'
-import type { Options, TransformOptions } from './types.js'
+import type { Options, Transformer } from './types.js'
 
 /**
  * A [marked](https://marked.js.org/) extension to transform code blocks within Markdown documents
@@ -16,20 +16,20 @@ export default function markedCodePreview(
         name: 'fences',
         level: 'block',
         tokenizer(_, parent) {
-          const hooksData: TransformOptions['data'] = {}
-          const { template } = options
+          const data: { [key: string]: string } = {}
 
           if (
             this.lexer.options.hooks &&
             this.lexer.options.hooks !== null &&
             'data' in this.lexer.options.hooks
           ) {
-            Object.assign(hooksData, this.lexer.options.hooks.data)
+            Object.assign(data, this.lexer.options.hooks.data)
           }
 
           parent.forEach((token, index) => {
             if (token.type !== 'code' || !token.lang) return
 
+            const lang = token.lang?.split(' ')
             const { preview, ...meta } = parseAttrs(token.lang)
 
             if (!preview) return
@@ -37,8 +37,9 @@ export default function markedCodePreview(
             transform(token, {
               index,
               parent,
-              template,
-              data: { ...hooksData, ...meta }
+              data,
+              attrs: { lang, ...meta },
+              ...options
             })
           })
 
@@ -49,4 +50,4 @@ export default function markedCodePreview(
   }
 }
 
-export type { Options }
+export type { Options, Transformer }

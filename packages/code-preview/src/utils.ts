@@ -47,15 +47,16 @@ export function normalizeCodeText(text: string) {
 /**
  * Create an HTML token.
  *
- * @param value - The rendered HTML value.
+ * @param raw - The code before transformed.
+ * @param text - The transformed code.
  * @returns An HTML token.
  */
-export function createHtmlToken(value: string): Tokens.HTML {
+export function createHtmlToken(raw: string, text: string): Tokens.HTML {
   return {
     type: 'html',
     block: true,
-    raw: value,
     pre: false,
-    text: value
+    raw,
+    text
   }
 }

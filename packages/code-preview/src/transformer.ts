@@ -15,7 +15,14 @@ import type { TransformOptions } from './types.js'
  * @param options - Configuration options for the transformation.
  */
 export function transform(token: Tokens.Generic, options: TransformOptions) {
-  const { data, index, parent, template = DEFAULT_TEMPLATE } = options
+  const {
+    data,
+    attrs,
+    index,
+    parent,
+    template = DEFAULT_TEMPLATE,
+    transformer = code => code
+  } = options
 
   // tokenize template
   const templateList = createTemplateList(template)
@@ -28,6 +35,7 @@ export function transform(token: Tokens.Generic, options: TransformOptions) {
   // data for interpolation
   const dataInterpolation = {
     ...data,
+    ...attrs,
     preview: token.text
   }
 
@@ -38,10 +46,16 @@ export function transform(token: Tokens.Generic, options: TransformOptions) {
     if (type === 'placeholder') {
       acc.push(token)
     } else if (type === 'text') {
-      const renderedValue = pupa(normalizeCodeText(text), dataInterpolation, {
-        ignoreMissing: true
-      })
-      acc.push(createHtmlToken(renderedValue))
+      const interpolatedText = pupa(
+        normalizeCodeText(text),
+        dataInterpolation,
+        {
+          ignoreMissing: true
+        }
+      )
+      const transformedText = transformer(interpolatedText, attrs, data)
+
+      acc.push(createHtmlToken(interpolatedText, transformedText))
     }
   }
 

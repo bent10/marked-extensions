@@ -39,3 +39,20 @@ exports[`should use a custom template when provided in options 1`] = `
 </figure>
 "
 `;
+
+exports[`should use a custom transformer when provided in options 1`] = `
+"<h1>Example</h1>
+
+<figure class='preview'>
+  <figcaption>Code title</figcaption>
+  <div class='preview-showcase'>
+    <div class='bar'>Hello, World!</div>
+  </div>
+  <div class='preview-code'>
+    <pre><code class=\\"language-html\\">&lt;div class=&#39;foo&#39;&gt;Hello, World!&lt;/div&gt;
+</code></pre>
+
+  </div>
+</figure>
+"
+`;

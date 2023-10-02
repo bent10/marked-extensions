@@ -1,7 +1,7 @@
 /// <reference types="vitest/globals" />
 
 import { Marked } from 'marked'
-import markedCodePreview from '../src/index.js'
+import markedCodePreview, { Transformer } from '../src/index.js'
 
 const md = `# Example
 
@@ -32,6 +32,19 @@ it('should use a custom template when provided in options', () => {
   const html = new Marked()
     .use({ gfm: true })
     .use(markedCodePreview({ template }))
+    .parse(md)
+
+  expect(html).toMatchSnapshot()
+})
+
+it('should use a custom transformer when provided in options', () => {
+  const transformer: Transformer = code => {
+    return code.replace(/foo/, 'bar')
+  }
+
+  const html = new Marked()
+    .use({ gfm: true })
+    .use(markedCodePreview({ transformer }))
     .parse(md)
 
   expect(html).toMatchSnapshot()

@@ -170,6 +170,16 @@ Yields:
 </figure>
 ```
 
+### `transformer?: Transformer`
+
+The transformer function for modifying code before replacing the `preview` placeholder.
+
+Default transformer:
+
+```js
+;(code, attrs, data) => code
+```
+
 ## Related
 
 - [marked-code-format](https://github.com/bent10/marked-extensions/tree/main/packages/code-format)
