@@ -107,13 +107,13 @@ it('should handle array input types and attach them as "unknown" key', () => {
 })
 
 it('should use datasource from matter data if provided', () => {
-  const mockFrontmatterHook: MarkdownHook = (html, data) => {
+  const mockFrontmatterHook: MarkdownHook = (markdown, data) => {
     Object.assign(data, {
       matterDataPrefix: false,
       datasource: './test/fixtures/posts.json'
     })
 
-    return html
+    return markdown
   }
 
   new Marked()
@@ -135,13 +135,13 @@ it('should use datasource from matter data if provided', () => {
 })
 
 it('should use datasource from matter data with prefix if provided', () => {
-  const mockFrontmatterHook: MarkdownHook = (html, data) => {
+  const mockFrontmatterHook: MarkdownHook = (markdown, data) => {
     Object.assign(data, {
       matterDataPrefix: 'matter',
       matter: { datasource: './test/fixtures/posts.json' }
     })
 
-    return html
+    return markdown
   }
 
   new Marked()
