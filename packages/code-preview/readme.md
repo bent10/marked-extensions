@@ -170,24 +170,6 @@ Yields:
 </figure>
 ```
 
-### `data?: { [key: string]: unknown }`
-
-Data to interpolate into the template. You can provide additional data to be used in the template.
-
-### `ignoreMissing?: boolean`
-
-By default, the extension throws a `MissingValueError` when a placeholder resolves to `undefined`. Setting this option to `true` ignores it and leaves the placeholder as is.
-
-### `transform?: (data: { value: unknown; key: string }) => unknown`
-
-Performs an arbitrary operation for each interpolation. You can define a custom transformation function for the interpolated values.
-
-Default transformation:
-
-```js
-;({ value }) => value
-```
-
 ## Related
 
 - [marked-code-format](https://github.com/bent10/marked-extensions/tree/main/packages/code-format)

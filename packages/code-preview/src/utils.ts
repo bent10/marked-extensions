@@ -17,6 +17,34 @@ export function createTemplateList(template: string) {
 }
 
 /**
+ * Normalize code text by removing unnecessary whitespace and
+ * formatting.
+ *
+ * @param text - The input code text.
+ * @returns The normalized code text.
+ */
+export function normalizeCodeText(text: string) {
+  const lexer = moo
+    .compile({
+      placeholder: {
+        match: /{[ \t]*?(?:[a-zA-Z_][\w\d\.]*?|[\d][\w\d\.]+)[ \t]*?}/,
+        value(x) {
+          return x.replace(/[ \t]+/g, '')
+        }
+      },
+      chunk: moo.fallback
+    })
+    .reset(text)
+  let normalizedText = ''
+
+  for (const token of lexer) {
+    normalizedText += token.value
+  }
+
+  return normalizedText
+}
+
+/**
  * Create an HTML token.
  *
  * @param value - The rendered HTML value.
