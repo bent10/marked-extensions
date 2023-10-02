@@ -26,7 +26,7 @@ export default defineConfig(({ command, ssrBuild }) => {
   return {
     plugins: [cacheDir()],
     ssr: {
-      noExternal: ['pupa', 'escape-goat']
+      noExternal: ['pupa', 'escape-goat', 'moo']
     },
     build,
     test: {
