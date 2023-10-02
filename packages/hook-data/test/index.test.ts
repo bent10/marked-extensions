@@ -1,8 +1,9 @@
 /// <reference types="vitest/globals" />
 
 import { Marked } from 'marked'
-import markedSequentialHooks from 'marked-sequential-hooks'
-import markedHookFrontmatter from 'marked-hook-frontmatter'
+import markedSequentialHooks, {
+  type MarkdownHook
+} from 'marked-sequential-hooks'
 import markedHookData from '../src/index.js'
 import posts from './fixtures/posts.json'
 
@@ -106,10 +107,19 @@ it('should handle array input types and attach them as "unknown" key', () => {
 })
 
 it('should use datasource from matter data if provided', () => {
+  const mockFrontmatterHook: MarkdownHook = (html, data) => {
+    Object.assign(data, {
+      matterDataPrefix: false,
+      datasource: './test/fixtures/posts.json'
+    })
+
+    return html
+  }
+
   new Marked()
     .use(
       markedSequentialHooks({
-        markdownHooks: [markedHookFrontmatter(), markedHookData()],
+        markdownHooks: [mockFrontmatterHook, markedHookData()],
         htmlHooks: [
           (html, data) => {
             ;(<Post[]>data.posts).forEach((post, i) => {
@@ -125,13 +135,19 @@ it('should use datasource from matter data if provided', () => {
 })
 
 it('should use datasource from matter data with prefix if provided', () => {
+  const mockFrontmatterHook: MarkdownHook = (html, data) => {
+    Object.assign(data, {
+      matterDataPrefix: 'matter',
+      matter: { datasource: './test/fixtures/posts.json' }
+    })
+
+    return html
+  }
+
   new Marked()
     .use(
       markedSequentialHooks({
-        markdownHooks: [
-          markedHookFrontmatter({ dataPrefix: true }),
-          markedHookData()
-        ],
+        markdownHooks: [mockFrontmatterHook, markedHookData()],
         htmlHooks: [
           (html, data) => {
             ;(<Post[]>data.posts).forEach((post, i) => {

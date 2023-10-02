@@ -56,7 +56,6 @@
     "loadee": "^2.2.0"
   },
   "devDependencies": {
-    "marked-hook-frontmatter": "^1.1.0",
     "marked-sequential-hooks": "^1.1.0"
   },
   "peerDependencies": {
