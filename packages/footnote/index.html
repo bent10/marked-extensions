@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marked Footnote</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown-light.min.css"
+      integrity="sha512-bm684OXnsiNuQSyrxuuwo4PHqr3OzxPpXyhT66DA/fhl73e1JmBxRKGnO/nRwWvOZxJLRCmNH7FII+Yn1JNPmg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      #content {
+        margin: 0 auto;
+        padding: 1rem;
+        max-width: 928px;
+      }
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        word-wrap: normal;
+        border: 0;
+      }
+    </style>
+  </head>
+
+  <body class="markdown-body">
+    <div id="content"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="./dist/index.umd.cjs"></script>
+    <script>
+      const md = `# Example
+
+[^1]: This is a footnote content.
+
+Here is a simple footnote[^1]. With some additional text after it[^@#$%] and without disrupting the blocks[^bignote].
+
+[^bignote]: The first paragraph of the definition.
+
+    Paragraph two of the definition.
+
+    > A blockquote with
+    > multiple lines.
+
+    \`\`\`
+    a code block
+    \`\`\`
+
+    | Header 1 | Header 2 |
+    | -------- | -------- |
+    | Cell 1   | Cell 2   |
+
+    A \`final\` paragraph before list.
+
+    - Item 1
+    - Item 2
+      - Subitem 1
+      - Subitem 2
+
+[^@#$%]: A footnote on the label: "@#$%".
+`
+
+      document.getElementById("content").innerHTML = new marked.Marked()
+        .use(markedFootnote())
+        .parse(md)
+    </script>
+  </body>
+</html>
