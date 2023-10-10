@@ -16,12 +16,13 @@ Follows the steps below to get up and running:
 
 ## Packages
 
-| Package                                                | Description                                                   | Version (click for changelog)                                                                            |
-| :----------------------------------------------------- | :------------------------------------------------------------ | :------------------------------------------------------------------------------------------------------- |
-| [marked-code-format](packages/code-format)             | Formatting code blocks using Prettier                         | [![npm](https://img.shields.io/npm/v/marked-code-format)](packages/code-format/changelog.md)             |
-| [marked-code-jsx-renderer](packages/code-jsx-renderer) | Render JSX code blocks using a custom renderer and components | [![npm](https://img.shields.io/npm/v/marked-code-jsx-renderer)](packages/code-jsx-renderer/changelog.md) |
-| [marked-code-preview](packages/code-preview)           | Transform code blocks into code previews                      | [![npm](https://img.shields.io/npm/v/marked-code-preview)](packages/code-preview/changelog.md)           |
-| [marked-sequential-hooks](packages/sequential-hooks)   | Enables the sequential preprocessing and post-processing      | [![npm](https://img.shields.io/npm/v/marked-sequential-hooks)](packages/sequential-hooks/changelog.md)   |
+| Package                                                | Description                                                                                                                                                                            | Version (click for changelog)                                                                            |
+| :----------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------- |
+| [marked-code-format](packages/code-format)             | Formatting code blocks using Prettier                                                                                                                                                  | [![npm](https://img.shields.io/npm/v/marked-code-format)](packages/code-format/changelog.md)             |
+| [marked-code-jsx-renderer](packages/code-jsx-renderer) | Render JSX code blocks using a custom renderer and components                                                                                                                          | [![npm](https://img.shields.io/npm/v/marked-code-jsx-renderer)](packages/code-jsx-renderer/changelog.md) |
+| [marked-code-preview](packages/code-preview)           | Transform code blocks into code previews                                                                                                                                               | [![npm](https://img.shields.io/npm/v/marked-code-preview)](packages/code-preview/changelog.md)           |
+| [marked-footnote](packages/footnote)                   | Enables [GFM footnotes](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#footnotes). | [![npm](https://img.shields.io/npm/v/marked-footnote)](packages/footnote/changelog.md)                   |
+| [marked-sequential-hooks](packages/sequential-hooks)   | Enables the sequential preprocessing and post-processing                                                                                                                               | [![npm](https://img.shields.io/npm/v/marked-sequential-hooks)](packages/sequential-hooks/changelog.md)   |
 
 ### Sequential hooks
 
