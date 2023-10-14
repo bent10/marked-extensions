@@ -1,4 +1,4 @@
-import { parseAttrs } from 'attributes-parser'
+import parseAttrs from 'attributes-parser'
 import type { MarkedExtension } from 'marked'
 import * as prettier from 'prettier'
 import { ATTR_PATTERN, EXTENDED_LANG_MAP, LANG_MAP } from './constants.js'

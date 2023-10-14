@@ -1,4 +1,4 @@
-import { parseAttrs } from 'attributes-parser'
+import parseAttrs from 'attributes-parser'
 import type { MarkedExtension } from 'marked'
 import { transform } from './transformer.js'
 import type { Options, Transformer } from './types.js'
