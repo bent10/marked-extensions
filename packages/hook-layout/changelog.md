@@ -1,3 +1,10 @@
+## marked-hook-layout [1.1.1](https://github.com/bent10/marked-extensions/compare/marked-hook-layout@1.1.0...marked-hook-layout@1.1.1) (2023-10-18)
+
+
+### Bug Fixes
+
+* **perf:** prevent normalization template when `interpolation: false` ([04a3ba6](https://github.com/bent10/marked-extensions/commit/04a3ba6a3b5410a445b583b0939a6a263c3f2b4e))
+
 # marked-hook-layout [1.1.0](https://github.com/bent10/marked-extensions/compare/marked-hook-layout@1.0.5...marked-hook-layout@1.1.0) (2023-10-02)
 
 
