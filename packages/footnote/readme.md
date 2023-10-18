@@ -146,7 +146,7 @@ Now, opening the `example.html` file in your browser will result in:
     >.
   </p>
   <section class="footnotes" data-footnotes="">
-    <h2 id="footnote-label" class="sr-only" dir="auto">Footnotes</h2>
+    <h2 id="footnote-label" class="sr-only">Footnotes</h2>
     <ol>
       <li id="footnote-1">
         <p>
@@ -306,7 +306,7 @@ Now, running node `example.js` yields:
   >.
 </p>
 <section class="footnotes" data-footnotes>
-  <h2 id="footnote-label" class="sr-only" dir="auto">Footnotes</h2>
+  <h2 id="footnote-label" class="sr-only">Footnotes</h2>
   <ol>
     <li id="footnote-1">
       <p>
@@ -413,7 +413,7 @@ If you find it necessary to utilize footnotes, here are some best practices to f
 
 ## Related
 
-See [extensions list](https://github.com/bent10/marked-extensions/edit/main/readme.md#packages).
+See [extensions list](https://github.com/bent10/marked-extensions#packages).
 
 ## Contributing
 

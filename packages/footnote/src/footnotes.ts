@@ -19,7 +19,7 @@ export function createFootnotes(prefixId: string) {
       }, '')
 
       let footnotesHTML = '<section class="footnotes" data-footnotes>\n'
-      footnotesHTML += `<h2 id="${prefixId}label" class="sr-only" dir="auto">${raw.trimEnd()}</h2>\n`
+      footnotesHTML += `<h2 id="${prefixId}label" class="sr-only">${raw.trimEnd()}</h2>\n`
       footnotesHTML += `<ol>\n${footnotesItemsHTML}\n</ol>\n`
       footnotesHTML += '</section>\n'
 

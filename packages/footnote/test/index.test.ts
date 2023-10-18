@@ -33,7 +33,7 @@ This is a sentence with custom options footnote[^1].
   expect(html).toMatchInlineSnapshot(`
     "<p>This is a sentence with custom options footnote<sup><a id=\\"fn-ref-1\\" href=\\"#fn-1\\" data-fn-ref aria-describedby=\\"fn-label\\">[1]</a></sup>.</p>
     <section class=\\"footnotes\\" data-footnotes>
-    <h2 id=\\"fn-label\\" class=\\"sr-only\\" dir=\\"auto\\">My footnotes</h2>
+    <h2 id=\\"fn-label\\" class=\\"sr-only\\">My footnotes</h2>
     <ol>
     <li id=\\"fn-1\\">
     <p>Content of the footnote.
@@ -57,7 +57,7 @@ This is a sentence with an empty footnote[^1].
   expect(html).toMatchInlineSnapshot(`
     "<p>This is a sentence with an empty footnote<sup><a id=\\"footnote-ref-1\\" href=\\"#footnote-1\\" data-footnote-ref aria-describedby=\\"footnote-label\\">1</a></sup>.</p>
     <section class=\\"footnotes\\" data-footnotes>
-    <h2 id=\\"footnote-label\\" class=\\"sr-only\\" dir=\\"auto\\">Footnotes</h2>
+    <h2 id=\\"footnote-label\\" class=\\"sr-only\\">Footnotes</h2>
     <ol>
     <li id=\\"footnote-1\\">
     <p><a href=\\"#footnote-ref-1\\" data-footnote-backref aria-label=\\"Back to reference 1\\">↩</a></p>
@@ -80,7 +80,7 @@ This is a sentence with multiple references to the same footnote[^1][^1].
   expect(html).toMatchInlineSnapshot(`
     "<p>This is a sentence with multiple references to the same footnote<sup><a id=\\"footnote-ref-1\\" href=\\"#footnote-1\\" data-footnote-ref aria-describedby=\\"footnote-label\\">1</a></sup><sup><a id=\\"footnote-ref-1\\" href=\\"#footnote-1\\" data-footnote-ref aria-describedby=\\"footnote-label\\">1</a></sup>.</p>
     <section class=\\"footnotes\\" data-footnotes>
-    <h2 id=\\"footnote-label\\" class=\\"sr-only\\" dir=\\"auto\\">Footnotes</h2>
+    <h2 id=\\"footnote-label\\" class=\\"sr-only\\">Footnotes</h2>
     <ol>
     <li id=\\"footnote-1\\">
     <p>Content of the common footnote.
@@ -107,7 +107,7 @@ This is a sentence with a multiline footnote[^1].
   expect(html).toMatchInlineSnapshot(`
     "<p>This is a sentence with a multiline footnote<sup><a id=\\"footnote-ref-1\\" href=\\"#footnote-1\\" data-footnote-ref aria-describedby=\\"footnote-label\\">1</a></sup>.</p>
     <section class=\\"footnotes\\" data-footnotes>
-    <h2 id=\\"footnote-label\\" class=\\"sr-only\\" dir=\\"auto\\">Footnotes</h2>
+    <h2 id=\\"footnote-label\\" class=\\"sr-only\\">Footnotes</h2>
     <ol>
     <li id=\\"footnote-1\\">
     <p>This is the first line of the footnote,
@@ -135,7 +135,7 @@ This is a sentence with a multiline footnote containing a list[^1].
   expect(html).toMatchInlineSnapshot(`
     "<p>This is a sentence with a multiline footnote containing a list<sup><a id=\\"footnote-ref-1\\" href=\\"#footnote-1\\" data-footnote-ref aria-describedby=\\"footnote-label\\">1</a></sup>.</p>
     <section class=\\"footnotes\\" data-footnotes>
-    <h2 id=\\"footnote-label\\" class=\\"sr-only\\" dir=\\"auto\\">Footnotes</h2>
+    <h2 id=\\"footnote-label\\" class=\\"sr-only\\">Footnotes</h2>
     <ol>
     <li id=\\"footnote-1\\">
     <ul>
@@ -167,7 +167,7 @@ This is a sentence with a multiline footnote containing a blockquote[^1].
   expect(html).toMatchInlineSnapshot(`
     "<p>This is a sentence with a multiline footnote containing a blockquote<sup><a id=\\"footnote-ref-1\\" href=\\"#footnote-1\\" data-footnote-ref aria-describedby=\\"footnote-label\\">1</a></sup>.</p>
     <section class=\\"footnotes\\" data-footnotes>
-    <h2 id=\\"footnote-label\\" class=\\"sr-only\\" dir=\\"auto\\">Footnotes</h2>
+    <h2 id=\\"footnote-label\\" class=\\"sr-only\\">Footnotes</h2>
     <ol>
     <li id=\\"footnote-1\\">
     <blockquote>
@@ -197,7 +197,7 @@ This is a sentence with a multiline footnote containing a code fence[^1].
   expect(html).toMatchInlineSnapshot(`
     "<p>This is a sentence with a multiline footnote containing a code fence<sup><a id=\\"footnote-ref-1\\" href=\\"#footnote-1\\" data-footnote-ref aria-describedby=\\"footnote-label\\">1</a></sup>.</p>
     <section class=\\"footnotes\\" data-footnotes>
-    <h2 id=\\"footnote-label\\" class=\\"sr-only\\" dir=\\"auto\\">Footnotes</h2>
+    <h2 id=\\"footnote-label\\" class=\\"sr-only\\">Footnotes</h2>
     <ol>
     <li id=\\"footnote-1\\">
     <pre><code class=\\"language-javascript\\">// This is a code fence in the footnote
@@ -225,7 +225,7 @@ This is a sentence with a multiline footnote containing a table[^1].
   expect(html).toMatchInlineSnapshot(`
     "<p>This is a sentence with a multiline footnote containing a table<sup><a id=\\"footnote-ref-1\\" href=\\"#footnote-1\\" data-footnote-ref aria-describedby=\\"footnote-label\\">1</a></sup>.</p>
     <section class=\\"footnotes\\" data-footnotes>
-    <h2 id=\\"footnote-label\\" class=\\"sr-only\\" dir=\\"auto\\">Footnotes</h2>
+    <h2 id=\\"footnote-label\\" class=\\"sr-only\\">Footnotes</h2>
     <ol>
     <li id=\\"footnote-1\\">
     <table>
@@ -262,7 +262,7 @@ This is a sentence with an invalid multiline footnote[^1].
     "<p>This is a sentence with an invalid multiline footnote<sup><a id=\\"footnote-ref-1\\" href=\\"#footnote-1\\" data-footnote-ref aria-describedby=\\"footnote-label\\">1</a></sup>.</p>
     <p>   I begin with 3-spaces only.</p>
     <section class=\\"footnotes\\" data-footnotes>
-    <h2 id=\\"footnote-label\\" class=\\"sr-only\\" dir=\\"auto\\">Footnotes</h2>
+    <h2 id=\\"footnote-label\\" class=\\"sr-only\\">Footnotes</h2>
     <ol>
     <li id=\\"footnote-1\\">
     <p>This is a single-line footnote.
@@ -299,7 +299,7 @@ This is the end of the file[^2].
     <p>This is more content in the middle of the file.</p>
     <p>This is the end of the file<sup><a id=\\"footnote-ref-2\\" href=\\"#footnote-2\\" data-footnote-ref aria-describedby=\\"footnote-label\\">2</a></sup>.</p>
     <section class=\\"footnotes\\" data-footnotes>
-    <h2 id=\\"footnote-label\\" class=\\"sr-only\\" dir=\\"auto\\">Footnotes</h2>
+    <h2 id=\\"footnote-label\\" class=\\"sr-only\\">Footnotes</h2>
     <ol>
     <li id=\\"footnote-1\\">
     <p>This is a multiline footnote at the end of the file.
@@ -324,7 +324,7 @@ it('should handle complex content within footnotes', () => {
     "<h1>Example</h1>
     <p>Here is a simple footnote<sup><a id=\\"footnote-ref-1\\" href=\\"#footnote-1\\" data-footnote-ref aria-describedby=\\"footnote-label\\">1</a></sup>. With some additional text after it<sup><a id=\\"footnote-ref-%40%23%24%25\\" href=\\"#footnote-%40%23%24%25\\" data-footnote-ref aria-describedby=\\"footnote-label\\">@#$%</a></sup> and without disrupting the blocks<sup><a id=\\"footnote-ref-bignote\\" href=\\"#footnote-bignote\\" data-footnote-ref aria-describedby=\\"footnote-label\\">bignote</a></sup>.</p>
     <section class=\\"footnotes\\" data-footnotes>
-    <h2 id=\\"footnote-label\\" class=\\"sr-only\\" dir=\\"auto\\">Footnotes</h2>
+    <h2 id=\\"footnote-label\\" class=\\"sr-only\\">Footnotes</h2>
     <ol>
     <li id=\\"footnote-1\\">
     <p>This is a footnote content.
