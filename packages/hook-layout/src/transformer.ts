@@ -66,30 +66,22 @@ function transformSync(source: string, options: TransformerOptions) {
  * @returns The template with the layout applied.
  */
 function applyLayout(template: string, options: TransformerOptions) {
-  lexer.reset(template)
   const { content, data, placeholder, interpolation } = options
-  let normalizedTemplate = ''
 
-  for (const token of lexer) {
-    normalizedTemplate += token.value
+  if (!interpolation) {
+    return template.replace(placeholder, content)
   }
 
-  const interpolatedTemplate = interpolation
-    ? interpolate(normalizedTemplate, data)
-    : template
+  lexer.reset(template)
+  let normalizedTemplate = ''
 
-  return interpolatedTemplate.replace(placeholder, content)
-}
+  for (const { value } of lexer) {
+    normalizedTemplate += value
+  }
 
-/**
- * Interpolates data into a template using Pupa.
- *
- * @param template - The template to interpolate data into.
- * @param data - The data to interpolate.
- * @returns The template with data interpolated.
- */
-function interpolate(template: string, data: TransformerOptions['data']) {
-  return pupa(template, data, {
+  const interpolatedTemplate = pupa(normalizedTemplate, data, {
     ignoreMissing: true
   })
+
+  return interpolatedTemplate.replace(placeholder, content)
 }
