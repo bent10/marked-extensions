@@ -7,18 +7,17 @@ export default defineConfig({
   build: {
     lib: {
       entry: 'src/index.ts',
-      name: 'markedHookData',
-      formats: ['es', 'cjs', 'umd'],
+      formats: ['es', 'cjs'],
       fileName: 'index'
     },
     rollupOptions: {
       external: ['marked', 'fast-glob', 'loadee', 'node:path'],
       output: {
         globals: {
+          'node:path': 'path',
           marked: 'marked',
           loadee: 'loadee',
-          'fast-glob': 'fg',
-          'node:path': 'path'
+          'fast-glob': 'fg'
         }
       }
     }
