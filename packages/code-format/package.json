@@ -47,9 +47,10 @@
     "format": "prettier . --write --cache-location ../../node_modules/.prettier --ignore-path ../../.prettierignore"
   },
   "dependencies": {
-    "attributes-parser": "^2.0.0"
+    "attributes-parser": "^2.1.1"
   },
   "peerDependencies": {
-    "marked": ">=7.0.0"
+    "marked": ">=7.0.0",
+    "prettier": ">=3.0.0"
   }
 }
