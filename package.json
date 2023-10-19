@@ -32,6 +32,7 @@
     "@types/react-dom": "^18.2.13",
     "doogu": "^3.2.7",
     "marked": "^9.1.2",
+    "marked-sequential-hooks": "^0.0.0-development",
     "moo": "^0.5.2",
     "prettier-plugin-svelte": "^3.0.3",
     "pupa": "^3.1.0",
