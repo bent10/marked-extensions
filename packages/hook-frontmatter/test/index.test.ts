@@ -25,7 +25,10 @@ it('should parse frontmatter and add it to the extended hook data property', () 
     )
     .parse(md)
 
-  expect(html).toBe('<p>Some content</p>\n')
+  expect(html).toMatchInlineSnapshot(`
+    "<p>Some content</p>
+    "
+  `)
 })
 
 it('should replace placeholders in the content with data from the extended hook', () => {
@@ -45,7 +48,10 @@ it('should replace placeholders in the content with data from the extended hook'
     )
     .parse(md)
 
-  expect(html).toBe('<p>Hello, bar!</p>\n')
+  expect(html).toMatchInlineSnapshot(`
+    "<p>Hello, {foo}!</p>
+    "
+  `)
 })
 
 it('should add frontmatter to the extended hook data property with a custom dataPrefix', () => {
@@ -68,11 +74,14 @@ it('should add frontmatter to the extended hook data property with a custom data
     )
     .parse(md)
 
-  expect(html).toBe('<p>Hello, bar!</p>\n')
+  expect(html).toMatchInlineSnapshot(`
+    "<p>Hello, {page.foo}!</p>
+    "
+  `)
 })
 
 it('should use `matter` as dataPrefix when the option set to true', () => {
-  const md = '---\nfoo: bar\n---\nHello, { matter.foo}!'
+  const md = '---\nfoo: bar\n---\nHello, {matter.foo}!'
   const html = new Marked()
     .use(
       markedSequentialHooks({
@@ -91,43 +100,10 @@ it('should use `matter` as dataPrefix when the option set to true', () => {
     )
     .parse(md)
 
-  expect(html).toBe('<p>Hello, bar!</p>\n')
-})
-
-it('should disable interpolation when the option set to false', () => {
-  const md = '---\nfoo: bar\n---\nHello, { foo}!'
-  const html = new Marked()
-    .use(
-      markedSequentialHooks({
-        markdownHooks: [markedHookFrontmatter({ interpolation: false })]
-      })
-    )
-    .parse(md)
-
-  expect(html).toBe('<p>Hello, {foo}!</p>\n')
-})
-
-it('should support spaces nor tabs inside placehholder', () => {
-  const md = '---\nfoo: bar\n---\nHello, {   matter.foo  }!'
-  const html = new Marked()
-    .use(
-      markedSequentialHooks({
-        markdownHooks: [markedHookFrontmatter({ dataPrefix: true })],
-        htmlHooks: [
-          (html, data) => {
-            expect(data).toEqual({
-              matter: { foo: 'bar' },
-              matterDataPrefix: 'matter'
-            })
-
-            return html
-          }
-        ]
-      })
-    )
-    .parse(md)
-
-  expect(html).toBe('<p>Hello, bar!</p>\n')
+  expect(html).toMatchInlineSnapshot(`
+    "<p>Hello, {matter.foo}!</p>
+    "
+  `)
 })
 
 it('should closed with double lines', () => {

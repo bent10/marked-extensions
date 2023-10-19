@@ -23,38 +23,14 @@ export interface Options {
    * @default /<Outlet[ \t]*?\/>/
    */
   placeholder?: string | RegExp
-
-  /**
-   * Specifies whether interpolation should be performed when applying the
-   * layout.
-   *
-   * @default true
-   */
-  interpolation?: boolean
 }
 
 /**
  * Represents the options for the `transform` function.
  */
-export interface TransformerOptions {
-  /**
-   * The data to interpolate into the template.
-   */
-  data: { [key: string]: unknown }
-
+export interface TransformerOptions extends Pick<Required<Options>, 'placeholder'> {
   /**
    * The content to insert into the layout.
    */
   content: string
-
-  /**
-   * Specifies whether interpolation should be performed when applying the
-   * layout.
-   */
-  interpolation: boolean
-
-  /**
-   * The placeholder to replace in the layout content.
-   */
-  placeholder: string | RegExp
 }

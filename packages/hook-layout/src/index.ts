@@ -10,8 +10,7 @@ export default function markedHookLayout(options: Options = {}): HtmlHook {
   const {
     dir = 'layouts',
     name = 'default',
-    placeholder = /<Outlet[ \t]*?\/>/,
-    interpolation = true
+    placeholder = /<Outlet[ \t]*?\/>/
   } = options
 
   /**
@@ -32,8 +31,6 @@ export default function markedHookLayout(options: Options = {}): HtmlHook {
 
     return transform(source, {
       content: html,
-      data,
-      interpolation,
       placeholder,
       isAsync
     })

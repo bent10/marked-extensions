@@ -25,9 +25,9 @@ title: Marked hook layout
 author: John Doe
 ---
 
-# {matter.title}
+# {{matter.title}}
 
-This is the main content of your Markdown file autored by **{matter.author}** at **{date}**
+This is the main content of your Markdown file autored by **{{matter.author}}** at **{{date}}**
 ```
 
 The `layouts/simple.html` look like:
@@ -38,7 +38,7 @@ The `layouts/simple.html` look like:
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{matter.title}</title>
+    <title>{{matter.title}}</title>
   </head>
   <body>
     <Outlet />
@@ -55,6 +55,7 @@ import markedSequentialHooks from 'marked-sequential-hooks'
 import markedHookData from 'marked-hook-data'
 import markedHookFrontmatter from 'marked-hook-frontmatter'
 import markedHookLayout from 'marked-hook-layout'
+import markedHookHandlebars from 'marked-hook-handlebars'
 
 const md = readFileSync('example.md', 'utf8')
 
@@ -65,7 +66,7 @@ const html = new Marked()
         markedHookData({ date: new Date('2023-09-30').toDateString() }),
         markedHookFrontmatter({ dataPrefix: true })
       ],
-      htmlHooks: [markedHookLayout()]
+      htmlHooks: [markedHookLayout(), markedHookHandlebars()]
     })
   )
   .parse(md)
@@ -103,13 +104,12 @@ The `marked-hook-layout` function accepts the following configuration options:
 
 - `placeholder` (optional): The placeholder to replace in the layout content. You can provide a string or a regular expression. Defaults to `/<Outlet[ \t]*?\/>/`.
 
-- `interpolation` (optional): Specifies whether interpolation should be performed when applying the layout. Defaults to `true`.
-
 ## Related
 
 - [marked-sequential-hooks](https://github.com/bent10/marked-extensions/tree/main/packages/sequential-hooks)
 - [marked-hook-frontmatter](https://github.com/bent10/marked-extensions/tree/main/packages/hook-frontmatter)
 - [marked-hook-data](https://github.com/bent10/marked-extensions/tree/main/packages/hook-data)
+- [marked-hook-handlebars](https://github.com/bent10/marked-extensions/tree/main/packages/hook-handlebars)
 
 ## Contributing
 

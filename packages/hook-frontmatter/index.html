@@ -7,10 +7,11 @@
   <body>
     <div id="content"></div>
 
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="./node_modules/marked-sequential-hooks/dist/index.umd.cjs"></script>
-    <script src="./dist/index.umd.cjs"></script>
-    <script>
+    <script type="module">
+      import { Marked } from "https://cdn.jsdelivr.net/npm/marked/+esm"
+      import markedSequentialHooks from "https://cdn.jsdelivr.net/npm/marked-sequential-hooks/+esm"
+      import markedHookFrontmatter from "https://cdn.jsdelivr.net/npm/marked-hook-frontmatter/+esm"
+
       const md = `---
 title: Hello, world!
 author: John Doe
@@ -21,7 +22,7 @@ author: John Doe
 This is the main content of your Markdown file autored by **{author}**.
 `
 
-      document.getElementById("content").innerHTML = new marked.Marked()
+      document.getElementById("content").innerHTML = new Marked()
         .use(
           markedSequentialHooks({
             markdownHooks: [markedHookFrontmatter()]

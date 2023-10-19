@@ -1,6 +1,5 @@
 import type { LoadOptions } from 'js-yaml'
 import type { MarkdownHook } from 'marked-sequential-hooks'
-import pupa from 'pupa'
 import { parse } from './parser.js'
 
 export interface Options extends Pick<LoadOptions, 'schema' | 'json'> {
@@ -10,11 +9,6 @@ export interface Options extends Pick<LoadOptions, 'schema' | 'json'> {
    * string is provided, the data will be added with that string as the key.
    */
   dataPrefix?: boolean | string
-
-  /**
-   * Set to `false` to disable data interpolation in the markdown content.
-   */
-  interpolation?: boolean
 }
 
 type UnknownData = {
@@ -28,7 +22,7 @@ type UnknownData = {
 export default function markedHookFrontmatter(
   options: Options = {}
 ): MarkdownHook {
-  const { dataPrefix = false, interpolation = true, ...parseOptions } = options
+  const { dataPrefix = false, ...parseOptions } = options
 
   return (markdown, data) => {
     if (data.filename) {
@@ -50,8 +44,6 @@ export default function markedHookFrontmatter(
       data[matterDataPrefix] = matter
     }
 
-    return interpolation
-      ? pupa(content, data, { ignoreMissing: true })
-      : content
+    return content
   }
 }

@@ -20,14 +20,8 @@
     "stilearning-marked-extensions"
   ],
   "type": "module",
-  "module": "dist/index.js",
+  "exports": "./dist/index.js",
   "types": "dist/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
-    }
-  },
   "files": [
     "dist",
     "changelog.md",
@@ -44,7 +38,9 @@
     "format": "prettier . --write --cache-location ../../node_modules/.prettier --ignore-path ../../.prettierignore"
   },
   "peerDependencies": {
-    "marked": ">=7.0.0",
+    "marked": ">=7.0.0"
+  },
+  "optionalDependencies": {
     "marked-sequential-hooks": ">=1.0.0"
   }
 }

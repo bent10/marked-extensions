@@ -8,12 +8,12 @@ export default defineConfig({
     lib: {
       entry: 'src/index.ts',
       name: 'markedHookFrontmatter',
-      formats: ['umd'],
+      formats: ['es', 'cjs', 'umd'],
       fileName: 'index'
     },
     rollupOptions: {
-      external: ['marked', 'js-yaml'],
-      output: { globals: { marked: 'marked', 'js-yaml': 'yaml' } }
+      external: ['marked', 'moo', 'js-yaml'],
+      output: { globals: { marked: 'marked', moo: 'moo', 'js-yaml': 'yaml' } }
     }
   },
   test: {

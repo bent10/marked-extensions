@@ -20,8 +20,6 @@ Once you've installed this hook, you can use it in your marked configuration. He
 
 ### Browser
 
-Say we have the following file `example.html`:
-
 ```html
 <!doctype html>
 <html>
@@ -32,10 +30,11 @@ Say we have the following file `example.html`:
   <body>
     <div id="content"></div>
 
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="./node_modules/marked-sequential-hooks/dist/index.umd.cjs"></script>
-    <script src="./node_modules/marked-hook-frontmatter/dist/index.umd.cjs"></script>
-    <script>
+    <script type="module">
+      import { Marked } from 'https://cdn.jsdelivr.net/npm/marked/+esm'
+      import markedSequentialHooks from 'https://cdn.jsdelivr.net/npm/marked-sequential-hooks/+esm'
+      import markedHookFrontmatter from 'https://cdn.jsdelivr.net/npm/marked-hook-frontmatter/+esm'
+
       const md = `---
 title: Hello, world!
 author: John Doe
@@ -46,7 +45,7 @@ author: John Doe
 This is the main content of your Markdown file autored by **{author}**.
 `
 
-      document.getElementById('content').innerHTML = new marked.Marked()
+      document.getElementById('content').innerHTML = new Marked()
         .use(
           markedSequentialHooks({
             markdownHooks: [markedHookFrontmatter()]
@@ -58,35 +57,16 @@ This is the main content of your Markdown file autored by **{author}**.
 </html>
 ```
 
-Now, opening the `example.html` file in your browser will result in:
-
-```html
-<!doctype html>
-<html>
-  <head>
-    ...
-    <title>Hello, world!</title>
-  </head>
-  <body>
-    <div id="content">
-      <h1>Content</h1>
-      <p>
-        This is the main content of your Markdown file autored by
-        <strong>John Doe</strong>.
-      </p>
-    </div>
-
-    ...
-  </body>
-</html>
-```
+[![Try marked-hook-frontmatter on RunKit](https://badge.runkitcdn.com/example.html.svg)](https://untitled-yq22k0054c7e.runkit.sh/)
 
 ### Node.js
 
-Say we have the following file `example.md`:
+```js
+import { Marked } from 'marked'
+import markedSequentialHooks from 'marked-sequential-hooks'
+import markedHookFrontmatter from 'marked-hook-frontmatter'
 
-```md
----
+const markdown = `---
 title: Hello, world!
 author: John Doe
 ---
@@ -94,21 +74,18 @@ author: John Doe
 # Content
 
 This is the main content of your Markdown file autored by **{page.author}**.
-```
+`
 
-And our module `example.js` looks as follows:
-
-```js
-import { readFileSync } from 'node:fs'
-import { Marked } from 'marked'
-import markedSequentialHooks from 'marked-sequential-hooks'
-import markedFrontmatter from 'marked-hook-frontmatter'
-
-const markdown = readFileSync('example.md', 'utf8')
 const html = new Marked()
   .use(
     markedSequentialHooks({
-      markdownHooks: [markedHookFrontmatter({ dataPrefix: 'page' })]
+      markdownHooks: [markedHookFrontmatter({ dataPrefix: 'page' })],
+      htmlHooks: [
+        (html, data) => {
+          // console.log(data)
+          return html
+        }
+      ]
     })
   )
   .parse(markdown)
@@ -116,15 +93,7 @@ const html = new Marked()
 console.log(html)
 ```
 
-Now, running node `example.js` yields:
-
-```html
-<h1>Content</h1>
-<p>
-  This is the main content of your Markdown file autored by
-  <strong>John Doe</strong>.
-</p>
-```
+[![Try marked-hook-frontmatter on RunKit](https://badge.runkitcdn.com/example.js.svg)](https://runkit.com/bent10/653127c491450f000835d926)
 
 ## Options
 
@@ -167,6 +136,7 @@ Compatibility with `JSON.parse` behavior. If `true`, it indicates compatibility 
 - [marked-sequential-hooks](https://github.com/bent10/marked-extensions/tree/main/packages/sequential-hooks)
 - [marked-hook-data](https://github.com/bent10/marked-extensions/tree/main/packages/hook-data)
 - [marked-hook-layout](https://github.com/bent10/marked-extensions/tree/main/packages/hook-layout)
+- [marked-hook-handlebars](https://github.com/bent10/marked-extensions/tree/main/packages/hook-handlebars)
 
 ## Contributing
 
