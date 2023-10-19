@@ -21,13 +21,14 @@
     "stilearning-marked-extensions"
   ],
   "type": "module",
-  "main": "dist/index.umd.cjs",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "browser": "./dist/index.umd.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/index.js",
-      "require": "./dist/index.umd.cjs",
+      "require": "./dist/index.cjs",
       "types": "./dist/index.d.ts"
     }
   },
@@ -37,12 +38,9 @@
     "readme.md"
   ],
   "scripts": {
-    "start": "npm run prod",
-    "prod": "vite build && vite",
-    "dev": "vite build:ssr --watch",
-    "build": "npm run build:ssr && npm run build:prod && npm run types",
-    "build:ssr": "vite build --ssr src/index.ts",
-    "build:prod": "vite build",
+    "start": "vite",
+    "dev": "vite build --watch",
+    "build": "vite build && npm run types",
     "test": "vitest",
     "coverage": "vitest run --coverage",
     "types": "tsc -d --emitDeclarationOnly --outDir ./dist",
@@ -54,7 +52,9 @@
     "js-yaml": "^4.1.0"
   },
   "peerDependencies": {
-    "marked": ">=7.0.0",
+    "marked": ">=7.0.0"
+  },
+  "optionalDependencies": {
     "marked-sequential-hooks": ">=1.0.0"
   }
 }
