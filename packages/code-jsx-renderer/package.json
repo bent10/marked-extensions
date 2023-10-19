@@ -30,9 +30,9 @@
     "readme.md"
   ],
   "scripts": {
-    "start": "npm run dev",
+    "start": "vite",
     "dev": "vite build --watch",
-    "build": "vite build --ssr src/index.ts && npm run types",
+    "build": "vite build && npm run types",
     "test": "vitest",
     "coverage": "vitest run --coverage",
     "types": "tsc -d --emitDeclarationOnly --outDir ./dist",
