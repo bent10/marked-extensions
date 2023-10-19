@@ -12,9 +12,14 @@ export default defineConfig({
       fileName: 'index'
     },
     rollupOptions: {
-      external: ['marked', 'attributes-parser'],
+      external: ['marked', 'attributes-parser', 'moo', 'pupa'],
       output: {
-        globals: { marked: 'marked', 'attributes-parser': 'parseAttrs' }
+        globals: {
+          marked: 'marked',
+          moo: 'moo',
+          pupa: 'pupa',
+          'attributes-parser': 'parseAttrs'
+        }
       }
     }
   },

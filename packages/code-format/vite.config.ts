@@ -12,11 +12,12 @@ export default defineConfig({
       fileName: 'index'
     },
     rollupOptions: {
-      external: ['marked', 'prettier'],
+      external: ['marked', 'prettier', 'attributes-parser'],
       output: {
         globals: {
           marked: 'marked',
-          prettier: 'prettier'
+          prettier: 'prettier',
+          'attributes-parser': 'parseAttrs'
         }
       }
     }
