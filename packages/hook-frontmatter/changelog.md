@@ -1,3 +1,24 @@
+# marked-hook-frontmatter [1.4.0](https://github.com/bent10/marked-extensions/compare/marked-hook-frontmatter@1.3.3...marked-hook-frontmatter@1.4.0) (2023-10-20)
+
+
+### Bug Fixes
+
+* resolves `umd` mime issue ([f98d31a](https://github.com/bent10/marked-extensions/commit/f98d31af547deb496098a54d836a55625e05040e))
+
+
+### Features
+
+* build for the `esm`, `cjs`, and `umd` formats ([30bc148](https://github.com/bent10/marked-extensions/commit/30bc148b037aaff23dee1ecca64d31c8b4ae827c))
+* **revert:** removes `interpolation` option ([6886774](https://github.com/bent10/marked-extensions/commit/6886774490ef7e813ad69630f8341df5c8390d5a))
+
+
+
+
+
+### Dependencies
+
+* **marked-sequential-hooks:** upgraded to 1.2.0
+
 ## marked-hook-frontmatter [1.3.3](https://github.com/bent10/marked-extensions/compare/marked-hook-frontmatter@1.3.2...marked-hook-frontmatter@1.3.3) (2023-10-02)
 
 
