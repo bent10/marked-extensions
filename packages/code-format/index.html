@@ -19,12 +19,12 @@
       ;(async () => {
         const md = `# Example
 
-      \`\`\`graphql prettier
-      query Hero($episode: Episode, $withFriends: Boolean!) {
-        hero(episode: $episode) { name friends @include(if: $withFriends) { name } }
-      }
-      \`\`\`
-      `
+\`\`\`graphql prettier
+query Hero($episode: Episode, $withFriends: Boolean!) {
+  hero(episode: $episode) { name friends @include(if: $withFriends) { name } }
+}
+\`\`\`
+`
         document.getElementById("content").innerHTML = await new marked.Marked({
           async: true
         })
