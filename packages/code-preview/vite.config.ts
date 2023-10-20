@@ -12,12 +12,11 @@ export default defineConfig({
       fileName: 'index'
     },
     rollupOptions: {
-      external: ['marked', 'attributes-parser', 'moo', 'pupa'],
+      external: ['marked', 'attributes-parser', 'moo'],
       output: {
         globals: {
           marked: 'marked',
           moo: 'moo',
-          pupa: 'pupa',
           'attributes-parser': 'parseAttrs'
         },
         entryFileNames: '[name].[format].js'

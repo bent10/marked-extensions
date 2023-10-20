@@ -22,14 +22,14 @@
     "stilearning-marked-extensions"
   ],
   "type": "module",
-  "main": "./dist/index.cjs",
-  "browser": "./dist/index.umd.cjs",
-  "module": "./dist/index.js",
+  "main": "./dist/index.cjs.js",
+  "browser": "./dist/index.umd.js",
+  "module": "./dist/index.es.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs",
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.cjs.js",
       "types": "./dist/index.d.ts"
     }
   },
@@ -49,8 +49,7 @@
     "format": "prettier . --write --cache-location ../../node_modules/.prettier --ignore-path ../../.prettierignore"
   },
   "dependencies": {
-    "attributes-parser": "^2.1.1",
-    "pupa": "^3.1.0"
+    "attributes-parser": "^2.1.1"
   },
   "peerDependencies": {
     "marked": ">=7.0.0"
