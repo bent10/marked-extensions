@@ -70,7 +70,7 @@ Say we have the following file `example.html`:
     <div id="content"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="./dist/index.umd.cjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked-footnote/dist/index.umd.js"></script>
     <script>
       const md = `# Example
 
@@ -111,112 +111,7 @@ Here is a simple footnote[^1]. With some additional text after it[^@#$%] and wit
 </html>
 ```
 
-Now, opening the `example.html` file in your browser will result in:
-
-```html
-...
-<div id="content">
-  <h1>Example</h1>
-  <p>
-    Here is a simple footnote<sup
-      ><a
-        id="footnote-ref-1"
-        href="#footnote-1"
-        data-footnote-ref=""
-        aria-describedby="footnote-label"
-        >1</a
-      ></sup
-    >. With some additional text after it<sup
-      ><a
-        id="footnote-ref-%40%23%24%25"
-        href="#footnote-%40%23%24%25"
-        data-footnote-ref=""
-        aria-describedby="footnote-label"
-        >@#$%</a
-      ></sup
-    >
-    and without disrupting the blocks<sup
-      ><a
-        id="footnote-ref-bignote"
-        href="#footnote-bignote"
-        data-footnote-ref=""
-        aria-describedby="footnote-label"
-        >bignote</a
-      ></sup
-    >.
-  </p>
-  <section class="footnotes" data-footnotes="">
-    <h2 id="footnote-label" class="sr-only">Footnotes</h2>
-    <ol>
-      <li id="footnote-1">
-        <p>
-          This is a footnote content.
-          <a
-            href="#footnote-ref-1"
-            data-footnote-backref=""
-            aria-label="Back to reference 1"
-            >↩</a
-          >
-        </p>
-      </li>
-      <li id="footnote-bignote">
-        <p>The first paragraph of the definition.</p>
-        <p>Paragraph two of the definition.</p>
-        <blockquote>
-          <p>A blockquote with multiple lines.</p>
-        </blockquote>
-        <pre><code>a code block
-</code></pre>
-        <table>
-          <thead>
-            <tr>
-              <th>Header 1</th>
-              <th>Header 2</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Cell 1</td>
-              <td>Cell 2</td>
-            </tr>
-          </tbody>
-        </table>
-        <p>A <code>final</code> paragraph before list.</p>
-        <ul>
-          <li>Item 1</li>
-          <li>
-            Item 2
-            <ul>
-              <li>Subitem 1</li>
-              <li>Subitem 2</li>
-            </ul>
-          </li>
-        </ul>
-        <p>
-          <a
-            href="#footnote-ref-bignote"
-            data-footnote-backref=""
-            aria-label="Back to reference bignote"
-            >↩</a
-          >
-        </p>
-      </li>
-      <li id="footnote-%40%23%24%25">
-        <p>
-          A footnote on the label: "@#$%".
-          <a
-            href="#footnote-ref-%40%23%24%25"
-            data-footnote-backref=""
-            aria-label="Back to reference @#$%"
-            >↩</a
-          >
-        </p>
-      </li>
-    </ol>
-  </section>
-</div>
-...
-```
+[![Try marked-footnote on RunKit](https://badge.runkitcdn.com/example.html.svg)](https://untitled-0x6rqd9q0jep.runkit.sh/)
 
 ### Node.js
 

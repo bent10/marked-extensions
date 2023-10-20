@@ -19,7 +19,8 @@ export default defineConfig({
           moo: 'moo',
           pupa: 'pupa',
           'attributes-parser': 'parseAttrs'
-        }
+        },
+        entryFileNames: '[name].[format].js'
       }
     }
   },

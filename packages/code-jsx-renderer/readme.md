@@ -55,7 +55,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 
 const content = readFileSync('example.md', 'utf-8')
 
-const html = await new Marked()
+const html = await new Marked({ async: true })
   .use(
     markedCodeJsxRenderer({
       ...runtime,

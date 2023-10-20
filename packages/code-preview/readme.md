@@ -29,8 +29,9 @@ Say we have the following file `example.html`:
   </head>
   <body>
     <div id="content"></div>
+
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="./node_modules/marked-code-preview/dist/index.umd.cjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked-code-preview/dist/index.umd.js"></script>
     <script>
       // 🚨 Important: The `preview` attribute must be specified in code fence blocks.
       const md = `# Example
@@ -48,26 +49,7 @@ Say we have the following file `example.html`:
 </html>
 ```
 
-Now, opening the `example.html` file in your browser will result in:
-
-```html
-...
-<div id="content">
-  <h1>Example</h1>
-
-  <figure class="preview">
-    <figcaption>Code title</figcaption>
-    <div class="preview-showcase">
-      <div class="foo">Hello, World!</div>
-    </div>
-    <div class="preview-code">
-      <pre><code class="language-html">&lt;div class='foo'&gt;Hello, World!&lt;/div&gt;
-</code></pre>
-    </div>
-  </figure>
-</div>
-...
-```
+[![Try marked-code-preview on RunKit](https://badge.runkitcdn.com/example.html.svg)](https://untitled-dkvdhhd08twr.runkit.sh/)
 
 ### Node.js
 

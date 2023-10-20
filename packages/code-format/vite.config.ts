@@ -18,7 +18,8 @@ export default defineConfig({
           marked: 'marked',
           prettier: 'prettier',
           'attributes-parser': 'parseAttrs'
-        }
+        },
+        entryFileNames: '[name].[format].js'
       }
     }
   },

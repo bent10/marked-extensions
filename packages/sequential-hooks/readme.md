@@ -114,7 +114,7 @@ Say we have the following file `example.html`:
     <div id="content"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="./dist/index.umd.cjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked-sequential-hooks/dist/index.umd.js"></script>
     <script>
       ;(async () => {
         const md = '# {title}\n\n{body}\n'
@@ -147,32 +147,6 @@ Say we have the following file `example.html`:
           .parse(md)
       })()
     </script>
-  </body>
-</html>
-```
-
-Now, opening the `example.html` file in your browser will result in:
-
-```html
-<!doctype html>
-<html>
-  <head>
-    ...
-    <title>Marked sequential hooks</title>
-  </head>
-  <body>
-    <div id="content">
-      <h1>He was an expert but not in a discipline</h1>
-      <p>
-        He was an expert but not in a discipline that anyone could fully
-        appreciate. He knew how to hold the cone just right so that the soft
-        server ice-cream fell into it at the precise angle to form a perfect
-        cone each and every time. It had taken years to perfect and he could now
-        do it without even putting any thought behind it.
-      </p>
-    </div>
-
-    ...
   </body>
 </html>
 ```

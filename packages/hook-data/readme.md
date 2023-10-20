@@ -124,8 +124,8 @@ Say we have the following file `example.html`:
     <div id="content"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="./node_modules/marked-sequential-hooks/dist/index.umd.cjs"></script>
-    <script src="./node_modules/marked-hook-data/dist/index.umd.cjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked-sequential-hooks/dist/index.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked-hook-data/dist/index.umd.js"></script>
     <script>
       ;(async () => {
         const res = await fetch('https://dummyjson.com/posts?limit=10')
@@ -159,7 +159,7 @@ Say we have the following file `example.html`:
 </html>
 ```
 
-Now, you can open the `example.html` file in your browser to view the results.
+[![Try marked-hook-data on RunKit](https://badge.runkitcdn.com/example.html.svg)](https://untitled-z1hmnmfs79ol.runkit.sh/)
 
 ## Function
 

@@ -5,7 +5,14 @@ import cacheDir from 'vite-plugin-cachedir'
 export default defineConfig({
   plugins: [cacheDir()],
   build: {
-    ssr: 'src/index.ts'
+    lib: {
+      entry: 'src/index.ts',
+      formats: ['es', 'cjs'],
+      fileName: 'index'
+    },
+    rollupOptions: {
+      external: ['marked', /\@babel/, 'attributes-parser']
+    }
   },
   test: {
     globals: true,

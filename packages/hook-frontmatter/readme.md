@@ -30,11 +30,10 @@ Once you've installed this hook, you can use it in your marked configuration. He
   <body>
     <div id="content"></div>
 
-    <script type="module">
-      import { Marked } from 'https://cdn.jsdelivr.net/npm/marked/+esm'
-      import markedSequentialHooks from 'https://cdn.jsdelivr.net/npm/marked-sequential-hooks/+esm'
-      import markedHookFrontmatter from 'https://cdn.jsdelivr.net/npm/marked-hook-frontmatter/+esm'
-
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked-sequential-hooks/dist/index.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked-hook-frontmatter/dist/index.umd.js"></script>
+    <script>
       const md = `---
 title: Hello, world!
 author: John Doe
@@ -45,7 +44,7 @@ author: John Doe
 This is the main content of your Markdown file autored by **{author}**.
 `
 
-      document.getElementById('content').innerHTML = new Marked()
+      document.getElementById('content').innerHTML = new marked.Marked()
         .use(
           markedSequentialHooks({
             markdownHooks: [markedHookFrontmatter()]

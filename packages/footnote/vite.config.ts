@@ -12,7 +12,10 @@ export default defineConfig({
       fileName: 'index'
     },
     rollupOptions: {
-      external: ['marked']
+      external: ['marked'],
+      output: {
+        entryFileNames: '[name].[format].js'
+      }
     }
   },
   test: {

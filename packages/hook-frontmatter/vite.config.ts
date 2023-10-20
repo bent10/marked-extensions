@@ -13,7 +13,10 @@ export default defineConfig({
     },
     rollupOptions: {
       external: ['marked', 'moo', 'js-yaml'],
-      output: { globals: { marked: 'marked', moo: 'moo', 'js-yaml': 'yaml' } }
+      output: {
+        globals: { marked: 'marked', moo: 'moo', 'js-yaml': 'yaml' },
+        entryFileNames: '[name].[format].js'
+      }
     }
   },
   test: {

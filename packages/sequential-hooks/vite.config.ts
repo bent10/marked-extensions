@@ -13,7 +13,10 @@ export default defineConfig({
     },
     rollupOptions: {
       external: ['marked'],
-      output: { globals: { marked: 'marked' } }
+      output: {
+        globals: { marked: 'marked' },
+        entryFileNames: '[name].[format].js'
+      }
     }
   },
   test: {

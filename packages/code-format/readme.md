@@ -31,10 +31,11 @@ Say we have the following file `example.html`:
   </head>
   <body>
     <div id="content"></div>
+
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://unpkg.com/prettier@3.0.3/standalone.js"></script>
     <script src="https://unpkg.com/prettier@3.0.3/plugins/graphql.js"></script>
-    <script src="./node_modules/marked-code-format/dist/index.umd.cjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked-code-format/dist/index.umd.js"></script>
     <script>
       ;(async () => {
         const md = `# Example
@@ -46,7 +47,9 @@ query Hero($episode: Episode, $withFriends: Boolean!) {
 \`\`\`
 `
 
-        document.getElementById('content').innerHTML = await new marked.Marked()
+        document.getElementById('content').innerHTML = await new marked.Marked({
+          async: true
+        })
           .use(markedCodeFormat({ plugins: prettierPlugins }))
           .parse(md)
       })()
@@ -55,24 +58,7 @@ query Hero($episode: Episode, $withFriends: Boolean!) {
 </html>
 ```
 
-Now, opening the `example.html` file in your browser will result in:
-
-```html
-...
-<div id="content">
-  <h1>Example</h1>
-  <pre><code class="language-graphql">query Hero($episode: Episode, $withFriends: Boolean!) {
-  hero(episode: $episode) {
-    name
-    friends @include(if: $withFriends) {
-      name
-    }
-  }
-}
-</code></pre>
-</div>
-...
-```
+[![Try marked-code-format on RunKit](https://badge.runkitcdn.com/example.html.svg)](https://untitled-x1qoy3y2fnke.runkit.sh/)
 
 ### Node.js
 
@@ -81,8 +67,15 @@ Say we have the following file `example.md`:
 ````md
 # Example
 
-```html prettier
-<div><p>Greetings, traveler! Sign up today!</p></div>
+```graphql prettier
+query Hero($episode: Episode, $withFriends: Boolean!) {
+  hero(episode: $episode) {
+    name
+    friends @include(if: $withFriends) {
+      name
+    }
+  }
+}
 ```
 ````
 
