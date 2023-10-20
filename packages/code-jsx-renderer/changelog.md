@@ -1,3 +1,10 @@
+## marked-code-jsx-renderer [1.1.4](https://github.com/bent10/marked-extensions/compare/marked-code-jsx-renderer@1.1.3...marked-code-jsx-renderer@1.1.4) (2023-10-20)
+
+
+### Bug Fixes
+
+* resolves `umd` mime issue ([f98d31a](https://github.com/bent10/marked-extensions/commit/f98d31af547deb496098a54d836a55625e05040e))
+
 ## marked-code-jsx-renderer [1.1.3](https://github.com/bent10/marked-extensions/compare/marked-code-jsx-renderer@1.1.2...marked-code-jsx-renderer@1.1.3) (2023-10-14)
 
 
