@@ -1,5 +1,5 @@
 import moo from 'moo'
-import yaml, { type LoadOptions } from 'js-yaml'
+import jsyaml, { type LoadOptions } from 'js-yaml'
 
 // Define a lexer for frontmatter and content.
 const lexer = moo.states({
@@ -54,7 +54,7 @@ export function parse(markdown: string, options: LoadOptions) {
     }
   }
 
-  const matter = yaml.load(frontmatter, options)
+  const matter = jsyaml.load(frontmatter, options)
 
   return { matter, content }
 }
