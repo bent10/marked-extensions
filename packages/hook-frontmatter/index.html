@@ -18,7 +18,7 @@ title: Hello, world!
 author: John Doe
 ---
 
-# Content
+# {title}
 
 This is the main content of your Markdown file autored by **{author}**.
 `
@@ -26,7 +26,16 @@ This is the main content of your Markdown file autored by **{author}**.
       document.getElementById("content").innerHTML = new marked.Marked()
         .use(
           markedSequentialHooks({
-            markdownHooks: [markedHookFrontmatter()]
+            markdownHooks: [markedHookFrontmatter()],
+            htmlHooks: [
+              (html, data) => {
+                console.log(data)
+
+                return html
+                  .replace("{title}", data.title)
+                  .replace("{author}", data.author)
+              }
+            ]
           })
         )
         .parse(md)

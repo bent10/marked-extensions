@@ -49,7 +49,16 @@ This is the main content of your Markdown file autored by **{author}**.
       document.getElementById('content').innerHTML = new marked.Marked()
         .use(
           markedSequentialHooks({
-            markdownHooks: [markedHookFrontmatter()]
+            markdownHooks: [markedHookFrontmatter()],
+            htmlHooks: [
+              (html, data) => {
+                console.log(data)
+
+                return html
+                  .replace('{title}', data.title)
+                  .replace('{author}', data.author)
+              }
+            ]
           })
         )
         .parse(md)
@@ -72,7 +81,7 @@ title: Hello, world!
 author: John Doe
 ---
 
-# Content
+# {page.title}
 
 This is the main content of your Markdown file autored by **{page.author}**.
 `
@@ -83,8 +92,9 @@ const html = new Marked()
       markdownHooks: [markedHookFrontmatter({ dataPrefix: 'page' })],
       htmlHooks: [
         (html, data) => {
-          // console.log(data)
           return html
+            .replace('{page.title}', data.page.title)
+            .replace('{page.author}', data.page.author)
         }
       ]
     })
@@ -94,7 +104,15 @@ const html = new Marked()
 console.log(html)
 ```
 
-[![Try marked-hook-frontmatter on RunKit](https://badge.runkitcdn.com/example.js.svg)](https://runkit.com/bent10/653127c491450f000835d926)
+Now, running node `example.js` yields:
+
+```html
+<h1>Hello, world!</h1>
+<p>
+  This is the main content of your Markdown file autored by
+  <strong>John Doe</strong>.
+</p>
+```
 
 ## Options
 
