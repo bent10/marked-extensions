@@ -1,3 +1,10 @@
+## marked-hook-frontmatter [1.4.1](https://github.com/bent10/marked-extensions/compare/marked-hook-frontmatter@1.4.0...marked-hook-frontmatter@1.4.1) (2023-10-20)
+
+
+### Bug Fixes
+
+* updates examples ([da7a1fb](https://github.com/bent10/marked-extensions/commit/da7a1fb709b10b67f71cc72f82d517d209681c6a))
+
 # marked-hook-frontmatter [1.4.0](https://github.com/bent10/marked-extensions/compare/marked-hook-frontmatter@1.3.3...marked-hook-frontmatter@1.4.0) (2023-10-20)
 
 
