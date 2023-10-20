@@ -114,7 +114,7 @@ Say we have the following file `example.html`:
     <div id="content"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/marked-sequential-hooks/dist/index.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked-sequential-hooks/dist/index.umd.min.js"></script>
     <script>
       ;(async () => {
         const md = '# {title}\n\n{body}\n'
@@ -150,6 +150,8 @@ Say we have the following file `example.html`:
   </body>
 </html>
 ```
+
+[![Try marked-sequential-hooks on RunKit](https://badge.runkitcdn.com/example.html.svg)](https://untitled-jtrti2tq150m.runkit.sh/)
 
 ## Options
 
@@ -233,6 +235,7 @@ function myHook(options = {}): HtmlHook {
 
 - [marked-hook-data](https://github.com/bent10/marked-extensions/tree/main/packages/hook-data)
 - [marked-hook-frontmatter](https://github.com/bent10/marked-extensions/tree/main/packages/hook-frontmatter)
+- [marked-hook-handlebars](https://github.com/bent10/marked-extensions/tree/main/packages/hook-handlebars)
 - [marked-hook-layout](https://github.com/bent10/marked-extensions/tree/main/packages/hook-layout)
 
 ## Contributing

@@ -70,7 +70,7 @@ Say we have the following file `example.html`:
     <div id="content"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/marked-footnote/dist/index.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked-footnote/dist/index.umd.min.js"></script>
     <script>
       const md = `# Example
 

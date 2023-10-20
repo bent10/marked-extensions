@@ -107,8 +107,8 @@ The `marked-hook-layout` function accepts the following configuration options:
 ## Related
 
 - [marked-sequential-hooks](https://github.com/bent10/marked-extensions/tree/main/packages/sequential-hooks)
-- [marked-hook-frontmatter](https://github.com/bent10/marked-extensions/tree/main/packages/hook-frontmatter)
 - [marked-hook-data](https://github.com/bent10/marked-extensions/tree/main/packages/hook-data)
+- [marked-hook-frontmatter](https://github.com/bent10/marked-extensions/tree/main/packages/hook-frontmatter)
 - [marked-hook-handlebars](https://github.com/bent10/marked-extensions/tree/main/packages/hook-handlebars)
 
 ## Contributing

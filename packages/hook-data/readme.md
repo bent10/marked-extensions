@@ -124,8 +124,8 @@ Say we have the following file `example.html`:
     <div id="content"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/marked-sequential-hooks/dist/index.umd.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/marked-hook-data/dist/index.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked-sequential-hooks/dist/index.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked-hook-data/dist/index.umd.min.js"></script>
     <script>
       ;(async () => {
         const res = await fetch('https://dummyjson.com/posts?limit=10')
@@ -220,6 +220,7 @@ This object will be attached to the hooks context.
 
 - [marked-sequential-hooks](https://github.com/bent10/marked-extensions/tree/main/packages/sequential-hooks)
 - [marked-hook-frontmatter](https://github.com/bent10/marked-extensions/tree/main/packages/hook-frontmatter)
+- [marked-hook-handlebars](https://github.com/bent10/marked-extensions/tree/main/packages/hook-handlebars)
 - [marked-hook-layout](https://github.com/bent10/marked-extensions/tree/main/packages/hook-layout)
 - [loadee](https://github.com/bent10/loadee)
 

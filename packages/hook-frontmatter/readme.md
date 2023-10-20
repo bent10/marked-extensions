@@ -31,8 +31,10 @@ Once you've installed this hook, you can use it in your marked configuration. He
     <div id="content"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/marked-sequential-hooks/dist/index.umd.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/marked-hook-frontmatter/dist/index.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked-sequential-hooks/dist/index.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moo/moo.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked-hook-frontmatter/dist/index.umd.min.js"></script>
     <script>
       const md = `---
 title: Hello, world!
@@ -134,8 +136,8 @@ Compatibility with `JSON.parse` behavior. If `true`, it indicates compatibility 
 
 - [marked-sequential-hooks](https://github.com/bent10/marked-extensions/tree/main/packages/sequential-hooks)
 - [marked-hook-data](https://github.com/bent10/marked-extensions/tree/main/packages/hook-data)
-- [marked-hook-layout](https://github.com/bent10/marked-extensions/tree/main/packages/hook-layout)
 - [marked-hook-handlebars](https://github.com/bent10/marked-extensions/tree/main/packages/hook-handlebars)
+- [marked-hook-layout](https://github.com/bent10/marked-extensions/tree/main/packages/hook-layout)
 
 ## Contributing
 

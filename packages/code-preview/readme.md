@@ -31,7 +31,10 @@ Say we have the following file `example.html`:
     <div id="content"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/marked-code-preview/dist/index.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moo/moo.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/json-loose/dist/index.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/attributes-parser/dist/index.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked-code-preview/dist/index.umd.min.js"></script>
     <script>
       // 🚨 Important: The `preview` attribute must be specified in code fence blocks.
       const md = `# Example
