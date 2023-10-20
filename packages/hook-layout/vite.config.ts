@@ -11,7 +11,7 @@ export default defineConfig({
       fileName: 'index'
     },
     rollupOptions: {
-      external: ['marked', 'node:fs', 'node:path']
+      external: ['marked', /node\:/]
     }
   },
   test: {
