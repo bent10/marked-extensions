@@ -1,3 +1,23 @@
+# marked-hook-layout [1.2.0](https://github.com/bent10/marked-extensions/compare/marked-hook-layout@1.1.1...marked-hook-layout@1.2.0) (2023-10-20)
+
+
+### Bug Fixes
+
+* resolves `umd` mime issue ([f98d31a](https://github.com/bent10/marked-extensions/commit/f98d31af547deb496098a54d836a55625e05040e))
+
+
+### Features
+
+* **revert:** removes `interpolation` option ([6886774](https://github.com/bent10/marked-extensions/commit/6886774490ef7e813ad69630f8341df5c8390d5a))
+
+
+
+
+
+### Dependencies
+
+* **marked-sequential-hooks:** upgraded to 1.2.0
+
 ## marked-hook-layout [1.1.1](https://github.com/bent10/marked-extensions/compare/marked-hook-layout@1.1.0...marked-hook-layout@1.1.1) (2023-10-18)
 
 
