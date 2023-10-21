@@ -60,4 +60,5 @@ export interface Options {
 export interface TransformOptions extends Options {
   index: number
   parent: Token[] | TokensList
+  hooksData: { [key: string]: unknown }
 }

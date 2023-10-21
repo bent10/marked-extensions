@@ -1,6 +1,7 @@
 /// <reference types="vitest/globals" />
 
 import { Marked } from 'marked'
+import markedSequentialHooks from 'marked-sequential-hooks'
 import * as runtime from 'react/jsx-runtime'
 import { renderToStaticMarkup } from 'react-dom/server'
 import markedCodeJsxRenderer from '../src/index.js'
@@ -229,4 +230,32 @@ it('should not be accessible to subsequent extensions.', () => {
       ]
     })
     .parse(content)
+})
+
+it('should be able to consume hooks data', () => {
+  const content = `
+  \`\`\`jsx renderable="{unwrap: true}"
+  <Fragment children={foo.map(f => <div key={f}>{f}</div>)} />
+  \`\`\`
+  `
+  const html = new Marked()
+    .use(
+      markedSequentialHooks({
+        markdownHooks: [
+          (md, data) => {
+            Object.assign(data, { foo: [1, 2, 3] })
+            return md
+          }
+        ]
+      })
+    )
+    .use(
+      markedCodeJsxRenderer({
+        ...runtime,
+        renderer: renderToStaticMarkup
+      })
+    )
+    .parse(content)
+
+  expect(html).toMatchInlineSnapshot('"<div>1</div><div>2</div><div>3</div>"')
 })

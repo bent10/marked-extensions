@@ -1,10 +1,14 @@
 import parseAttrs from 'attributes-parser'
-import type { MarkedExtension } from 'marked'
+import type { MarkedExtension, Hooks } from 'marked'
 import { transform } from './transform.js'
 import { isPlainObject } from './utils.js'
 import type { Options } from './types.js'
 
 export type { Options }
+
+interface HooksWithData extends Hooks {
+  data?: { [key: string]: unknown }
+}
 
 /**
  * A [marked](https://marked.js.org/) extension to render JSX code blocks using a custom renderer and components.
@@ -26,6 +30,10 @@ export default function markedCodeJsxRenderer(
           parent.forEach((token, index) => {
             if (token.type !== 'code' || !token.lang || !token.text) return
 
+            // consumes hooks data, if any
+            const { data: hooksData = {} } = (this.lexer.options.hooks || {
+              data: {}
+            }) as HooksWithData
             // support for inline options, only for the `unwrap` option.
             // ```jsx renderable="{ unwrap: true }"
             // ```
@@ -43,6 +51,7 @@ export default function markedCodeJsxRenderer(
             transform(token, {
               index,
               parent,
+              hooksData,
               ...options,
               unwrap: inlineOptions.unwrap || unwrap
             })

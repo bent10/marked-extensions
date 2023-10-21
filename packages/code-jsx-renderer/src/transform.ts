@@ -14,6 +14,7 @@ export function transform(token: Tokens.Generic, options: TransformOptions) {
   const {
     index,
     parent,
+    hooksData,
     components = {},
     Fragment,
     jsx,
@@ -44,11 +45,18 @@ export function transform(token: Tokens.Generic, options: TransformOptions) {
       '_jsx',
       '_jsxs',
       ...Object.keys(components),
+      ...Object.keys(hooksData),
       `return ${result?.code}`
     )
 
     const renderedValue = renderer(
-      Component(Fragment, jsx, jsxs, ...Object.values(components))
+      Component(
+        Fragment,
+        jsx,
+        jsxs,
+        ...Object.values(components),
+        ...Object.values(hooksData)
+      )
     )
 
     if (unwrap) {
