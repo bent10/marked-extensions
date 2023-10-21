@@ -83,8 +83,10 @@ This is the main content of your Markdown file autored by **{{page.author}}**.
 const html = new Marked()
   .use(
     markedSequentialHooks({
-      markdownHooks: [markedHookFrontmatter({ dataPrefix: 'page' })],
-      htmlHooks: [markedHookHandlebars()]
+      markdownHooks: [
+        markedHookFrontmatter({ dataPrefix: 'page' }),
+        markedHookHandlebars()
+      ]
     })
   )
   .parse(markdown)
