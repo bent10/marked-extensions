@@ -1,3 +1,10 @@
+# marked-code-jsx-renderer [1.2.0](https://github.com/bent10/marked-extensions/compare/marked-code-jsx-renderer@1.1.4...marked-code-jsx-renderer@1.2.0) (2023-10-21)
+
+
+### Features
+
+* consumes hooks data ([c2ef3b2](https://github.com/bent10/marked-extensions/commit/c2ef3b204c81d3bb301daebc963fe432a1bd05e8))
+
 ## marked-code-jsx-renderer [1.1.4](https://github.com/bent10/marked-extensions/compare/marked-code-jsx-renderer@1.1.3...marked-code-jsx-renderer@1.1.4) (2023-10-20)
 
 
