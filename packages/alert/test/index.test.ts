@@ -43,6 +43,26 @@ it('should render an alert with custom variant', () => {
   `)
 })
 
+it('should render an alert with custom variant title', () => {
+  const md = '> **Danger**\nThis is a custom alert!\n'
+  const html = marked
+    .use(
+      markedAlert({
+        variants: [
+          { type: 'danger', icon: '<i class="mr-2">🚨</i>', title: 'Oh snap!' }
+        ]
+      })
+    )
+    .parse(md)
+
+  expect(html).toMatchInlineSnapshot(`
+    "<div class=\\"markdown-alert markdown-alert-danger\\">
+    <p><span class=\\"text-danger text-semibold d-inline-flex flex-items-center mb-1\\"><i class=\\"mr-2\\">🚨</i>Oh snap!</span><br />This is a custom alert!</p>
+    </div>
+    "
+  `)
+})
+
 it('should render alert with blockquote', () => {
   const md = `> **Warning**
 > > multi line

@@ -14,6 +14,7 @@ export interface Options {
 export type AlertVariantItem = {
   type: string
   icon: string
+  title?: string
   titleClassName?: string
 }
 
@@ -25,6 +26,7 @@ export type Alert = {
   meta: {
     variant: string
     icon: string
+    title: string
     titleClassName: string
   }
   raw: string

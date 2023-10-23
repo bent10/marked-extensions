@@ -23,6 +23,7 @@ export default function markedAlert(options: Options = {}): MarkedExtension {
         const {
           type: variantType,
           icon,
+          title = ucFirst(variantType),
           titleClassName = `text-${variantType}`
         } = matchedVariant
         const firstLine = token.tokens?.[0] as Tokens.Paragraph
@@ -35,14 +36,14 @@ export default function markedAlert(options: Options = {}): MarkedExtension {
             type: 'text',
             raw: firstLine.raw,
             text: `<span class="${titleClassName} text-semibold d-inline-flex flex-items-center mb-1">${
-              icon + ucFirst(variantType)
+              icon + title
             }</span>${firstLineText ? `<br />${firstLineText}` : ''}`
           }
         ]
 
         Object.assign(token, {
           type: 'alert',
-          meta: { variant: variantType, icon, titleClassName }
+          meta: { variant: variantType, icon, title, titleClassName }
         })
 
         token.tokens?.splice(0, 1, firstLine)
