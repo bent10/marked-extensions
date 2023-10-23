@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marked Alert</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.3.0/github-markdown-dark.css"
+    />
+
+    <style>
+      .markdown-body {
+        background: #22272e;
+        color: #adbac7;
+      }
+
+      #content {
+        margin: 0 auto;
+        padding: 1rem;
+        max-width: 928px;
+      }
+
+      .markdown-alert {
+        padding: 0 1em;
+        margin-bottom: 16px;
+        color: inherit;
+        border-left: 0.25em solid #444c56;
+      }
+
+      .markdown-alert-note {
+        border-left-color: #539bf5;
+      }
+
+      .markdown-alert-important {
+        border-left-color: #986ee2;
+      }
+
+      .markdown-alert-warning {
+        border-left-color: #c69026;
+      }
+
+      .color-fg-accent {
+        color: #539bf5;
+      }
+
+      .color-fg-done {
+        color: #986ee2;
+      }
+
+      .color-fg-attention {
+        color: #c69026;
+      }
+
+      .d-inline-flex {
+        display: inline-flex;
+      }
+
+      .flex-items-center {
+        align-items: center;
+      }
+
+      .text-semibold {
+        font-weight: 500;
+      }
+
+      .mb-1 {
+        margin-bottom: 0.25rem;
+      }
+
+      .mr-2 {
+        margin-right: 0.5rem;
+      }
+    </style>
+  </head>
+
+  <body class="markdown-body">
+    <div id="content"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked-alert/dist/index.umd.min.js"></script>
+    <script>
+      const md = `# Example
+
+> [!NOTE]
+> Highlights information that users should take into account, even when skimming.
+
+> [!IMPORTANT]
+> Crucial information necessary for users to succeed.
+
+> [!WARNING]
+> Critical content demanding immediate user attention due to potential risks.
+
+> **Note**
+> This is a note
+> > blockquote
+> > after
+
+> **Important**
+> > multi line
+> >
+> > blockquote before
+>
+> This is a warning
+
+> This is a blockquote with
+>
+> > **Warning**
+> > note inside
+
+> [!NOTE]
+>
+> \`\`\`js
+> console.log('nested note')
+> \`\`\`
+>
+> > **Note**
+> >
+> > - This is
+> > - a \`note\`
+`
+
+      document.getElementById("content").innerHTML = new marked.Marked()
+        .use(markedAlert())
+        .parse(md)
+    </script>
+  </body>
+</html>

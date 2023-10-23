@@ -1,0 +1,50 @@
+{
+  "name": "marked-alert",
+  "description": "A marked extension to support GFM alert",
+  "version": "0.0.0-development",
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Beni Arisandi (https://stilearning.com)",
+  "repository": "https://github.com/bent10/marked-extensions",
+  "homepage": "https://github.com/bent10/marked-extensions/tree/main/packages/alert",
+  "license": "MIT",
+  "keywords": [
+    "marked",
+    "marked-extension",
+    "gfm",
+    "alert",
+    "notes",
+    "stilearning-marked-extensions"
+  ],
+  "type": "module",
+  "main": "./dist/index.cjs.js",
+  "browser": "./dist/index.umd.js",
+  "module": "./dist/index.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.cjs.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "changelog.md",
+    "readme.md"
+  ],
+  "scripts": {
+    "start": "vite",
+    "dev": "vite build --watch",
+    "build": "vite build && npm run types",
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
+    "types": "tsc -d --emitDeclarationOnly --outDir ./dist",
+    "lint": "tsc --noEmit && eslint . --cache --cache-location ../../node_modules/.eslint",
+    "format": "prettier . --write --cache-location ../../node_modules/.prettier --ignore-path ../../.prettierignore"
+  },
+  "peerDependencies": {
+    "marked": ">=7.0.0"
+  }
+}
