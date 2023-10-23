@@ -5,7 +5,7 @@ import { createSyntaxPattern, resolveVariants, ucFirst } from './utils.js'
 export type { Alert, AlertVariantItem, Options }
 
 /**
- * A [marked](https://marked.js.org/) extension to support [GFM alert](https://github.com/orgs/community/discussions/16925).
+ * A [marked](https://marked.js.org/) extension to support [GFM alerts](https://github.com/orgs/community/discussions/16925).
  */
 export default function markedAlert(options: Options = {}): MarkedExtension {
   const { className = 'markdown-alert', variants = [] } = options

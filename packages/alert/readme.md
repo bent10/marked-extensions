@@ -1,6 +1,6 @@
 # marked-alert
 
-A [marked](https://marked.js.org/) extension to support [GFM alert](https://github.com/orgs/community/discussions/16925).
+A [marked](https://marked.js.org/) extension to support [GFM alerts](https://github.com/orgs/community/discussions/16925).
 
 - [Install](#install)
 - [Usage](#usage)
