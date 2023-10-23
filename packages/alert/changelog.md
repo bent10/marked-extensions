@@ -1,3 +1,10 @@
+## marked-alert [1.1.1](https://github.com/bent10/marked-extensions/compare/marked-alert@1.1.0...marked-alert@1.1.1) (2023-10-23)
+
+
+### Bug Fixes
+
+* ambiguous resolved `titleClassName` ([9f3d5c9](https://github.com/bent10/marked-extensions/commit/9f3d5c927a130eaa964d3edd73f9f47d4df00012))
+
 # marked-alert [1.1.0](https://github.com/bent10/marked-extensions/compare/marked-alert@1.0.0...marked-alert@1.1.0) (2023-10-23)
 
 
