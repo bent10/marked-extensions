@@ -158,6 +158,7 @@ const options = {
     {
       type: 'danger',
       icon: '<i class="mr-2">🚨</i>',
+      title: 'Oh snap!', // optional
       titleClassName: 'text-danger' // optional
     }
   ]
