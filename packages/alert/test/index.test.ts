@@ -37,7 +37,7 @@ it('should render an alert with custom variant', () => {
 
   expect(html).toMatchInlineSnapshot(`
     "<div class=\\"markdown-alert markdown-alert-danger\\">
-    <p><span class=\\"text-danger text-semibold d-inline-flex flex-items-center mb-1\\"><i class=\\"mr-2\\">🚨</i>Danger</span><br />This is a custom alert!</p>
+    <p><span class=\\"text-danger\\"><i class=\\"mr-2\\">🚨</i>Danger</span><br />This is a custom alert!</p>
     </div>
     "
   `)
@@ -57,7 +57,7 @@ it('should render an alert with custom variant title', () => {
 
   expect(html).toMatchInlineSnapshot(`
     "<div class=\\"markdown-alert markdown-alert-danger\\">
-    <p><span class=\\"text-danger text-semibold d-inline-flex flex-items-center mb-1\\"><i class=\\"mr-2\\">🚨</i>Oh snap!</span><br />This is a custom alert!</p>
+    <p><span class=\\"text-danger\\"><i class=\\"mr-2\\">🚨</i>Oh snap!</span><br />This is a custom alert!</p>
     </div>
     "
   `)
@@ -72,7 +72,7 @@ it('should render an alert with custom variant titleClassName', () => {
           {
             type: 'danger',
             icon: '<i class="mr-2">🚨</i>',
-            titleClassName: 'text-danger'
+            titleClassName: 'text-danger fw-medium me-2'
           }
         ]
       })
@@ -81,7 +81,7 @@ it('should render an alert with custom variant titleClassName', () => {
 
   expect(html).toMatchInlineSnapshot(`
     "<div class=\\"markdown-alert markdown-alert-danger\\">
-    <p><span class=\\"text-danger\\"><i class=\\"mr-2\\">🚨</i>Danger</span><br />This is a custom alert!</p>
+    <p><span class=\\"text-danger fw-medium me-2\\"><i class=\\"mr-2\\">🚨</i>Danger</span><br />This is a custom alert!</p>
     </div>
     "
   `)
