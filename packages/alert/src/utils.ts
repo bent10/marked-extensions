@@ -40,6 +40,17 @@ export function resolveVariants(variants: AlertVariantItem[]) {
 }
 
 /**
+ * Resolve the variant title classname.
+ */
+export function resolveTitleClassName(type: string, classname?: string) {
+  return classname
+    ? ['note', 'important', 'warning'].includes(type)
+      ? `${classname} text-semibold d-inline-flex flex-items-center mb-1`
+      : classname
+    : `text-${type} text-semibold d-inline-flex flex-items-center mb-1`
+}
+
+/**
  * Returns regex pattern to match alert syntax.
  */
 export function createSyntaxPattern(type: string) {

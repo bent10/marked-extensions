@@ -1,6 +1,11 @@
 import type { MarkedExtension, Tokens } from 'marked'
 import type { Alert, AlertVariantItem, Options } from './types.js'
-import { createSyntaxPattern, resolveVariants, ucFirst } from './utils.js'
+import {
+  createSyntaxPattern,
+  resolveTitleClassName,
+  resolveVariants,
+  ucFirst
+} from './utils.js'
 
 export type { Alert, AlertVariantItem, Options }
 
@@ -24,26 +29,33 @@ export default function markedAlert(options: Options = {}): MarkedExtension {
           type: variantType,
           icon,
           title = ucFirst(variantType),
-          titleClassName = `text-${variantType}`
+          titleClassName
         } = matchedVariant
         const firstLine = token.tokens?.[0] as Tokens.Paragraph
         const firstLineText = firstLine.raw?.replace(
           new RegExp(createSyntaxPattern(variantType)),
           ''
         )
+        const titleClasses = resolveTitleClassName(variantType, titleClassName)
+
         firstLine.tokens = [
           <Tokens.Text>{
             type: 'text',
             raw: firstLine.raw,
-            text: `<span class="${titleClassName} text-semibold d-inline-flex flex-items-center mb-1">${
-              icon + title
-            }</span>${firstLineText ? `<br />${firstLineText}` : ''}`
+            text: `<span class="${titleClasses}">${icon + title}</span>${
+              firstLineText ? `<br />${firstLineText}` : ''
+            }`
           }
         ]
 
         Object.assign(token, {
           type: 'alert',
-          meta: { variant: variantType, icon, title, titleClassName }
+          meta: {
+            variant: variantType,
+            icon,
+            title,
+            titleClassName: titleClasses
+          }
         })
 
         token.tokens?.splice(0, 1, firstLine)
