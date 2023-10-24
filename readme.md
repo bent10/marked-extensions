@@ -2,18 +2,6 @@
 
 [Marked](https://marked.js.org/) extensions workspace.
 
-## Install
-
-Follows the steps below to get up and running:
-
-```bash
-# clone this repo
-> git clone https://github.com/bent10/marked-extensions.git
-
-# go to the project directory and install dependencies
-> cd marked-extensions && npm i
-```
-
 ## Packages
 
 | Package                                                | Description                                                                                                                                                                            | Version (click for changelog)                                                                            |
