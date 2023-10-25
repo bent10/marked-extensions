@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marked Directives</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.3.0/github-markdown-dark.css"
+    />
+
+    <style>
+      #content {
+        margin: 0 auto;
+        padding: 1rem;
+        max-width: 928px;
+      }
+
+      a.user-mention {
+        color: #fbe090;
+        background-color: #593600;
+        font-weight: 600;
+        white-space: nowrap;
+        border-radius: 2px;
+        margin-left: -2px;
+        margin-right: -2px;
+        padding: 0 2px;
+      }
+
+      a.user-mention:before {
+        content: "@";
+      }
+
+      a.hashtag {
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      a.hashtag:before {
+        content: "#";
+      }
+
+      a.user-mention:hover,
+      a.hashtag:hover {
+        text-decoration: none;
+      }
+    </style>
+  </head>
+
+  <body class="markdown-body">
+    <div id="content"></div>
+
+    <script type="module">
+      import { Marked } from "https://cdn.jsdelivr.net/npm/marked/+esm"
+      import {
+        createDirectives,
+        presetDirectiveConfigs
+      } from "https://cdn.jsdelivr.net/npm/marked-directive/+esm"
+
+      const md = `# Example
+
+:::main{#foo .bar class="baz" .qux}
+
+[Directives syntax](https://talk.commonmark.org/t/generic-directives-plugins-syntax/444)
+
+::hr{.border-muted}
+
+Use :i[CSS] (Cascading Style Sheets) to style your :abbr[HTML]{title="HyperText Markup Language"}:emoji[red-exclamation]
+
+:::
+
+You can define custom directives, like so:
+
+::youtube[Dummy video]{vid="9xwazD5SyVg"}
+
+1. @bent10
+2. #markdown
+3. :emoji[rocket]{title="Go!"}
+
+And whatever is on your mind 🤯.
+`
+
+      // defines `:youtube` directive
+      const youtubeDirective = {
+        level: "block",
+        marker: "::",
+        renderer(token) {
+          if (token.meta.name === "youtube") {
+            return `<iframe width="560" height="315" src="https://www.youtube.com/embed/${
+              token.attrs?.vid || ""
+            }" title="${
+              token.text
+            }" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`
+          }
+
+          return false
+        }
+      }
+
+      // defines `@mention` directive
+      const mentionDirective = {
+        level: "inline",
+        marker: "@",
+        renderer(token) {
+          return `<a class="user-mention notranslate" href="/users/${token.meta.name}">${token.meta.name}</a>`
+        }
+      }
+
+      // defines `#hashtag` directive
+      const hashtagDirective = {
+        level: "inline",
+        marker: "#",
+        renderer(token) {
+          return `<a class="hashtag" href="/tags/${token.meta.name}">${token.meta.name}</a>`
+        }
+      }
+
+      // defines `:emoji` directive
+      const emojis = { rocket: "🚀", "red-exclamation": "❗" } // mock emoji api
+      const emojiDirective = {
+        level: "inline",
+        marker: ":",
+        renderer(token) {
+          if (token.meta.name === "emoji") {
+            return `<span ${token.attrs?.toString()}>${
+              emojis[token.text]
+            }</span>`
+          }
+
+          return false
+        }
+      }
+
+      document.getElementById("content").innerHTML = new Marked()
+        .use(
+          createDirectives([
+            ...presetDirectiveConfigs,
+            youtubeDirective,
+            mentionDirective,
+            hashtagDirective,
+            emojiDirective
+          ])
+        )
+        .parse(md)
+    </script>
+  </body>
+</html>
