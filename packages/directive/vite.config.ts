@@ -17,7 +17,8 @@ export default defineConfig({
         globals: {
           'attribute-parser': 'parseAttrs',
           moo: 'moo'
-        }
+        },
+        entryFileNames: '[name].[format].js'
       }
     }
   },
