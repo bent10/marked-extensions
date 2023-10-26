@@ -164,7 +164,7 @@ const html = marked
 console.log(html)
 ```
 
-[![Try marked-directive on RunKit](https://badge.runkitcdn.com/marked-directive.svg)](https://runkit.com/bent10/653904fc74e675000868561d)
+[![Try marked-directive on RunKit](https://badge.runkitcdn.com/marked-directive.svg)](https://untitled-owlc7cxj7jxp.runkit.sh/)
 
 ## Related
 
