@@ -1,9 +1,10 @@
 /// <reference types="vitest" />
 import { defineConfig } from 'vite'
 import cacheDir from 'vite-plugin-cachedir'
+import umdFormatResolver from 'vite-plugin-resolve-umd-format'
 
 export default defineConfig({
-  plugins: [cacheDir()],
+  plugins: [cacheDir(), umdFormatResolver()],
   build: {
     lib: {
       entry: 'src/index.ts',
@@ -12,10 +13,7 @@ export default defineConfig({
       fileName: 'index'
     },
     rollupOptions: {
-      external: ['marked'],
-      output: {
-        entryFileNames: '[name].[format].js'
-      }
+      external: ['marked']
     }
   },
   test: {

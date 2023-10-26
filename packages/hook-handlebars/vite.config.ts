@@ -1,9 +1,10 @@
 /// <reference types="vitest" />
 import { defineConfig } from 'vite'
 import cacheDir from 'vite-plugin-cachedir'
+import umdFormatResolver from 'vite-plugin-resolve-umd-format'
 
 export default defineConfig({
-  plugins: [cacheDir()],
+  plugins: [cacheDir(), umdFormatResolver()],
   build: {
     lib: {
       entry: 'src/index.ts',
@@ -14,8 +15,7 @@ export default defineConfig({
     rollupOptions: {
       external: ['marked', 'handlebars'],
       output: {
-        globals: { marked: 'marked', handlebars: 'Handlebars' },
-        entryFileNames: '[name].[format].js'
+        globals: { marked: 'marked', handlebars: 'Handlebars' }
       }
     }
   },
