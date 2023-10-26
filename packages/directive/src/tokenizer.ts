@@ -1,15 +1,14 @@
-import type { Attributes } from 'attributes-parser'
+import parseAttrs, { type Attributes } from 'attributes-parser'
 import type { Token, TokenizerThis } from 'marked'
 import moo from 'moo'
 import type { Directive, DirectiveMeta } from './types.js'
-import { parseAttrsValue } from './utils.js'
 
 const lexer = moo.compile({
   spaces: /[\t\v\f\ufeff ]+/,
   name: /[a-zA-Z][\w-]*/,
   attrs: {
     match: /\{.*\}/,
-    value: x => parseAttrsValue(x) as unknown as string
+    value: x => parseAttrs(x.slice(1, -1)) as unknown as string
   },
   text: {
     match: /\[.*\]/,

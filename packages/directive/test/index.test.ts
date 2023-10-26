@@ -1,7 +1,7 @@
 /// <reference types="vitest/globals" />
 
 import { readFileSync } from 'node:fs'
-import { marked } from 'marked'
+import { Marked } from 'marked'
 import {
   createDirectives,
   presetDirectiveConfigs,
@@ -12,7 +12,7 @@ import { getDirectivePattern } from '../src/utils.js'
 describe('createDirectives', () => {
   it('should handle default preset', () => {
     const md = readFileSync('test/fixtures/preset.md', 'utf8')
-    const html = marked.use(createDirectives()).parse(md)
+    const html = new Marked().use(createDirectives()).parse(md)
 
     expect(html).toMatchInlineSnapshot(`
     "<h1>Example</h1>
@@ -23,6 +23,40 @@ describe('createDirectives', () => {
     </main>
     "
   `)
+  })
+
+  it('should handle nested container directives', () => {
+    const markdown = `::::example{#foo.bar}
+:::file{name="index.html"}
+\`\`\`html
+<div class="example">
+  <p>example code here</p>
+</div>
+\`\`\`
+:::
+::::
+`
+
+    const html = new Marked()
+      .use(
+        createDirectives([
+          ...presetDirectiveConfigs,
+          { level: 'container', marker: '::::' }
+        ])
+      )
+      .parse(markdown)
+
+    expect(html).toMatchInlineSnapshot(`
+      "<example id=\\"foo\\" class=\\"bar\\">
+      <file name=\\"index.html\\">
+      <pre><code class=\\"language-html\\">&lt;div class=&quot;example&quot;&gt;
+        &lt;p&gt;example code here&lt;/p&gt;
+      &lt;/div&gt;
+      </code></pre>
+      </file>
+      </example>
+      "
+    `)
   })
 
   it('should handle custom directives', () => {
@@ -77,7 +111,7 @@ describe('createDirectives', () => {
       }
     }
 
-    const html = marked
+    const html = new Marked()
       .use(
         createDirectives([
           ...presetDirectiveConfigs,
@@ -111,6 +145,7 @@ describe('createDirectives', () => {
 describe('getDirectivePattern', () => {
   it('should return the correct pattern for container level', () => {
     const pattern = getDirectivePattern('container', ':::')
+    // ^:::(.*?\n[\s\S]*?)\n:::\n
     expect(pattern).toEqual('^:::([\\s\\S]*?)\\n:::')
   })
 

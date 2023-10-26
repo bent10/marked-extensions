@@ -1,4 +1,3 @@
-import parseAttrs from 'attributes-parser'
 import type { DirectiveLevel } from './types.js'
 
 /**
@@ -14,38 +13,6 @@ export function getDirectivePattern(level: DirectiveLevel, marker: string) {
     case 'inline':
       return `^${marker}((?:[a-zA-Z][\\w-]*|[\\{].*?[\\}]+|[\\[].*?[\\]])+)`
   }
-}
-
-/**
- * Parse attributes value and return key-value pairs.
- */
-export function parseAttrsValue(str: string) {
-  const classes: string[] = []
-
-  const rawAttr = str
-    .slice(1, -1)
-    .replace(
-      /[\.#][^\.\s]*|class=(?:\'.*\'|\".*\"|[^"\s'`=<>\x00]+)/g,
-      substr => {
-        if (substr.startsWith('#')) {
-          return `id="${substr.slice(1)}" `
-        } else if (substr.startsWith('.')) {
-          classes.push(substr.slice(1))
-        } else if (substr.startsWith('class=')) {
-          classes.push(
-            substr.replace(/^class=/, '').replace(/^['"]|['"]$/g, '')
-          )
-        }
-
-        return ''
-      }
-    )
-  const attrs = parseAttrs(rawAttr)
-
-  // assign classes
-  classes.length && (attrs.class = classes.join(' '))
-
-  return attrs
 }
 
 /**
