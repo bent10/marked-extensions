@@ -149,7 +149,7 @@ const emojiDirective: DirectiveConfig = {
   }
 }
 
-const html = marked
+const html = new Marked()
   .use(
     createDirectives([
       ...presetDirectiveConfigs,
