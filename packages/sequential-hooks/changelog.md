@@ -1,3 +1,10 @@
+## marked-sequential-hooks [1.2.1](https://github.com/bent10/marked-extensions/compare/marked-sequential-hooks@1.2.0...marked-sequential-hooks@1.2.1) (2023-10-26)
+
+
+### Bug Fixes
+
+* resolves `ERR_REQUIRE_ESM` in CommonJS mocules ([f876e00](https://github.com/bent10/marked-extensions/commit/f876e00dcd08969cf1489b7fc23c29a7e2e67d96))
+
 # marked-sequential-hooks [1.2.0](https://github.com/bent10/marked-extensions/compare/marked-sequential-hooks@1.1.0...marked-sequential-hooks@1.2.0) (2023-10-20)
 
 
