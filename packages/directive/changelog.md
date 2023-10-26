@@ -1,3 +1,10 @@
+## marked-directive [1.0.3](https://github.com/bent10/marked-extensions/compare/marked-directive@1.0.2...marked-directive@1.0.3) (2023-10-26)
+
+
+### Bug Fixes
+
+* **deps:** bump `attributes-parser` ([5b7d2d6](https://github.com/bent10/marked-extensions/commit/5b7d2d69adba55c3c5488b508d58282f4f490883))
+
 ## marked-directive [1.0.2](https://github.com/bent10/marked-extensions/compare/marked-directive@1.0.1...marked-directive@1.0.2) (2023-10-26)
 
 
