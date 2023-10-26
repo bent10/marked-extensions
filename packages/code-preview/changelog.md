@@ -1,3 +1,10 @@
+## marked-code-preview [1.3.2](https://github.com/bent10/marked-extensions/compare/marked-code-preview@1.3.1...marked-code-preview@1.3.2) (2023-10-26)
+
+
+### Bug Fixes
+
+* **deps:** bump `attributes-parser` ([6c22b89](https://github.com/bent10/marked-extensions/commit/6c22b89c927cface29d1eb4330bd039132d44cba))
+
 ## marked-code-preview [1.3.1](https://github.com/bent10/marked-extensions/compare/marked-code-preview@1.3.0...marked-code-preview@1.3.1) (2023-10-26)
 
 
