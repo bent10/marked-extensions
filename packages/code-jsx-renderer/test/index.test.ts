@@ -1,7 +1,6 @@
 /// <reference types="vitest/globals" />
 
 import { Marked } from 'marked'
-import markedSequentialHooks from 'marked-sequential-hooks'
 import * as runtime from 'react/jsx-runtime'
 import { renderToStaticMarkup } from 'react-dom/server'
 import markedCodeJsxRenderer from '../src/index.js'
@@ -239,16 +238,19 @@ it('should be able to consume hooks data', () => {
   \`\`\`
   `
   const html = new Marked()
-    .use(
-      markedSequentialHooks({
-        markdownHooks: [
-          (md, data) => {
-            Object.assign(data, { foo: [1, 2, 3] })
-            return md
-          }
-        ]
-      })
-    )
+    .use({
+      hooks: {
+        preprocess(md) {
+          if (!this.data) this.data = {}
+
+          Object.assign(this.data, { foo: [1, 2, 3] })
+          return md
+        },
+        postprocess(html) {
+          return html
+        }
+      }
+    })
     .use(
       markedCodeJsxRenderer({
         ...runtime,

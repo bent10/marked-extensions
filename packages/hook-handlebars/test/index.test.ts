@@ -2,7 +2,6 @@
 
 import { Marked } from 'marked'
 import markedSequentialHooks from 'marked-sequential-hooks'
-import markedHookFrontmatter from 'marked-hook-frontmatter'
 import markedHookHandlebars from '../src/index.js'
 
 it('should render Handlebars template in Markdown', () => {
@@ -61,12 +60,16 @@ it('should handle frontmatter data', () => {
   const html = new Marked()
     .use(
       markedSequentialHooks({
-        markdownHooks: [markedHookFrontmatter(), markedHookHandlebars()]
+        markdownHooks: [
+          (md, data) => {
+            Object.assign(data, { user: { name: 'Alice', age: 30 } })
+            return md
+          },
+          markedHookHandlebars()
+        ]
       })
     )
-    .parse(
-      '---\nuser:\n  name: Alice\n  age: 30\n---\n\nName: {{user.name}}, Age: {{user.age}}'
-    )
+    .parse('Name: {{user.name}}, Age: {{user.age}}')
 
   expect(html).toMatchInlineSnapshot(`
     "<p>Name: Alice, Age: 30</p>
