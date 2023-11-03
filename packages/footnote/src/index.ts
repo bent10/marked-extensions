@@ -24,6 +24,7 @@ export default function markedFootnote(options: Options = {}): MarkedExtension {
     walkTokens(token) {
       if (lexer.tokens.indexOf(token) === 0 && token.type === 'footnotes') {
         lexer.tokens.push(lexer.tokens.shift()!)
+        lexer.hasFootnotes = false
       }
     }
   }

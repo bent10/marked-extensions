@@ -25,6 +25,9 @@ export function createFootnote({
 
         lexer.tokens = this.lexer.tokens
         lexer.hasFootnotes = true
+
+        // always begin with empty items
+        footnotes.items = []
       }
 
       const match =
