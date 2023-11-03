@@ -10,8 +10,8 @@ export interface Options {
   template?: string
 
   /**
-   * The transformer function for modifying code before replacing the
-   * `preview` placeholder.
+   * The transformer function for modifying preview code before replacing the
+   * `{preview}` placeholder.
    *
    * @default (code) => code
    */

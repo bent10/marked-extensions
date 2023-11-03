@@ -36,7 +36,7 @@ export function transform(token: Tokens.Generic, options: TransformOptions) {
   const dataInterpolation = {
     ...data,
     ...attrs,
-    preview: token.text
+    preview: transformer(token.text, attrs, data)
   }
 
   const acc: Array<Tokens.Code | Tokens.Generic | Tokens.HTML | Tokens.Space> =
@@ -46,16 +46,12 @@ export function transform(token: Tokens.Generic, options: TransformOptions) {
     if (type === 'placeholder') {
       acc.push(token)
     } else if (type === 'text') {
-      const interpolatedText = pupa(
-        normalizeCodeText(text),
-        dataInterpolation,
-        {
-          ignoreMissing: true
-        }
-      )
-      const transformedText = transformer(interpolatedText, attrs, data)
+      const normalizedText = normalizeCodeText(text)
+      const interpolatedText = pupa(normalizedText, dataInterpolation, {
+        ignoreMissing: true
+      })
 
-      acc.push(createHtmlToken(interpolatedText, transformedText))
+      acc.push(createHtmlToken(normalizedText, interpolatedText))
     }
   }
 

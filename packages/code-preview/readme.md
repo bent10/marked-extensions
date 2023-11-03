@@ -157,7 +157,7 @@ Yields:
 
 ### `transformer?: Transformer`
 
-The transformer function for modifying code before replacing the `preview` placeholder.
+The transformer function for modifying preview code before replacing the `{preview}` placeholder.
 
 Default transformer:
 
