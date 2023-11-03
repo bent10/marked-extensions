@@ -1,3 +1,10 @@
+## marked-footnote [1.1.2](https://github.com/bent10/marked-extensions/compare/marked-footnote@1.1.1...marked-footnote@1.1.2) (2023-11-03)
+
+
+### Bug Fixes
+
+* always begin with empty footnotes items ([94aa01a](https://github.com/bent10/marked-extensions/commit/94aa01a0a571d9f04900e06fb0fa2e2baf021337))
+
 ## marked-footnote [1.1.1](https://github.com/bent10/marked-extensions/compare/marked-footnote@1.1.0...marked-footnote@1.1.1) (2023-10-26)
 
 
