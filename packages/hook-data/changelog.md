@@ -1,3 +1,11 @@
+# marked-hook-data [1.2.0](https://github.com/bent10/marked-extensions/compare/marked-hook-data@1.1.2...marked-hook-data@1.2.0) (2023-11-04)
+
+
+### Features
+
+* exposes `datasources` ([b34a718](https://github.com/bent10/marked-extensions/commit/b34a718715b729e49d74e8d76cd7749875aa8278))
+* exposes `datasources` ([013996c](https://github.com/bent10/marked-extensions/commit/013996c6444932aa5e41f950f2b87797ed41b9f8))
+
 ## marked-hook-data [1.1.2](https://github.com/bent10/marked-extensions/compare/marked-hook-data@1.1.1...marked-hook-data@1.1.2) (2023-10-26)
 
 
