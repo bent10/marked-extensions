@@ -33,6 +33,7 @@ export default function markedHookData(
   return (markdown, data, isAsync) => {
     const dataPrefix = data.matterDataPrefix as string | false
     const matter = dataPrefix ? (data[dataPrefix] as typeof data) : data
+    const datasources: string[] = []
 
     // use datasource from matter data if provided
     source = matter.datasource ? matter.datasource : source
@@ -54,6 +55,7 @@ export default function markedHookData(
       for (const file of files) {
         const dataPrefix = basename(file, extname(file))
 
+        datasources.push(file)
         Object.assign(data, {
           [dataPrefix]: isAsync ? loadFile(file) : loadFileSync(file)
         })
@@ -61,6 +63,8 @@ export default function markedHookData(
     } else if (typeof source === 'object') {
       Object.assign(data, Array.isArray(source) ? { unknown: source } : source)
     }
+
+    Object.assign(data, { datasources })
 
     return markdown
   }
