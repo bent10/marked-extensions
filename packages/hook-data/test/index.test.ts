@@ -26,7 +26,10 @@ it('should load data from files and attach it to the context', () => {
         markdownHooks: [markedHookData('./test/fixtures/*.json')],
         htmlHooks: [
           (html, data) => {
-            expect(data).toEqual({ posts })
+            expect(data).toEqual({
+              datasources: ['./test/fixtures/posts.json'],
+              posts
+            })
 
             return html
           }
@@ -43,6 +46,7 @@ it('should load data from files and attach it to the context asynchronously', as
         markdownHooks: [markedHookData('./test/fixtures/*.json')],
         htmlHooks: [
           async (html, data) => {
+            expect(data.datasources).toEqual(['./test/fixtures/posts.json'])
             expect(await data.posts).toEqual(posts)
 
             return html
@@ -60,7 +64,11 @@ it('should load data from an object and attach it to the context', () => {
         markdownHooks: [markedHookData({ foo: 'bar', baz: true })],
         htmlHooks: [
           (html, data) => {
-            expect(data).toEqual({ foo: 'bar', baz: true })
+            expect(data).toEqual({
+              datasources: [],
+              foo: 'bar',
+              baz: true
+            })
 
             return html
           }
@@ -79,7 +87,10 @@ it('should handle array input as specific sources', () => {
         ],
         htmlHooks: [
           (html, data) => {
-            expect(data).toEqual({ posts })
+            expect(data).toEqual({
+              datasources: ['./test/fixtures/posts.json'],
+              posts
+            })
 
             return html
           }
@@ -96,7 +107,10 @@ it('should handle array input types and attach them as "unknown" key', () => {
         markdownHooks: [markedHookData(['foo', 1])],
         htmlHooks: [
           (html, data) => {
-            expect(data).toEqual({ unknown: ['foo', 1] })
+            expect(data).toEqual({
+              datasources: [],
+              unknown: ['foo', 1]
+            })
 
             return html
           }
