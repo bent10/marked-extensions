@@ -1,3 +1,10 @@
+## marked-hook-data [1.2.1](https://github.com/bent10/marked-extensions/compare/marked-hook-data@1.2.0...marked-hook-data@1.2.1) (2023-11-05)
+
+
+### Bug Fixes
+
+* **deps:** bump `loadee` ([5d0dcdf](https://github.com/bent10/marked-extensions/commit/5d0dcdf8319fcacebc7a3d794774082370314775))
+
 # marked-hook-data [1.2.0](https://github.com/bent10/marked-extensions/compare/marked-hook-data@1.1.2...marked-hook-data@1.2.0) (2023-11-04)
 
 
