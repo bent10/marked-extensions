@@ -1,3 +1,10 @@
+# marked-alert [1.2.0](https://github.com/bent10/marked-extensions/compare/marked-alert@1.1.2...marked-alert@1.2.0) (2023-11-07)
+
+
+### Features
+
+* add `className` prop to `meta` object ([d4fac90](https://github.com/bent10/marked-extensions/commit/d4fac900681374e458d5efcf7fe3d127775447a1))
+
 ## marked-alert [1.1.2](https://github.com/bent10/marked-extensions/compare/marked-alert@1.1.1...marked-alert@1.1.2) (2023-10-26)
 
 
