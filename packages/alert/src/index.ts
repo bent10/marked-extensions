@@ -51,6 +51,7 @@ export default function markedAlert(options: Options = {}): MarkedExtension {
         Object.assign(token, {
           type: 'alert',
           meta: {
+            className,
             variant: variantType,
             icon,
             title,
@@ -66,7 +67,7 @@ export default function markedAlert(options: Options = {}): MarkedExtension {
         name: 'alert',
         level: 'block',
         renderer({ meta, tokens = [] }) {
-          let tmpl = `<div class="${className} ${className}-${meta.variant}">\n`
+          let tmpl = `<div class="${meta.className} ${meta.className}-${meta.variant}">\n`
           tmpl += this.parser.parse(tokens)
           tmpl += '</div>\n'
 

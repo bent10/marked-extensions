@@ -24,6 +24,7 @@ export type AlertVariantItem = {
 export type Alert = {
   type: 'alert'
   meta: {
+    className: string
     variant: string
     icon: string
     title: string
