@@ -1,3 +1,10 @@
+# marked-hook-data [1.3.0](https://github.com/bent10/marked-extensions/compare/marked-hook-data@1.2.1...marked-hook-data@1.3.0) (2023-11-08)
+
+
+### Features
+
+* supports nested data files ([da2489b](https://github.com/bent10/marked-extensions/commit/da2489bea57674f37b8ab4fb3d544db069f072c3))
+
 ## marked-hook-data [1.2.1](https://github.com/bent10/marked-extensions/compare/marked-hook-data@1.2.0...marked-hook-data@1.2.1) (2023-11-05)
 
 
