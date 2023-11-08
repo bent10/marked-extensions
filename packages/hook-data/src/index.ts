@@ -1,42 +1,42 @@
-import { basename, extname } from 'node:path'
-import fg from 'fast-glob'
-import { loadFile, loadFileSync } from 'loadee'
+import { dirname } from 'path'
 import type { MarkdownHook } from 'marked-sequential-hooks'
-import { isBrowser, isSpecificSources } from './utils.js'
+import getAncestor from 'common-ancestor-path'
+import fg from 'fast-glob'
+import {
+  isBrowser,
+  isSpecificSources,
+  retrieveData,
+  retrieveDataSync
+} from './utils.js'
+
+type DataWithAdditionalProps = {
+  [key: string]: unknown
+  datasources?: string[]
+  datasourcesAncestor?: string | null
+  matterDataPrefix?: string | false
+}
 
 /**
  * A [sequential hook](https://github.com/bent10/marked-extensions/tree/main/packages/sequential-hooks) for marked to load additional data from files or objects
  * and attach it to the marked hooks context.
  *
- * @param arg - A string specifying file patterns or an object containing
- *   additional data.
- * @returns A `MarkdownHook` function that processes the Markdown
- *   and attaches additional data.
- *
- * @example
- * Load data from files matching the patterns:
- * ```ts
- * const filePatterns = './data/*.json';
- * const markdownHook = markedHookData(filePatterns);
- * ```
- *
- * Load data from an object:
- * ```ts
- * const dataObject = { key1: 'value1', key2: 'value2' };
- * const markdownHook = markedHookData(dataObject);
- * ```
+ * @param source - A string specifying file patterns or an object containing additional data.
+ * @param merge - A boolean indicating whether to merge additional data with existing data.
+ * @returns A `MarkdownHook` function that processes the Markdown and attaches additional data.
  */
 export default function markedHookData(
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  source?: string | { [key: string]: any }
+  source: string | string[] | { [key: string]: unknown } = {},
+  merge = true
 ): MarkdownHook {
-  return (markdown, data, isAsync) => {
-    const dataPrefix = data.matterDataPrefix as string | false
-    const matter = dataPrefix ? (data[dataPrefix] as typeof data) : data
-    const datasources: string[] = []
+  return (markdown, data: DataWithAdditionalProps, isAsync) => {
+    const { matterDataPrefix } = data
+    const matter = matterDataPrefix
+      ? (data[matterDataPrefix] as { [key: string]: unknown })
+      : data
 
     // use datasource from matter data if provided
-    source = matter.datasource ? matter.datasource : source
+    source = matter.datasource ? (matter.datasource as typeof source) : source
 
     if (
       typeof source === 'string' ||
@@ -50,21 +50,22 @@ export default function markedHookData(
         return markdown
       }
 
-      const files = fg.sync(source, { onlyFiles: true })
+      data.datasources = fg
+        .sync(source, { onlyFiles: true })
+        .map(p => p.replace(/^\.*?\//g, ''))
+      data.datasourcesAncestor =
+        data.datasources.length > 1
+          ? getAncestor(...data.datasources)
+          : dirname(data.datasources[0])
 
-      for (const file of files) {
-        const dataPrefix = basename(file, extname(file))
-
-        datasources.push(file)
-        Object.assign(data, {
-          [dataPrefix]: isAsync ? loadFile(file) : loadFileSync(file)
-        })
-      }
-    } else if (typeof source === 'object') {
-      Object.assign(data, Array.isArray(source) ? { unknown: source } : source)
+      return isAsync
+        ? retrieveData(data, markdown, merge)
+        : retrieveDataSync(data, markdown, merge)
     }
 
-    Object.assign(data, { datasources })
+    if (typeof source === 'object') {
+      Object.assign(data, Array.isArray(source) ? { unknown: source } : source)
+    }
 
     return markdown
   }

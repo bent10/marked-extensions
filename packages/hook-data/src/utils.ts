@@ -1,3 +1,7 @@
+import { extname } from 'path'
+import { loadFile, loadFileSync } from 'loadee'
+import setValue from 'set-value'
+
 declare const window: Window
 
 /**
@@ -21,5 +25,52 @@ export function isSpecificSources(items: unknown[]) {
       return false
     }
   }
+
   return true
+}
+
+export async function retrieveData(
+  target: { [key: string]: unknown },
+  markdown: string,
+  merge = true
+) {
+  const datasources = target.datasources as string[]
+  const ancestor = target.datasourcesAncestor
+
+  for (const source of datasources) {
+    const notation = source.replace(
+      new RegExp(`^${ancestor}/|${extname(source)}$`, 'g'),
+      ''
+    )
+
+    setValue(target, notation, await loadFile(source), {
+      separator: '/',
+      merge
+    })
+  }
+
+  return markdown
+}
+
+export function retrieveDataSync(
+  target: { [key: string]: unknown },
+  markdown: string,
+  merge = true
+) {
+  const datasources = target.datasources as string[]
+  const ancestor = target.datasourcesAncestor
+
+  for (const source of datasources) {
+    const notation = source.replace(
+      new RegExp(`^${ancestor}/|${extname(source)}$`, 'g'),
+      ''
+    )
+
+    setValue(target, notation, loadFileSync(source), {
+      separator: '/',
+      merge
+    })
+  }
+
+  return markdown
 }

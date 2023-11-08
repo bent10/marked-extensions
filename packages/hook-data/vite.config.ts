@@ -13,13 +13,13 @@ export default defineConfig({
       fileName: 'index'
     },
     rollupOptions: {
-      external: ['marked', 'fast-glob', 'loadee', 'node:path'],
+      external: ['marked', 'fast-glob', 'loadee', 'path'],
       output: {
         globals: {
           marked: 'marked',
           loadee: 'loadee',
           'fast-glob': 'fg',
-          'node:path': 'path'
+          path: 'path'
         }
       }
     }

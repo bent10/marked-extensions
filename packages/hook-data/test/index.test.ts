@@ -23,12 +23,46 @@ it('should load data from files and attach it to the context', () => {
   new Marked()
     .use(
       markedSequentialHooks({
-        markdownHooks: [markedHookData('./test/fixtures/*.json')],
+        markdownHooks: [markedHookData('./test/fixtures/**/*')],
         htmlHooks: [
           (html, data) => {
             expect(data).toEqual({
-              datasources: ['./test/fixtures/posts.json'],
-              posts
+              nested: { foo: { abc: 'baz', qux: true }, bar: { qux: false } },
+              posts,
+              datasourcesAncestor: 'test/fixtures',
+              datasources: [
+                'test/fixtures/nested.json',
+                'test/fixtures/posts.json',
+                'test/fixtures/nested/bar.cjs',
+                'test/fixtures/nested/foo.yml'
+              ]
+            })
+
+            return html
+          }
+        ]
+      })
+    )
+    .parse('# content')
+})
+
+it('should load data from files and attach it to the context without merging', () => {
+  new Marked()
+    .use(
+      markedSequentialHooks({
+        markdownHooks: [markedHookData('./test/fixtures/**/*', false)],
+        htmlHooks: [
+          (html, data) => {
+            expect(data).toEqual({
+              nested: { foo: { qux: true }, bar: { qux: false } },
+              posts,
+              datasourcesAncestor: 'test/fixtures',
+              datasources: [
+                'test/fixtures/nested.json',
+                'test/fixtures/posts.json',
+                'test/fixtures/nested/bar.cjs',
+                'test/fixtures/nested/foo.yml'
+              ]
             })
 
             return html
@@ -43,11 +77,31 @@ it('should load data from files and attach it to the context asynchronously', as
   await new Marked({ async: true })
     .use(
       markedSequentialHooks({
-        markdownHooks: [markedHookData('./test/fixtures/*.json')],
+        markdownHooks: [
+          markedHookData('./test/fixtures/**/*'),
+          async (md, data) => {
+            for (const key in data) {
+              if (data[key] instanceof Promise) {
+                data[key] = await data[key]
+              }
+            }
+
+            return md
+          }
+        ],
         htmlHooks: [
-          async (html, data) => {
-            expect(data.datasources).toEqual(['./test/fixtures/posts.json'])
-            expect(await data.posts).toEqual(posts)
+          (html, data) => {
+            expect(data).toEqual({
+              nested: { foo: { abc: 'baz', qux: true }, bar: { qux: false } },
+              posts,
+              datasourcesAncestor: 'test/fixtures',
+              datasources: [
+                'test/fixtures/nested.json',
+                'test/fixtures/posts.json',
+                'test/fixtures/nested/bar.cjs',
+                'test/fixtures/nested/foo.yml'
+              ]
+            })
 
             return html
           }
@@ -65,7 +119,6 @@ it('should load data from an object and attach it to the context', () => {
         htmlHooks: [
           (html, data) => {
             expect(data).toEqual({
-              datasources: [],
               foo: 'bar',
               baz: true
             })
@@ -83,12 +136,13 @@ it('should handle array input as specific sources', () => {
     .use(
       markedSequentialHooks({
         markdownHooks: [
-          markedHookData(['./test/fixtures/*.json', './no-exist/file.json'])
+          markedHookData(['./test/fixtures/posts.json', './no-exist/file.json'])
         ],
         htmlHooks: [
           (html, data) => {
             expect(data).toEqual({
-              datasources: ['./test/fixtures/posts.json'],
+              datasources: ['test/fixtures/posts.json'],
+              datasourcesAncestor: 'test/fixtures',
               posts
             })
 
@@ -104,11 +158,10 @@ it('should handle array input types and attach them as "unknown" key', () => {
   new Marked()
     .use(
       markedSequentialHooks({
-        markdownHooks: [markedHookData(['foo', 1])],
+        markdownHooks: [markedHookData(['foo', 1 as unknown as string])],
         htmlHooks: [
           (html, data) => {
             expect(data).toEqual({
-              datasources: [],
               unknown: ['foo', 1]
             })
 
@@ -136,9 +189,7 @@ it('should use datasource from matter data if provided', () => {
         markdownHooks: [mockFrontmatterHook, markedHookData()],
         htmlHooks: [
           (html, data) => {
-            ;(<Post[]>data.posts).forEach((post, i) => {
-              expect(post).toEqual(posts[i])
-            })
+            expect(data.posts).toEqual(posts)
 
             return html
           }
@@ -164,9 +215,7 @@ it('should use datasource from matter data with prefix if provided', () => {
         markdownHooks: [mockFrontmatterHook, markedHookData()],
         htmlHooks: [
           (html, data) => {
-            ;(<Post[]>data.posts).forEach((post, i) => {
-              expect(post).toEqual(posts[i])
-            })
+            expect(data.posts).toEqual(posts)
 
             return html
           }
@@ -175,5 +224,3 @@ it('should use datasource from matter data with prefix if provided', () => {
     )
     .parse('---\ndatasource: "./test/fixtures/posts.json"\n---\n')
 })
-
-type Post = { title: string; body: string }
