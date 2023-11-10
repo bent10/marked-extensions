@@ -34,7 +34,6 @@
     "@types/set-value": "^4.0.2",
     "doogu": "^3.2.7",
     "marked": "^9.1.5",
-    "marked-hook-frontmatter": "^0.0.0-development",
     "prettier-plugin-svelte": "^3.0.3",
     "pupa": "^3.1.0",
     "react-dom": "^18.2.0",
