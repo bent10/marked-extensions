@@ -220,7 +220,6 @@ This object will be attached to the hooks context.
 
 - [marked-sequential-hooks](https://github.com/bent10/marked-extensions/tree/main/packages/sequential-hooks)
 - [marked-hook-frontmatter](https://github.com/bent10/marked-extensions/tree/main/packages/hook-frontmatter)
-- [marked-hook-handlebars](https://github.com/bent10/marked-extensions/tree/main/packages/hook-handlebars)
 - [marked-hook-layout](https://github.com/bent10/marked-extensions/tree/main/packages/hook-layout)
 - [loadee](https://github.com/bent10/loadee)
 

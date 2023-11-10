@@ -235,7 +235,6 @@ function myHook(options = {}): HtmlHook {
 
 - [marked-hook-data](https://github.com/bent10/marked-extensions/tree/main/packages/hook-data)
 - [marked-hook-frontmatter](https://github.com/bent10/marked-extensions/tree/main/packages/hook-frontmatter)
-- [marked-hook-handlebars](https://github.com/bent10/marked-extensions/tree/main/packages/hook-handlebars)
 - [marked-hook-layout](https://github.com/bent10/marked-extensions/tree/main/packages/hook-layout)
 
 ## Contributing

@@ -55,7 +55,6 @@ import markedSequentialHooks from 'marked-sequential-hooks'
 import markedHookData from 'marked-hook-data'
 import markedHookFrontmatter from 'marked-hook-frontmatter'
 import markedHookLayout from 'marked-hook-layout'
-import markedHookHandlebars from 'marked-hook-handlebars'
 
 const md = readFileSync('example.md', 'utf8')
 
@@ -66,7 +65,7 @@ const html = new Marked()
         markedHookData({ date: new Date('2023-09-30').toDateString() }),
         markedHookFrontmatter({ dataPrefix: true })
       ],
-      htmlHooks: [markedHookLayout(), markedHookHandlebars()]
+      htmlHooks: [markedHookLayout()]
     })
   )
   .parse(md)
@@ -109,7 +108,6 @@ The `marked-hook-layout` function accepts the following configuration options:
 - [marked-sequential-hooks](https://github.com/bent10/marked-extensions/tree/main/packages/sequential-hooks)
 - [marked-hook-data](https://github.com/bent10/marked-extensions/tree/main/packages/hook-data)
 - [marked-hook-frontmatter](https://github.com/bent10/marked-extensions/tree/main/packages/hook-frontmatter)
-- [marked-hook-handlebars](https://github.com/bent10/marked-extensions/tree/main/packages/hook-handlebars)
 
 ## Contributing
 
