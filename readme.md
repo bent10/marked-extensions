@@ -42,7 +42,6 @@ console.log(html)
 | Package                                              | Types          | Description                                          | Version (click for changelog)                                                                          |
 | :--------------------------------------------------- | :------------- | :--------------------------------------------------- | :----------------------------------------------------------------------------------------------------- |
 | [marked-hook-data](packages/hook-data)               | `MarkdownHook` | A sequential hook to load data from files or objects | [![npm](https://img.shields.io/npm/v/marked-hook-data)](packages/hook-data/changelog.md)               |
-| [marked-hook-ejs](packages/hook-ejs)                 | `any`          | A sequential hook to support EJS                     | [![npm](https://img.shields.io/npm/v/marked-hook-ejs)](packages/hook-ejs/changelog.md)                 |
 | [marked-hook-frontmatter](packages/hook-frontmatter) | `MarkdownHook` | A sequential hook to support frontmatter             | [![npm](https://img.shields.io/npm/v/marked-hook-frontmatter)](packages/hook-frontmatter/changelog.md) |
 | [marked-hook-layout](packages/hook-layout)           | `HtmlHook`     | A sequential hook that handles layouts               | [![npm](https://img.shields.io/npm/v/marked-hook-layout)](packages/hook-layout/changelog.md)           |
 
