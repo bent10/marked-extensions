@@ -53,10 +53,12 @@ export default function markedHookData(
       data.datasources = fg
         .sync(source, { onlyFiles: true })
         .map(p => p.replace(/^\.*?\//g, ''))
-      data.datasourcesAncestor =
+
+      const datasourcesAncestor =
         data.datasources.length > 1
-          ? getAncestor(...data.datasources)
+          ? String(getAncestor(...data.datasources))
           : dirname(data.datasources[0])
+      data.datasourcesAncestor = datasourcesAncestor.replace(/\\+/g, '/')
 
       return isAsync
         ? retrieveData(data, markdown, merge)
