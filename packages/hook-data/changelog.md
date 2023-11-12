@@ -1,3 +1,10 @@
+## marked-hook-data [1.3.1](https://github.com/bent10/marked-extensions/compare/marked-hook-data@1.3.0...marked-hook-data@1.3.1) (2023-11-12)
+
+
+### Bug Fixes
+
+* **windows:** use posix path for datasource ancestor ([20eaa3c](https://github.com/bent10/marked-extensions/commit/20eaa3cba097beb0653f2760b359a6854f012b1a))
+
 # marked-hook-data [1.3.0](https://github.com/bent10/marked-extensions/compare/marked-hook-data@1.2.1...marked-hook-data@1.3.0) (2023-11-08)
 
 
