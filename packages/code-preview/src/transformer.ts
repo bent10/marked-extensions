@@ -33,10 +33,11 @@ export function transform(token: Tokens.Generic, options: TransformOptions) {
   token.lang = token.lang?.replace(ATTR_PATTERN, '')
 
   // data for interpolation
+  const preview = transformer(token.text, attrs, data)
   const dataInterpolation = {
     ...data,
     ...attrs,
-    preview: transformer(token.text, attrs, data)
+    preview
   }
 
   const acc: Array<Tokens.Code | Tokens.Generic | Tokens.HTML | Tokens.Space> =
