@@ -1,3 +1,10 @@
+## marked-code-preview [1.3.4](https://github.com/bent10/marked-extensions/compare/marked-code-preview@1.3.3...marked-code-preview@1.3.4) (2023-11-13)
+
+
+### Bug Fixes
+
+* calls transformer before interpolation ([18fe7b5](https://github.com/bent10/marked-extensions/commit/18fe7b5c5bb4f3a181115821ac0f83ed6c7eb929))
+
 ## marked-code-preview [1.3.3](https://github.com/bent10/marked-extensions/compare/marked-code-preview@1.3.2...marked-code-preview@1.3.3) (2023-11-03)
 
 
