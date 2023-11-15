@@ -1,3 +1,10 @@
+## marked-alert [1.2.1](https://github.com/bent10/marked-extensions/compare/marked-alert@1.2.0...marked-alert@1.2.1) (2023-11-15)
+
+
+### Bug Fixes
+
+* resolves first-line tokens ([05a74cd](https://github.com/bent10/marked-extensions/commit/05a74cde1b082599e64fe6cdcd7f666a95b38cc2))
+
 # marked-alert [1.2.0](https://github.com/bent10/marked-extensions/compare/marked-alert@1.1.2...marked-alert@1.2.0) (2023-11-07)
 
 
