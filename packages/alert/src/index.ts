@@ -1,4 +1,4 @@
-import type { MarkedExtension, Tokens } from 'marked'
+import type { Marked, MarkedExtension, Tokens } from 'marked'
 import type { Alert, AlertVariantItem, Options } from './types.js'
 import {
   createSyntaxPattern,
@@ -38,15 +38,11 @@ export default function markedAlert(options: Options = {}): MarkedExtension {
         )
         const titleClasses = resolveTitleClassName(variantType, titleClassName)
 
-        firstLine.tokens = [
-          <Tokens.Text>{
-            type: 'text',
-            raw: firstLine.raw,
-            text: `<span class="${titleClasses}">${icon + title}</span>${
-              firstLineText ? `<br />${firstLineText}` : ''
-            }`
-          }
-        ]
+        firstLine.tokens = (this as unknown as Marked).Lexer.lexInline(
+          `<span class="${titleClasses}">${icon + title}</span>${
+            firstLineText ? `<br />${firstLineText}` : ''
+          }`
+        )
 
         Object.assign(token, {
           type: 'alert',
