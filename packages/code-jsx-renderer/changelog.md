@@ -1,3 +1,10 @@
+## marked-code-jsx-renderer [1.2.2](https://github.com/bent10/marked-extensions/compare/marked-code-jsx-renderer@1.2.1...marked-code-jsx-renderer@1.2.2) (2023-11-15)
+
+
+### Bug Fixes
+
+* **deps:** ncu ([a060742](https://github.com/bent10/marked-extensions/commit/a060742e6a4c573207d173f5c1bcd2448b83cf90))
+
 ## marked-code-jsx-renderer [1.2.1](https://github.com/bent10/marked-extensions/compare/marked-code-jsx-renderer@1.2.0...marked-code-jsx-renderer@1.2.1) (2023-10-26)
 
 
