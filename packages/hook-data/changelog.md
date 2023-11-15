@@ -1,3 +1,10 @@
+## marked-hook-data [1.3.2](https://github.com/bent10/marked-extensions/compare/marked-hook-data@1.3.1...marked-hook-data@1.3.2) (2023-11-15)
+
+
+### Bug Fixes
+
+* **deps:** ncu ([a060742](https://github.com/bent10/marked-extensions/commit/a060742e6a4c573207d173f5c1bcd2448b83cf90))
+
 ## marked-hook-data [1.3.1](https://github.com/bent10/marked-extensions/compare/marked-hook-data@1.3.0...marked-hook-data@1.3.1) (2023-11-12)
 
 
