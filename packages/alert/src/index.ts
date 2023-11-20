@@ -1,4 +1,4 @@
-import type { MarkedExtension, Tokens } from 'marked'
+import type { Marked, MarkedExtension, Tokens } from 'marked'
 import type { Alert, AlertVariantItem, Options } from './types.js'
 import { createSyntaxPattern, resolveVariants, ucfirst } from './utils.js'
 
@@ -37,26 +37,33 @@ export default function markedAlert(options: Options = {}): MarkedExtension {
             titleClassName
           }
         })
+
+        const firstLine = token.tokens?.[0] as Tokens.Paragraph
+        const firstLineText = firstLine.raw
+          ?.replace(new RegExp(createSyntaxPattern(variantType)), '')
+          .trim()
+
+        if (firstLineText) {
+          firstLine.tokens = (this as unknown as Marked).Lexer.lexInline(
+            firstLineText
+          )
+          token.tokens?.splice(0, 1, firstLine)
+        } else {
+          token.tokens?.shift()
+        }
       }
     },
     extensions: [
       {
         name: 'alert',
         level: 'block',
-        renderer(token) {
-          const { meta, tokens = [] } = token as Alert
-          const firstLine = tokens[0] as Tokens.Paragraph
-          const firstLineText = firstLine.raw
-            ?.replace(new RegExp(createSyntaxPattern(meta.variant)), '')
-            .trim()
-
+        renderer({ meta, tokens = [] }) {
           let tmpl = `<div class="${meta.className} ${meta.className}-${meta.variant}">\n`
           tmpl += `<p class="${meta.titleClassName}">`
           tmpl += meta.icon
           tmpl += meta.title
           tmpl += '</p>\n'
-          tmpl += firstLineText ? `<p>${firstLineText}</p>\n` : ''
-          tmpl += this.parser.parse(tokens.slice(1))
+          tmpl += this.parser.parse(tokens)
           tmpl += '</div>\n'
 
           return tmpl
