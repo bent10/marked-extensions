@@ -1,3 +1,10 @@
+## marked-alert [2.0.1](https://github.com/bent10/marked-extensions/compare/marked-alert@2.0.0...marked-alert@2.0.1) (2023-11-20)
+
+
+### Bug Fixes
+
+* tokenize first-line text ([d4a5f49](https://github.com/bent10/marked-extensions/commit/d4a5f4990abe3ea339148f4619067973f1edab9b)), closes [#18](https://github.com/bent10/marked-extensions/issues/18)
+
 # marked-alert [2.0.0](https://github.com/bent10/marked-extensions/compare/marked-alert@1.2.1...marked-alert@2.0.0) (2023-11-20)
 
 
