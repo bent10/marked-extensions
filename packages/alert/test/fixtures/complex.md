@@ -9,13 +9,13 @@
 > [!WARNING]
 > Critical content demanding immediate user attention due to potential risks.
 
-> **Note**
+> [!NOTE]
 > This is a note
 >
 > > blockquote
 > > after
 
-> **Important**
+> [!IMPORTANT]
 >
 > > multi line
 > >
@@ -25,7 +25,7 @@
 
 > This is a blockquote with
 >
-> > **Warning**
+> > [!WARNING]
 > > note inside
 
 > [!NOTE]
@@ -34,7 +34,7 @@
 > console.log('nested note')
 > ```
 >
-> > **Note**
+> > [!NOTE]
 > >
 > > - This is
 > > - a `note`

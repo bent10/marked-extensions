@@ -29,6 +29,12 @@
         border-left: 0.25em solid #444c56;
       }
 
+      .markdown-alert-title {
+        display: inline-flex;
+        align-items: center;
+        font-weight: 500;
+      }
+
       .markdown-alert-note {
         border-left-color: #539bf5;
       }
@@ -41,32 +47,16 @@
         border-left-color: #c69026;
       }
 
-      .color-fg-accent {
+      .markdown-alert-note > .markdown-alert-title {
         color: #539bf5;
       }
 
-      .color-fg-done {
+      .markdown-alert-important > .markdown-alert-title {
         color: #986ee2;
       }
 
-      .color-fg-attention {
+      .markdown-alert-warning > .markdown-alert-title {
         color: #c69026;
-      }
-
-      .d-inline-flex {
-        display: inline-flex;
-      }
-
-      .flex-items-center {
-        align-items: center;
-      }
-
-      .text-semibold {
-        font-weight: 500;
-      }
-
-      .mb-1 {
-        margin-bottom: 0.25rem;
       }
 
       .mr-2 {
@@ -79,8 +69,10 @@
     <div id="content"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/marked-alert/dist/index.umd.min.js"></script>
-    <script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/marked-alert/dist/index.umd.min.js"></script> -->
+    <script type="module">
+      import markedAlert from "./src/index.ts"
+
       const md = `# Example
 
 > [!NOTE]
@@ -92,12 +84,14 @@
 > [!WARNING]
 > Critical content demanding immediate user attention due to potential risks.
 
-> **Note**
+---
+
+> [!NOTE]
 > This is a note
 > > blockquote
 > > after
 
-> **Important**
+> [!IMPORTANT]
 > > multi line
 > >
 > > blockquote before
@@ -106,7 +100,7 @@
 
 > This is a blockquote with
 >
-> > **Warning**
+> > [!WARNING]
 > > note inside
 
 > [!NOTE]
@@ -115,7 +109,7 @@
 > console.log('nested note')
 > \`\`\`
 >
-> > **Note**
+> > [!NOTE]
 > >
 > > - This is
 > > - a \`note\`

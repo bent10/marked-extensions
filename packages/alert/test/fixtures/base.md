@@ -8,14 +8,3 @@
 
 > [!WARNING]
 > Critical content demanding immediate user attention due to potential risks.
-
-Old syntax:
-
-> **Note**
-> This is a note
-
-> **Important**
-> This is a important
-
-> **Warning**
-> This is a warning

@@ -1,11 +1,6 @@
-import type { Marked, MarkedExtension, Tokens } from 'marked'
+import type { MarkedExtension, Tokens } from 'marked'
 import type { Alert, AlertVariantItem, Options } from './types.js'
-import {
-  createSyntaxPattern,
-  resolveTitleClassName,
-  resolveVariants,
-  ucFirst
-} from './utils.js'
+import { createSyntaxPattern, resolveVariants, ucFirst } from './utils.js'
 
 export type { Alert, AlertVariantItem, Options }
 
@@ -29,20 +24,8 @@ export default function markedAlert(options: Options = {}): MarkedExtension {
           type: variantType,
           icon,
           title = ucFirst(variantType),
-          titleClassName
+          titleClassName = `${className}-title`
         } = matchedVariant
-        const firstLine = token.tokens?.[0] as Tokens.Paragraph
-        const firstLineText = firstLine.raw?.replace(
-          new RegExp(createSyntaxPattern(variantType)),
-          ''
-        )
-        const titleClasses = resolveTitleClassName(variantType, titleClassName)
-
-        firstLine.tokens = (this as unknown as Marked).Lexer.lexInline(
-          `<span class="${titleClasses}">${icon + title}</span>${
-            firstLineText ? `<br />${firstLineText}` : ''
-          }`
-        )
 
         Object.assign(token, {
           type: 'alert',
@@ -51,20 +34,29 @@ export default function markedAlert(options: Options = {}): MarkedExtension {
             variant: variantType,
             icon,
             title,
-            titleClassName: titleClasses
+            titleClassName
           }
         })
-
-        token.tokens?.splice(0, 1, firstLine)
       }
     },
     extensions: [
       {
         name: 'alert',
         level: 'block',
-        renderer({ meta, tokens = [] }) {
+        renderer(token) {
+          const { meta, tokens = [] } = token as Alert
+          const firstLine = tokens[0] as Tokens.Paragraph
+          const firstLineText = firstLine.raw
+            ?.replace(new RegExp(createSyntaxPattern(meta.variant)), '')
+            .trim()
+
           let tmpl = `<div class="${meta.className} ${meta.className}-${meta.variant}">\n`
-          tmpl += this.parser.parse(tokens)
+          tmpl += `<p class="${meta.titleClassName}">`
+          tmpl += meta.icon
+          tmpl += meta.title
+          tmpl += '</p>\n'
+          tmpl += firstLineText ? `<p>${firstLineText}</p>\n` : ''
+          tmpl += this.parser.parse(tokens.slice(1))
           tmpl += '</div>\n'
 
           return tmpl
