@@ -1,3 +1,16 @@
+# marked-alert [2.0.0](https://github.com/bent10/marked-extensions/compare/marked-alert@1.2.1...marked-alert@2.0.0) (2023-11-20)
+
+
+### Features
+
+* add support for `[!TIP]` and `[!CAUTION]` ([452926c](https://github.com/bent10/marked-extensions/commit/452926c396cfea9369dff878d3296751f64d96c4)), closes [#18](https://github.com/bent10/marked-extensions/issues/18)
+* drop support for old syntax ([a46101b](https://github.com/bent10/marked-extensions/commit/a46101b161558dad96a9d2df067f84455fe72062))
+
+
+### BREAKING CHANGES
+
+* The initial syntax using e.g. `**Note**` isn't supported any longer.
+
 ## marked-alert [1.2.1](https://github.com/bent10/marked-extensions/compare/marked-alert@1.2.0...marked-alert@1.2.1) (2023-11-15)
 
 
