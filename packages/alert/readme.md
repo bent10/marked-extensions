@@ -34,11 +34,17 @@ Say we have the following file `example.md`:
 > [!NOTE]
 > Highlights information that users should take into account, even when skimming.
 
+> [!TIP]
+> Optional information to help a user be more successful.
+
 > [!IMPORTANT]
 > Crucial information necessary for users to succeed.
 
 > [!WARNING]
 > Critical content demanding immediate user attention due to potential risks.
+
+> [!CAUTION]
+> Negative potential consequences of an action.
 ```
 
 And our module `example.js` looks as follows:
@@ -57,14 +63,13 @@ console.log(html)
 
 Now, running node `example.js` yields:
 
-```xml
+```html
 <h1>Example</h1>
 <div class="markdown-alert markdown-alert-note">
   <p class="markdown-alert-title">
     <svg
       class="octicon octicon-info mr-2"
       viewBox="0 0 16 16"
-      version="1.1"
       width="16"
       height="16"
       aria-hidden="true"
@@ -79,12 +84,27 @@ Now, running node `example.js` yields:
     skimming.
   </p>
 </div>
+<div class="markdown-alert markdown-alert-tip">
+  <p class="markdown-alert-title">
+    <svg
+      class="octicon octicon-light-bulb mr-2"
+      viewBox="0 0 16 16"
+      width="16"
+      height="16"
+      aria-hidden="true"
+    >
+      <path
+        d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"
+      ></path></svg
+    >Tip
+  </p>
+  <p>Optional information to help a user be more successful.</p>
+</div>
 <div class="markdown-alert markdown-alert-important">
   <p class="markdown-alert-title">
     <svg
       class="octicon octicon-report mr-2"
       viewBox="0 0 16 16"
-      version="1.1"
       width="16"
       height="16"
       aria-hidden="true"
@@ -101,7 +121,6 @@ Now, running node `example.js` yields:
     <svg
       class="octicon octicon-alert mr-2"
       viewBox="0 0 16 16"
-      version="1.1"
       width="16"
       height="16"
       aria-hidden="true"
@@ -114,6 +133,22 @@ Now, running node `example.js` yields:
   <p>
     Critical content demanding immediate user attention due to potential risks.
   </p>
+</div>
+<div class="markdown-alert markdown-alert-caution">
+  <p class="markdown-alert-title">
+    <svg
+      class="octicon octicon-stop mr-2"
+      viewBox="0 0 16 16"
+      width="16"
+      height="16"
+      aria-hidden="true"
+    >
+      <path
+        d="M4.47.22A.749.749 0 0 1 5 0h6c.199 0 .389.079.53.22l4.25 4.25c.141.14.22.331.22.53v6a.749.749 0 0 1-.22.53l-4.25 4.25A.749.749 0 0 1 11 16H5a.749.749 0 0 1-.53-.22L.22 11.53A.749.749 0 0 1 0 11V5c0-.199.079-.389.22-.53Zm.84 1.28L1.5 5.31v5.38l3.81 3.81h5.38l3.81-3.81V5.31L10.69 1.5ZM8 4a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
+      ></path></svg
+    >Caution
+  </p>
+  <p>Negative potential consequences of an action.</p>
 </div>
 ```
 
@@ -128,9 +163,11 @@ The `markedAlert` extension accepts the following configuration options:
 
 The extension includes default alert variants:
 
-- `note`: Represents a note alert.
-- `important`: Represents an important alert.
-- `warning`: Represents a warning alert.
+- `[!NOTE]`: Highlights information that users should take into account, even when skimming.
+- `[!TIP]`: Optional information to help a user be more successful.
+- `[!IMPORTANT]`: Crucial information necessary for users to succeed.
+- `[!WARNING]`: Critical content demanding immediate user attention due to potential risks.
+- `[!CAUTION]`: Negative potential consequences of an action.
 
 Each variant has an associated icon and title class name.
 

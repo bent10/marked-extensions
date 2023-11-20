@@ -1,6 +1,6 @@
 import type { MarkedExtension, Tokens } from 'marked'
 import type { Alert, AlertVariantItem, Options } from './types.js'
-import { createSyntaxPattern, resolveVariants, ucFirst } from './utils.js'
+import { createSyntaxPattern, resolveVariants, ucfirst } from './utils.js'
 
 export type { Alert, AlertVariantItem, Options }
 
@@ -23,7 +23,7 @@ export default function markedAlert(options: Options = {}): MarkedExtension {
         const {
           type: variantType,
           icon,
-          title = ucFirst(variantType),
+          title = ucfirst(variantType),
           titleClassName = `${className}-title`
         } = matchedVariant
 
