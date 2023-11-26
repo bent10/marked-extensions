@@ -69,6 +69,35 @@ This is a sentence with an empty footnote[^1].
   `)
 })
 
+it('should handle footnote content with link', () => {
+  const md = `
+This is a sentence with an empty footnote[^1].
+
+[^1]: foo <https://example.com>
+[^2]: bar [Foo](https://example.com)
+`
+  const html = marked.use(markedFootnote()).parse(md)
+
+  expect(html).toMatchInlineSnapshot(`
+    "<p>This is a sentence with an empty footnote<sup><a id=\\"footnote-ref-1\\" href=\\"#footnote-1\\" data-footnote-ref aria-describedby=\\"footnote-label\\">1</a></sup>.</p>
+    <section class=\\"footnotes\\" data-footnotes>
+    <h2 id=\\"footnote-label\\" class=\\"sr-only\\">Footnotes</h2>
+    <ol>
+    <li id=\\"footnote-1\\">
+    <p>foo <a href=\\"https://example.com\\">https://example.com</a>
+    <a href=\\"#footnote-ref-1\\" data-footnote-backref aria-label=\\"Back to reference 1\\">↩</a></p>
+    </li>
+    <li id=\\"footnote-2\\">
+    <p>bar <a href=\\"https://example.com\\">Foo</a>
+    <a href=\\"#footnote-ref-2\\" data-footnote-backref aria-label=\\"Back to reference 2\\">↩</a></p>
+    </li>
+
+    </ol>
+    </section>
+    "
+  `)
+})
+
 it('should handle multiple references to the same footnote', () => {
   const md = `
 This is a sentence with multiple references to the same footnote[^1][^1].
