@@ -1,3 +1,10 @@
+## marked-footnote [1.1.3](https://github.com/bent10/marked-extensions/compare/marked-footnote@1.1.2...marked-footnote@1.1.3) (2023-11-26)
+
+
+### Bug Fixes
+
+* allows link in footnote content ([a3e49ac](https://github.com/bent10/marked-extensions/commit/a3e49acc0344d33525181639bbe55aa5aa11024d)), closes [#23](https://github.com/bent10/marked-extensions/issues/23)
+
 ## marked-footnote [1.1.2](https://github.com/bent10/marked-extensions/compare/marked-footnote@1.1.1...marked-footnote@1.1.2) (2023-11-03)
 
 
