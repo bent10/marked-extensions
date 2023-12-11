@@ -1,3 +1,10 @@
+# marked-footnote [1.2.0](https://github.com/bent10/marked-extensions/compare/marked-footnote@1.1.3...marked-footnote@1.2.0) (2023-12-11)
+
+
+### Features
+
+* use sequential number for footnote refs and resolve footnote order ([1d53da3](https://github.com/bent10/marked-extensions/commit/1d53da3d285107f353cd7c2237df3f22ee4343bc)), closes [#26](https://github.com/bent10/marked-extensions/issues/26)
+
 ## marked-footnote [1.1.3](https://github.com/bent10/marked-extensions/compare/marked-footnote@1.1.2...marked-footnote@1.1.3) (2023-11-26)
 
 
