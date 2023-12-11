@@ -17,7 +17,7 @@ export default function markedFootnote(options: Options = {}): MarkedExtension {
 
   return {
     extensions: [
-      createFootnote({ prefixId, lexer, description }),
+      createFootnote(lexer, description),
       createFootnoteRef(prefixId, refMarkers),
       createFootnotes(prefixId)
     ],

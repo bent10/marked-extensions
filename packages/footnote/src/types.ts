@@ -33,6 +33,7 @@ export interface Options {
 export type Footnotes = {
   type: 'footnotes'
   raw: string
+  rawItems: Footnote[]
   items: Footnote[]
 }
 
@@ -43,6 +44,7 @@ export type Footnote = {
   type: 'footnote'
   raw: string
   label: string
+  refs: FootnoteRef[]
   content: Token[]
 }
 
@@ -52,6 +54,7 @@ export type Footnote = {
 export type FootnoteRef = {
   type: 'footnoteRef'
   raw: string
+  id: string
   label: string
 }
 

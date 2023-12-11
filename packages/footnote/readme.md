@@ -85,9 +85,9 @@ Here is a simple footnote[^1]. With some additional text after it[^@#$%] and wit
     > A blockquote with
     > multiple lines.
 
-    \`\`\`
+    ~~~
     a code block
-    \`\`\`
+    ~~~
 
     | Header 1 | Header 2 |
     | -------- | -------- |
@@ -187,7 +187,7 @@ Now, running node `example.js` yields:
       href="#footnote-%40%23%24%25"
       data-footnote-ref
       aria-describedby="footnote-label"
-      >@#$%</a
+      >2</a
     ></sup
   >
   and without disrupting the blocks<sup
@@ -196,7 +196,7 @@ Now, running node `example.js` yields:
       href="#footnote-bignote"
       data-footnote-ref
       aria-describedby="footnote-label"
-      >bignote</a
+      >3</a
     ></sup
   >.
 </p>
@@ -210,6 +210,17 @@ Now, running node `example.js` yields:
           href="#footnote-ref-1"
           data-footnote-backref
           aria-label="Back to reference 1"
+          >↩</a
+        >
+      </p>
+    </li>
+    <li id="footnote-%40%23%24%25">
+      <p>
+        A footnote on the label: &quot;@#$%&quot;.
+        <a
+          href="#footnote-ref-%40%23%24%25"
+          data-footnote-backref
+          aria-label="Back to reference @#$%"
           >↩</a
         >
       </p>
@@ -247,25 +258,12 @@ Now, running node `example.js` yields:
           </ul>
         </li>
       </ul>
-      <p>
-        <a
-          href="#footnote-ref-bignote"
-          data-footnote-backref
-          aria-label="Back to reference bignote"
-          >↩</a
-        >
-      </p>
-    </li>
-    <li id="footnote-%40%23%24%25">
-      <p>
-        A footnote on the label: &quot;@#$%&quot;.
-        <a
-          href="#footnote-ref-%40%23%24%25"
-          data-footnote-backref
-          aria-label="Back to reference @#$%"
-          >↩</a
-        >
-      </p>
+      <a
+        href="#footnote-ref-bignote"
+        data-footnote-backref
+        aria-label="Back to reference bignote"
+        >↩</a
+      >
     </li>
   </ol>
 </section>
@@ -299,12 +297,6 @@ When considering the use of footnotes in your content, it's important to keep in
 
 1. **Screen Reader Compatibility**: Screen readers may not effectively convey footnotes. They tend to read the footnote number without indicating that it's a footnote or using superscript. Additionally, they may not identify the link to the footnote text.
 2. **Accessibility Challenges**: Footnotes pose challenges for all users on a web page. To access them, one often needs to scroll to the end of the page, read the footnote, and then click back to the main content. Not everyone is aware that they should click on the footnote at the end, potentially causing them to lose their place. Moreover, if the same footnote is repeated multiple times, clicking on the link could lead to the wrong location.
-
-If you find it necessary to utilize footnotes, here are some best practices to follow:
-
-- **Numeric Format**: Use numbers for your footnotes rather than typographical symbols or special characters.
-- **Square Bracket Markers**: Place footnote markers in square brackets, like this: `[1]`.
-- **Avoid Superscript**: Do not use superscript formatting for your footnote markers.
 
 ## Related
 

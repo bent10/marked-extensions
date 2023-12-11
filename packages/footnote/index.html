@@ -37,8 +37,10 @@
     <div id="content"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/marked-footnote/dist/index.umd.min.js"></script>
-    <script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/marked-footnote/dist/index.umd.min.js"></script> -->
+    <script type="module">
+      import markedFootnote from "./src/index.ts"
+
       const md = `# Example
 
 [^1]: This is a footnote content.
@@ -52,9 +54,9 @@ Here is a simple footnote[^1]. With some additional text after it[^@#$%] and wit
     > A blockquote with
     > multiple lines.
 
-    \`\`\`
+    ~~~
     a code block
-    \`\`\`
+    ~~~
 
     | Header 1 | Header 2 |
     | -------- | -------- |
