@@ -46,6 +46,7 @@ export function createFootnoteRef(prefixId: string, refMarkers = false) {
       }
     },
     renderer({ id, label }: FootnoteRef) {
+      order = 0 // reset order
       const encodedLabel = encodeURIComponent(label)
 
       return `<sup><a id="${prefixId}ref-${encodedLabel}" href="#${

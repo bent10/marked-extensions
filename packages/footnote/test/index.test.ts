@@ -111,6 +111,31 @@ This is a sentence with an empty footnote[^1].
   `)
 })
 
+it('should reset refs number on each parsing', () => {
+  const md = `
+This is a sentence with an empty footnote[^1].
+
+[^1]: foo <https://example.com>
+`
+  const engine = marked.use(markedFootnote())
+  const result1 = engine.parse(md)
+  const result2 = engine.parse(md)
+
+  expect(result1).toMatchInlineSnapshot(`
+    "<p>This is a sentence with an empty footnote<sup><a id=\\"footnote-ref-1\\" href=\\"#footnote-1\\" data-footnote-ref aria-describedby=\\"footnote-label\\">1</a></sup>.</p>
+    <section class=\\"footnotes\\" data-footnotes>
+    <h2 id=\\"footnote-label\\" class=\\"sr-only\\">Footnotes</h2>
+    <ol>
+    <li id=\\"footnote-1\\">
+    <p>foo <a href=\\"https://example.com\\">https://example.com</a> <a href=\\"#footnote-ref-1\\" data-footnote-backref aria-label=\\"Back to reference 1\\">↩</a></p>
+    </li>
+    </ol>
+    </section>
+    "
+  `)
+  expect(result2).toMatch(result1)
+})
+
 it('should handle footnote content with link', () => {
   const md = `
 This is a sentence[^2] with an empty footnote[^1].
