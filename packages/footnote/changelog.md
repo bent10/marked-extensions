@@ -1,3 +1,11 @@
+## marked-footnote [1.2.1](https://github.com/bent10/marked-extensions/compare/marked-footnote@1.2.0...marked-footnote@1.2.1) (2023-12-13)
+
+
+### Bug Fixes
+
+* preserve the value of the first token by leaving a space to ensure that the subsequent item is properly accessed ([3e26ab5](https://github.com/bent10/marked-extensions/commit/3e26ab5d0fe7e0f23fb28d5550372ff1cbb43aa4)), closes [#27](https://github.com/bent10/marked-extensions/issues/27)
+* reset refs number on each parsing ([d72b9da](https://github.com/bent10/marked-extensions/commit/d72b9da07e684ea091546fd6960c0e404d6eebcd)), closes [#28](https://github.com/bent10/marked-extensions/issues/28)
+
 # marked-footnote [1.2.0](https://github.com/bent10/marked-extensions/compare/marked-footnote@1.1.3...marked-footnote@1.2.0) (2023-12-11)
 
 
