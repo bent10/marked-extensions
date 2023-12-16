@@ -47,10 +47,10 @@ it('should apply layout with custom options', () => {
 
   expect(html).toMatchInlineSnapshot(`
     "<!doctype html>
-    <html lang=\\"en\\">
+    <html lang="en">
       <head>
-        <meta charset=\\"UTF-8\\" />
-        <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1.0\\" />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>{matter.title}</title>
       </head>
       <body>
@@ -77,10 +77,10 @@ it('should apply layout with async option', async () => {
   expect(fsp.readFile).toHaveBeenCalledOnce()
   expect(html).toMatchInlineSnapshot(`
     "<!doctype html>
-    <html lang=\\"en\\">
+    <html lang="en">
       <head>
-        <meta charset=\\"UTF-8\\" />
-        <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1.0\\" />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>{matter.title}</title>
       </head>
       <body>
@@ -122,10 +122,10 @@ it('should work well with frontmatter hook', () => {
 
   expect(html).toMatchInlineSnapshot(`
     "<!doctype html>
-    <html lang=\\"en\\">
+    <html lang="en">
       <head>
-        <meta charset=\\"UTF-8\\" />
-        <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1.0\\" />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Marked hook layout</title>
       </head>
       <body>
@@ -171,10 +171,10 @@ it('should work well with data and frontmatter hook', () => {
 
   expect(html).toMatchInlineSnapshot(`
     "<!doctype html>
-    <html lang=\\"en\\">
+    <html lang="en">
       <head>
-        <meta charset=\\"UTF-8\\" />
-        <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1.0\\" />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Marked hook layout</title>
       </head>
       <body>

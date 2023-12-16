@@ -6,7 +6,7 @@ bar"
 `;
 
 exports[`should not transform code blocks that do not have \`preview\` attribute 1`] = `
-"<pre><code class=\\"language-jsx\\">&lt;Foo /&gt;
+"<pre><code class="language-jsx">&lt;Foo /&gt;
 </code></pre>
 "
 `;
@@ -20,7 +20,7 @@ exports[`should transform code blocks into code previews 1`] = `
     <div class='foo'>Hello, World!</div>
   </div>
   <div class='preview-code'>
-    <pre><code class=\\"language-html\\">&lt;div class=&#39;foo&#39;&gt;Hello, World!&lt;/div&gt;
+    <pre><code class="language-html">&lt;div class=&#39;foo&#39;&gt;Hello, World!&lt;/div&gt;
 </code></pre>
 
   </div>
@@ -49,7 +49,7 @@ exports[`should use a custom transformer when provided in options 1`] = `
     <div class='bar'>Hello, World!</div>
   </div>
   <div class='preview-code'>
-    <pre><code class=\\"language-html\\">&lt;div class=&#39;foo&#39;&gt;Hello, World!&lt;/div&gt;
+    <pre><code class="language-html">&lt;div class=&#39;foo&#39;&gt;Hello, World!&lt;/div&gt;
 </code></pre>
 
   </div>

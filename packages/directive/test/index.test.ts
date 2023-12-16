@@ -15,14 +15,14 @@ describe('createDirectives', () => {
     const html = new Marked().use(createDirectives()).parse(md)
 
     expect(html).toMatchInlineSnapshot(`
-    "<h1>Example</h1>
-    <main id=\\"foo\\" class=\\"bar baz qux\\">
-    <p>Directives syntax<br /></p>
-    <div class=\\"separator\\"></div>
-    <p>You can use <i>CSS</i> (Cascading Style Sheets) to style your <abbr title=\\"HyperText Markup Language\\">HTML</abbr>.</p>
-    </main>
-    "
-  `)
+      "<h1>Example</h1>
+      <main id="foo" class="bar baz qux">
+      <p>Directives syntax<br /></p>
+      <div class="separator"></div>
+      <p>You can use <i>CSS</i> (Cascading Style Sheets) to style your <abbr title="HyperText Markup Language">HTML</abbr>.</p>
+      </main>
+      "
+    `)
   })
 
   it('should handle nested container directives', () => {
@@ -47,9 +47,9 @@ describe('createDirectives', () => {
       .parse(markdown)
 
     expect(html).toMatchInlineSnapshot(`
-      "<example id=\\"foo\\" class=\\"bar\\">
-      <file name=\\"index.html\\">
-      <pre><code class=\\"language-html\\">&lt;div class=&quot;example&quot;&gt;
+      "<example id="foo" class="bar">
+      <file name="index.html">
+      <pre><code class="language-html">&lt;div class=&quot;example&quot;&gt;
         &lt;p&gt;example code here&lt;/p&gt;
       &lt;/div&gt;
       </code></pre>
@@ -125,16 +125,16 @@ describe('createDirectives', () => {
 
     expect(html).toMatchInlineSnapshot(`
       "<h1>Example</h1>
-      <main id=\\"foo\\" class=\\"bar baz qux\\">
-      <p><a href=\\"https://talk.commonmark.org/t/generic-directives-plugins-syntax/444\\">Directives syntax</a></p>
-      <hr class=\\"border-muted\\" />
-      <p>Use <i>CSS</i> (Cascading Style Sheets) to style your <abbr title=\\"HyperText Markup Language\\">HTML</abbr><span undefined>❗</span></p>
+      <main id="foo" class="bar baz qux">
+      <p><a href="https://talk.commonmark.org/t/generic-directives-plugins-syntax/444">Directives syntax</a></p>
+      <hr class="border-muted" />
+      <p>Use <i>CSS</i> (Cascading Style Sheets) to style your <abbr title="HyperText Markup Language">HTML</abbr><span undefined>❗</span></p>
       </main>
       <p>You can define custom directives, like so:</p>
-      <iframe width=\\"560\\" height=\\"315\\" src=\\"https://www.youtube.com/embed/9xwazD5SyVg\\" title=\\"Dummy video\\" frameborder=\\"0\\" allow=\\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\\" allowfullscreen></iframe><ol>
-      <li><a class=\\"user-mention notranslate\\" href=\\"/users/bent10\\">bent10</a></li>
-      <li><a class=\\"hashtag\\" href=\\"/tags/markdown\\">markdown</a></li>
-      <li><span title=\\"Go!\\">🚀</span></li>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/9xwazD5SyVg" title="Dummy video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><ol>
+      <li><a class="user-mention notranslate" href="/users/bent10">bent10</a></li>
+      <li><a class="hashtag" href="/tags/markdown">markdown</a></li>
+      <li><span title="Go!">🚀</span></li>
       </ol>
       <p>And whatever is on your mind 🤯.</p>
       "
