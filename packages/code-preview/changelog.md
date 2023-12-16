@@ -1,3 +1,10 @@
+## marked-code-preview [1.3.5](https://github.com/bent10/marked-extensions/compare/marked-code-preview@1.3.4...marked-code-preview@1.3.5) (2023-12-16)
+
+
+### Bug Fixes
+
+* **deps:** ncu ([a2138f9](https://github.com/bent10/marked-extensions/commit/a2138f93816d6bf7497f914edeac1248ad36744a))
+
 ## marked-code-preview [1.3.4](https://github.com/bent10/marked-extensions/compare/marked-code-preview@1.3.3...marked-code-preview@1.3.4) (2023-11-13)
 
 
