@@ -29,8 +29,9 @@ export default function markedFootnote(options: Options = {}): MarkedExtension {
       ) {
         lexer.tokens[0] = { type: 'space', raw: '' }
         lexer.tokens.push(token)
-        lexer.hasFootnotes = false
       }
+
+      if (lexer.hasFootnotes) lexer.hasFootnotes = false
     }
   }
 }
