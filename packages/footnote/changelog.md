@@ -1,3 +1,10 @@
+## marked-footnote [1.2.2](https://github.com/bent10/marked-extensions/compare/marked-footnote@1.2.1...marked-footnote@1.2.2) (2023-12-16)
+
+
+### Bug Fixes
+
+* ensure the footnotes token is consistently reset during each parsing process ([6f4d6d9](https://github.com/bent10/marked-extensions/commit/6f4d6d9a4b86740d75c0a992abffebd64281085c)), closes [#34](https://github.com/bent10/marked-extensions/issues/34)
+
 ## marked-footnote [1.2.1](https://github.com/bent10/marked-extensions/compare/marked-footnote@1.2.0...marked-footnote@1.2.1) (2023-12-13)
 
 
