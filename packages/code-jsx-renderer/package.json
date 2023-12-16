@@ -48,9 +48,9 @@
     "format": "prettier . --write --cache-location ../../node_modules/.prettier --ignore-path ../../.prettierignore"
   },
   "dependencies": {
-    "@babel/core": "^7.23.3",
+    "@babel/core": "^7.23.6",
     "@babel/preset-react": "^7.23.3",
-    "attributes-parser": "^2.2.0"
+    "attributes-parser": "^2.2.1"
   },
   "peerDependencies": {
     "marked": ">=7.0.0"
