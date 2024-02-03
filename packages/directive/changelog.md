@@ -1,3 +1,10 @@
+## marked-directive [1.0.5](https://github.com/bent10/marked-extensions/compare/marked-directive@1.0.4...marked-directive@1.0.5) (2024-02-03)
+
+
+### Bug Fixes
+
+* **deps:** ncu ([2584418](https://github.com/bent10/marked-extensions/commit/25844186ea9272530afc3dd1906e707f855f9338))
+
 ## marked-directive [1.0.4](https://github.com/bent10/marked-extensions/compare/marked-directive@1.0.3...marked-directive@1.0.4) (2023-12-16)
 
 
