@@ -1,3 +1,10 @@
+## marked-hook-data [1.3.3](https://github.com/bent10/marked-extensions/compare/marked-hook-data@1.3.2...marked-hook-data@1.3.3) (2024-02-03)
+
+
+### Bug Fixes
+
+* **deps:** update loadee to `v3.0.1` ([c4dccbd](https://github.com/bent10/marked-extensions/commit/c4dccbd608ea9c36dbc9dcca422067a5baf81b5d))
+
 ## marked-hook-data [1.3.2](https://github.com/bent10/marked-extensions/compare/marked-hook-data@1.3.1...marked-hook-data@1.3.2) (2023-11-15)
 
 
