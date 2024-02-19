@@ -30,6 +30,8 @@ Once you've installed this extension, you can use it in your marked configuratio
 
 Please take a moment to review the [`index.html`](https://github.com/bent10/marked-extensions/blob/main/packages/shiki/index.html) file.
 
+[![See marked-shiki on RunKit](https://badge.runkitcdn.com/marked-shiki.svg)](https://untitled-zkqkgcjhm23s.runkit.sh/)
+
 ### Node.js
 
 Say we have the following file `example.md`:
