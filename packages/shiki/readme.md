@@ -1,6 +1,6 @@
 # marked-shiki
 
-A [marked](https://marked.js.org/) A marked extension for [Shiki](https://shiki.style/).
+A [marked](https://marked.js.org/) extension for [Shiki](https://shiki.style/).
 
 - [Install](#install)
 - [Usage](#usage)
