@@ -1,6 +1,6 @@
 # marked-extensions
 
-[Marked](https://marked.js.org/) extensions workspace.
+[Marked](https://github.com/markedjs/marked) extensions workspace.
 
 ## Packages
 
@@ -13,6 +13,7 @@
 | [marked-code-preview](packages/code-preview)           | Transform code blocks into code previews                                                                                                                                               | [![npm](https://img.shields.io/npm/v/marked-code-preview)](packages/code-preview/changelog.md)           |
 | [marked-footnote](packages/footnote)                   | Enables [GFM footnotes](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#footnotes). | [![npm](https://img.shields.io/npm/v/marked-footnote)](packages/footnote/changelog.md)                   |
 | [marked-sequential-hooks](packages/sequential-hooks)   | Enables the sequential preprocessing and post-processing                                                                                                                               | [![npm](https://img.shields.io/npm/v/marked-sequential-hooks)](packages/sequential-hooks/changelog.md)   |
+| [marked-shiki](packages/shiki)                         | Integrating [Shiki](https://shiki.style/) syntax highlighting                                                                                                                          | [![npm](https://img.shields.io/npm/v/marked-shiki)](packages/shiki/changelog.md)                         |
 
 ### Sequential hooks
 

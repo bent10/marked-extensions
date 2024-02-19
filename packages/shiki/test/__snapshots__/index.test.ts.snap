@@ -1,0 +1,215 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`should correctly highlight code blocks 1`] = `
+"<pre><code class="language-ts">enum LogLevel {
+  ERROR,
+  WARN,
+  INFO,
+  DEBUG
+}
+
+/**
+ * This is equivalent to:
+ * type LogLevelStrings = &#39;ERROR&#39; | &#39;WARN&#39; | &#39;INFO&#39; | &#39;DEBUG&#39;;
+ */
+type LogLevelStrings = keyof typeof LogLevel
+
+function printImportant(key: LogLevelStrings, message: string) {
+  const num = LogLevel[key]
+  if (num &lt;= LogLevel.WARN) {
+    console.log(&#39;Log level key is:&#39;, key)
+    console.log(&#39;Log level value is:&#39;, num)
+    console.log(&#39;Log level message is:&#39;, message)
+  }
+}
+
+printImportant(&#39;ERROR&#39;, &#39;This is a message&#39;)
+</code></pre>
+"
+`;
+
+exports[`should correctly highlight code blocks with custom container 1`] = `
+"<div class="foo">
+<div class="bar">enum LogLevel {
+  ERROR,
+  WARN,
+  INFO,
+  DEBUG
+}
+
+/**
+ * This is equivalent to:
+ * type LogLevelStrings = 'ERROR' | 'WARN' | 'INFO' | 'DEBUG';
+ */
+type LogLevelStrings = keyof typeof LogLevel
+
+function printImportant(key: LogLevelStrings, message: string) {
+  const num = LogLevel[key]
+  if (num <= LogLevel.WARN) {
+    console.log('Log level key is:', key)
+    console.log('Log level value is:', num)
+    console.log('Log level message is:', message)
+  }
+}
+
+printImportant('ERROR', 'This is a message')
+</div>
+<div class="baz"><pre class="shiki github-dark-dimmed" style="background-color:#22272e;color:#adbac7" tabindex="0"><code><span class="line"><span style="color:#F47067">enum</span><span style="color:#F69D50"> LogLevel</span><span style="color:#ADBAC7"> {</span></span>
+<span class="line"><span style="color:#6CB6FF">  ERROR</span><span style="color:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#6CB6FF">  WARN</span><span style="color:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#6CB6FF">  INFO</span><span style="color:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#6CB6FF">  DEBUG</span></span>
+<span class="line"><span style="color:#ADBAC7">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#768390">/**</span></span>
+<span class="line"><span style="color:#768390"> * This is equivalent to:</span></span>
+<span class="line"><span style="color:#768390"> * type LogLevelStrings = 'ERROR' | 'WARN' | 'INFO' | 'DEBUG';</span></span>
+<span class="line"><span style="color:#768390"> */</span></span>
+<span class="line"><span style="color:#F47067">type</span><span style="color:#F69D50"> LogLevelStrings</span><span style="color:#F47067"> =</span><span style="color:#F47067"> keyof</span><span style="color:#F47067"> typeof</span><span style="color:#ADBAC7"> LogLevel</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F47067">function</span><span style="color:#DCBDFB"> printImportant</span><span style="color:#ADBAC7">(</span><span style="color:#F69D50">key</span><span style="color:#F47067">:</span><span style="color:#F69D50"> LogLevelStrings</span><span style="color:#ADBAC7">, </span><span style="color:#F69D50">message</span><span style="color:#F47067">:</span><span style="color:#6CB6FF"> string</span><span style="color:#ADBAC7">) {</span></span>
+<span class="line"><span style="color:#F47067">  const</span><span style="color:#6CB6FF"> num</span><span style="color:#F47067"> =</span><span style="color:#ADBAC7"> LogLevel[key]</span></span>
+<span class="line"><span style="color:#F47067">  if</span><span style="color:#ADBAC7"> (num </span><span style="color:#F47067">&#x3C;=</span><span style="color:#ADBAC7"> LogLevel.</span><span style="color:#6CB6FF">WARN</span><span style="color:#ADBAC7">) {</span></span>
+<span class="line"><span style="color:#ADBAC7">    console.</span><span style="color:#DCBDFB">log</span><span style="color:#ADBAC7">(</span><span style="color:#96D0FF">'Log level key is:'</span><span style="color:#ADBAC7">, key)</span></span>
+<span class="line"><span style="color:#ADBAC7">    console.</span><span style="color:#DCBDFB">log</span><span style="color:#ADBAC7">(</span><span style="color:#96D0FF">'Log level value is:'</span><span style="color:#ADBAC7">, num)</span></span>
+<span class="line"><span style="color:#ADBAC7">    console.</span><span style="color:#DCBDFB">log</span><span style="color:#ADBAC7">(</span><span style="color:#96D0FF">'Log level message is:'</span><span style="color:#ADBAC7">, message)</span></span>
+<span class="line"><span style="color:#ADBAC7">  }</span></span>
+<span class="line"><span style="color:#ADBAC7">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCBDFB">printImportant</span><span style="color:#ADBAC7">(</span><span style="color:#96D0FF">'ERROR'</span><span style="color:#ADBAC7">, </span><span style="color:#96D0FF">'This is a message'</span><span style="color:#ADBAC7">)</span></span>
+<span class="line"></span></code></pre></div>
+</div>
+"
+`;
+
+exports[`should correctly highlight code blocks with shiki 1`] = `
+"<pre class="shiki github-dark-dimmed" style="background-color:#22272e;color:#adbac7" tabindex="0"><code><span class="line"><span style="color:#F47067">enum</span><span style="color:#F69D50"> LogLevel</span><span style="color:#ADBAC7"> {</span></span>
+<span class="line"><span style="color:#6CB6FF">  ERROR</span><span style="color:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#6CB6FF">  WARN</span><span style="color:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#6CB6FF">  INFO</span><span style="color:#ADBAC7">,</span></span>
+<span class="line"><span style="color:#6CB6FF">  DEBUG</span></span>
+<span class="line"><span style="color:#ADBAC7">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#768390">/**</span></span>
+<span class="line"><span style="color:#768390"> * This is equivalent to:</span></span>
+<span class="line"><span style="color:#768390"> * type LogLevelStrings = 'ERROR' | 'WARN' | 'INFO' | 'DEBUG';</span></span>
+<span class="line"><span style="color:#768390"> */</span></span>
+<span class="line"><span style="color:#F47067">type</span><span style="color:#F69D50"> LogLevelStrings</span><span style="color:#F47067"> =</span><span style="color:#F47067"> keyof</span><span style="color:#F47067"> typeof</span><span style="color:#ADBAC7"> LogLevel</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F47067">function</span><span style="color:#DCBDFB"> printImportant</span><span style="color:#ADBAC7">(</span><span style="color:#F69D50">key</span><span style="color:#F47067">:</span><span style="color:#F69D50"> LogLevelStrings</span><span style="color:#ADBAC7">, </span><span style="color:#F69D50">message</span><span style="color:#F47067">:</span><span style="color:#6CB6FF"> string</span><span style="color:#ADBAC7">) {</span></span>
+<span class="line"><span style="color:#F47067">  const</span><span style="color:#6CB6FF"> num</span><span style="color:#F47067"> =</span><span style="color:#ADBAC7"> LogLevel[key]</span></span>
+<span class="line"><span style="color:#F47067">  if</span><span style="color:#ADBAC7"> (num </span><span style="color:#F47067">&#x3C;=</span><span style="color:#ADBAC7"> LogLevel.</span><span style="color:#6CB6FF">WARN</span><span style="color:#ADBAC7">) {</span></span>
+<span class="line"><span style="color:#ADBAC7">    console.</span><span style="color:#DCBDFB">log</span><span style="color:#ADBAC7">(</span><span style="color:#96D0FF">'Log level key is:'</span><span style="color:#ADBAC7">, key)</span></span>
+<span class="line"><span style="color:#ADBAC7">    console.</span><span style="color:#DCBDFB">log</span><span style="color:#ADBAC7">(</span><span style="color:#96D0FF">'Log level value is:'</span><span style="color:#ADBAC7">, num)</span></span>
+<span class="line"><span style="color:#ADBAC7">    console.</span><span style="color:#DCBDFB">log</span><span style="color:#ADBAC7">(</span><span style="color:#96D0FF">'Log level message is:'</span><span style="color:#ADBAC7">, message)</span></span>
+<span class="line"><span style="color:#ADBAC7">  }</span></span>
+<span class="line"><span style="color:#ADBAC7">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCBDFB">printImportant</span><span style="color:#ADBAC7">(</span><span style="color:#96D0FF">'ERROR'</span><span style="color:#ADBAC7">, </span><span style="color:#96D0FF">'This is a message'</span><span style="color:#ADBAC7">)</span></span>
+<span class="line"></span></code></pre>
+"
+`;
+
+exports[`should handle complex content 1`] = `
+"<h1>Example</h1>
+<p>A <a href="https://marked.js.org/">marked</a> A marked extension for <a href="https://shiki.style/">Shiki</a>.</p>
+<h2>Transformers</h2>
+<h3><code>transformerNotationDiff</code></h3>
+<p>Use <code>[!code ++]</code> and <code>[!code --]</code> to mark added and removed lines.</p>
+<p>For example, the following code</p>
+<pre class="shiki github-dark-dimmed" style="background-color:#22272e;color:#adbac7" tabindex="0"><code><span class="line"><span style="color:#ADBAC7">\`\`\`js</span></span>
+<span class="line"><span style="color:#F47067">export</span><span style="color:#F47067"> function</span><span style="color:#DCBDFB"> foo</span><span style="color:#ADBAC7">() {</span></span>
+<span class="line"><span style="color:#ADBAC7">  console.</span><span style="color:#DCBDFB">log</span><span style="color:#ADBAC7">(</span><span style="color:#96D0FF">'hewwo'</span><span style="color:#ADBAC7">) </span><span style="color:#768390">// [\\!code --]</span></span>
+<span class="line"><span style="color:#ADBAC7">  console.</span><span style="color:#DCBDFB">log</span><span style="color:#ADBAC7">(</span><span style="color:#96D0FF">'hello'</span><span style="color:#ADBAC7">) </span><span style="color:#768390">// [\\!code ++]</span></span>
+<span class="line"><span style="color:#ADBAC7">}</span></span>
+<span class="line"><span style="color:#ADBAC7">\`\`\`</span></span></code></pre>
+<p>will be transformed to</p>
+<pre class="shiki github-dark-dimmed has-diff" style="background-color:#22272e;color:#adbac7" tabindex="0"><code><span class="line"><span style="color:#F47067">export</span><span style="color:#F47067"> function</span><span style="color:#DCBDFB"> foo</span><span style="color:#ADBAC7">() {</span></span>
+<span class="line diff remove"><span style="color:#ADBAC7">  console.</span><span style="color:#DCBDFB">log</span><span style="color:#ADBAC7">(</span><span style="color:#96D0FF">'hewwo'</span><span style="color:#ADBAC7">) </span></span>
+<span class="line diff add"><span style="color:#ADBAC7">  console.</span><span style="color:#DCBDFB">log</span><span style="color:#ADBAC7">(</span><span style="color:#96D0FF">'hello'</span><span style="color:#ADBAC7">) </span></span>
+<span class="line"><span style="color:#ADBAC7">}</span></span></code></pre>
+<h3><code>transformerNotationHighlight</code></h3>
+<p>Use <code>[!code highlight]</code> to highlight a line (adding <code>highlighted</code> class).</p>
+<pre class="shiki github-dark-dimmed" style="background-color:#22272e;color:#adbac7" tabindex="0"><code><span class="line"><span style="color:#ADBAC7">\`\`\`js</span></span>
+<span class="line"><span style="color:#F47067">export</span><span style="color:#F47067"> function</span><span style="color:#DCBDFB"> foo</span><span style="color:#ADBAC7">() {</span></span>
+<span class="line"><span style="color:#ADBAC7">  console.</span><span style="color:#DCBDFB">log</span><span style="color:#ADBAC7">(</span><span style="color:#96D0FF">'Highlighted'</span><span style="color:#ADBAC7">) </span><span style="color:#768390">// [\\!code highlight]</span></span>
+<span class="line"><span style="color:#ADBAC7">}</span></span>
+<span class="line"><span style="color:#ADBAC7">\`\`\`</span></span></code></pre>
+<p>Results in</p>
+<pre class="shiki github-dark-dimmed has-highlighted" style="background-color:#22272e;color:#adbac7" tabindex="0"><code><span class="line"><span style="color:#F47067">export</span><span style="color:#F47067"> function</span><span style="color:#DCBDFB"> foo</span><span style="color:#ADBAC7">() {</span></span>
+<span class="line highlighted"><span style="color:#ADBAC7">  console.</span><span style="color:#DCBDFB">log</span><span style="color:#ADBAC7">(</span><span style="color:#96D0FF">'Highlighted'</span><span style="color:#ADBAC7">) </span></span>
+<span class="line"><span style="color:#ADBAC7">}</span></span></code></pre>
+<p>Alternatively, you can use the <a href="#transformermetahighlight"><code>transformerMetaHighlight</code></a> to highlight lines based on the meta string.</p>
+<h3><code>transformerNotationWordHighlight</code></h3>
+<p>Use <code>[!code word:xxx]</code> to highlight a word (adding <code>highlighted-word</code> class).</p>
+<pre class="shiki github-dark-dimmed" style="background-color:#22272e;color:#adbac7" tabindex="0"><code><span class="line"><span style="color:#ADBAC7">\`\`\`js</span></span>
+<span class="line"><span style="color:#F47067">export</span><span style="color:#F47067"> function</span><span style="color:#DCBDFB"> foo</span><span style="color:#ADBAC7">() {</span></span>
+<span class="line"><span style="color:#768390">  // [\\!code word:Hello]</span></span>
+<span class="line"><span style="color:#F47067">  const</span><span style="color:#6CB6FF"> msg</span><span style="color:#F47067"> =</span><span style="color:#96D0FF"> 'Hello World'</span></span>
+<span class="line"><span style="color:#ADBAC7">  console.</span><span style="color:#DCBDFB">log</span><span style="color:#ADBAC7">(msg) </span><span style="color:#768390">// prints Hello World</span></span>
+<span class="line"><span style="color:#ADBAC7">}</span></span>
+<span class="line"><span style="color:#ADBAC7">\`\`\`</span></span></code></pre>
+<p>Results in</p>
+<pre class="shiki github-dark-dimmed" style="background-color:#22272e;color:#adbac7" tabindex="0"><code><span class="line"><span style="color:#F47067">export</span><span style="color:#F47067"> function</span><span style="color:#DCBDFB"> foo</span><span style="color:#ADBAC7">() {</span></span>
+<span class="line"><span style="color:#F47067">  const</span><span style="color:#6CB6FF"> msg</span><span style="color:#F47067"> =</span><span style="color:#96D0FF"> '</span><span style="color:#96D0FF" class="highlighted-word">Hello</span><span style="color:#96D0FF"> World'</span></span>
+<span class="line"><span style="color:#ADBAC7">  console.</span><span style="color:#DCBDFB">log</span><span style="color:#ADBAC7">(msg) </span><span style="color:#768390">// prints </span><span style="color:#768390" class="highlighted-word">Hello</span><span style="color:#768390"> World</span></span>
+<span class="line"><span style="color:#ADBAC7">}</span></span></code></pre>
+<p>You can also specify the number of occurrences to highlight, e.g. <code>[!code word:options:2]</code> will highlight the next 2 occurrences of <code>options</code>.</p>
+<pre class="shiki github-dark-dimmed" style="background-color:#22272e;color:#adbac7" tabindex="0"><code><span class="line"><span style="color:#ADBAC7">\`\`\`js</span></span>
+<span class="line"><span style="color:#768390">// [\\!code word:options:2]</span></span>
+<span class="line"><span style="color:#F47067">const</span><span style="color:#6CB6FF"> options</span><span style="color:#F47067"> =</span><span style="color:#ADBAC7"> { foo: </span><span style="color:#96D0FF">'bar'</span><span style="color:#ADBAC7"> }</span></span>
+<span class="line"><span style="color:#ADBAC7">options.foo </span><span style="color:#F47067">=</span><span style="color:#96D0FF"> 'baz'</span></span>
+<span class="line"><span style="color:#ADBAC7">console.</span><span style="color:#DCBDFB">log</span><span style="color:#ADBAC7">(options.foo) </span><span style="color:#768390">// this one will not be highlighted</span></span>
+<span class="line"><span style="color:#ADBAC7">\`\`\`</span></span></code></pre>
+<pre class="shiki github-dark-dimmed" style="background-color:#22272e;color:#adbac7" tabindex="0"><code><span class="line"><span style="color:#F47067">const</span><span style="color:#6CB6FF"> </span><span style="color:#6CB6FF" class="highlighted-word">options</span><span style="color:#F47067"> =</span><span style="color:#ADBAC7"> { foo: </span><span style="color:#96D0FF">'bar'</span><span style="color:#ADBAC7"> }</span></span>
+<span class="line"><span style="color:#ADBAC7" class="highlighted-word">options</span><span style="color:#ADBAC7">.foo </span><span style="color:#F47067">=</span><span style="color:#96D0FF"> 'baz'</span></span>
+<span class="line"><span style="color:#ADBAC7">console.</span><span style="color:#DCBDFB">log</span><span style="color:#ADBAC7">(options.foo) </span><span style="color:#768390">// this one will not be highlighted</span></span></code></pre>
+<h3><code>transformerNotationFocus</code></h3>
+<p>Use <code>[!code focus]</code> to focus a line (adding <code>focused</code> class).</p>
+<pre class="shiki github-dark-dimmed" style="background-color:#22272e;color:#adbac7" tabindex="0"><code><span class="line"><span style="color:#ADBAC7">\`\`\`js</span></span>
+<span class="line"><span style="color:#F47067">export</span><span style="color:#F47067"> function</span><span style="color:#DCBDFB"> foo</span><span style="color:#ADBAC7">() {</span></span>
+<span class="line"><span style="color:#ADBAC7">  console.</span><span style="color:#DCBDFB">log</span><span style="color:#ADBAC7">(</span><span style="color:#96D0FF">'Focused'</span><span style="color:#ADBAC7">) </span><span style="color:#768390">// [\\!code focus]</span></span>
+<span class="line"><span style="color:#ADBAC7">}</span></span>
+<span class="line"><span style="color:#ADBAC7">\`\`\`</span></span></code></pre>
+<p>Results in</p>
+<pre class="shiki github-dark-dimmed has-focused" style="background-color:#22272e;color:#adbac7" tabindex="0"><code><span class="line"><span style="color:#F47067">export</span><span style="color:#F47067"> function</span><span style="color:#DCBDFB"> foo</span><span style="color:#ADBAC7">() {</span></span>
+<span class="line focused"><span style="color:#ADBAC7">  console.</span><span style="color:#DCBDFB">log</span><span style="color:#ADBAC7">(</span><span style="color:#96D0FF">'Focused'</span><span style="color:#ADBAC7">) </span></span>
+<span class="line"><span style="color:#ADBAC7">}</span></span></code></pre>
+<h3><code>transformerNotationErrorLevel</code></h3>
+<p>Use <code>[!code error]</code>, <code>[!code warning]</code>, to mark a line with an error level (adding <code>highlighted error</code>, <code>highlighted warning</code> class).</p>
+<pre class="shiki github-dark-dimmed" style="background-color:#22272e;color:#adbac7" tabindex="0"><code><span class="line"><span style="color:#ADBAC7">\`\`\`js</span></span>
+<span class="line"><span style="color:#F47067">export</span><span style="color:#F47067"> function</span><span style="color:#DCBDFB"> foo</span><span style="color:#ADBAC7">() {</span></span>
+<span class="line"><span style="color:#ADBAC7">  console.</span><span style="color:#DCBDFB">error</span><span style="color:#ADBAC7">(</span><span style="color:#96D0FF">'Error'</span><span style="color:#ADBAC7">) </span><span style="color:#768390">// [\\!code error]</span></span>
+<span class="line"><span style="color:#ADBAC7">  console.</span><span style="color:#DCBDFB">warn</span><span style="color:#ADBAC7">(</span><span style="color:#96D0FF">'Warning'</span><span style="color:#ADBAC7">) </span><span style="color:#768390">// [\\!code warning]</span></span>
+<span class="line"><span style="color:#ADBAC7">}</span></span>
+<span class="line"><span style="color:#ADBAC7">\`\`\`</span></span></code></pre>
+<p>Results in</p>
+<pre class="shiki github-dark-dimmed has-highlighted" style="background-color:#22272e;color:#adbac7" tabindex="0"><code><span class="line"><span style="color:#F47067">export</span><span style="color:#F47067"> function</span><span style="color:#DCBDFB"> foo</span><span style="color:#ADBAC7">() {</span></span>
+<span class="line highlighted error"><span style="color:#ADBAC7">  console.</span><span style="color:#DCBDFB">error</span><span style="color:#ADBAC7">(</span><span style="color:#96D0FF">'Error'</span><span style="color:#ADBAC7">) </span></span>
+<span class="line highlighted warning"><span style="color:#ADBAC7">  console.</span><span style="color:#DCBDFB">warn</span><span style="color:#ADBAC7">(</span><span style="color:#96D0FF">'Warning'</span><span style="color:#ADBAC7">) </span></span>
+<span class="line"><span style="color:#ADBAC7">}</span></span></code></pre>
+<h3><code>transformerMetaHighlight</code></h3>
+<p>Highlight lines based on the meta string provided on the code snippet. Requires integrations supports.</p>
+<pre class="shiki github-dark-dimmed" style="background-color:#22272e;color:#adbac7" tabindex="0"><code><span class="line"><span style="color:#ADBAC7">\`\`\`js {1,3-4}</span></span>
+<span class="line"><span style="color:#ADBAC7">console.</span><span style="color:#DCBDFB">log</span><span style="color:#ADBAC7">(</span><span style="color:#96D0FF">'1'</span><span style="color:#ADBAC7">)</span></span>
+<span class="line"><span style="color:#ADBAC7">console.</span><span style="color:#DCBDFB">log</span><span style="color:#ADBAC7">(</span><span style="color:#96D0FF">'2'</span><span style="color:#ADBAC7">)</span></span>
+<span class="line"><span style="color:#ADBAC7">console.</span><span style="color:#DCBDFB">log</span><span style="color:#ADBAC7">(</span><span style="color:#96D0FF">'3'</span><span style="color:#ADBAC7">)</span></span>
+<span class="line"><span style="color:#ADBAC7">console.</span><span style="color:#DCBDFB">log</span><span style="color:#ADBAC7">(</span><span style="color:#96D0FF">'4'</span><span style="color:#ADBAC7">)</span></span>
+<span class="line"><span style="color:#ADBAC7">\`\`\`</span></span></code></pre>
+<p>Results in</p>
+<pre class="shiki github-dark-dimmed" style="background-color:#22272e;color:#adbac7" tabindex="0"><code><span class="line highlighted"><span style="color:#ADBAC7">console.</span><span style="color:#DCBDFB">log</span><span style="color:#ADBAC7">(</span><span style="color:#96D0FF">'1'</span><span style="color:#ADBAC7">)</span></span>
+<span class="line"><span style="color:#ADBAC7">console.</span><span style="color:#DCBDFB">log</span><span style="color:#ADBAC7">(</span><span style="color:#96D0FF">'2'</span><span style="color:#ADBAC7">)</span></span>
+<span class="line highlighted"><span style="color:#ADBAC7">console.</span><span style="color:#DCBDFB">log</span><span style="color:#ADBAC7">(</span><span style="color:#96D0FF">'3'</span><span style="color:#ADBAC7">)</span></span>
+<span class="line highlighted"><span style="color:#ADBAC7">console.</span><span style="color:#DCBDFB">log</span><span style="color:#ADBAC7">(</span><span style="color:#96D0FF">'4'</span><span style="color:#ADBAC7">)</span></span></code></pre>
+<h3><code>transformerMetaWordHighlight</code></h3>
+<p>Highlight words based on the meta string provided on the code snippet. Requires integrations supports.</p>
+<pre class="shiki github-dark-dimmed" style="background-color:#22272e;color:#adbac7" tabindex="0"><code><span class="line"><span style="color:#ADBAC7">\`\`\`js /Hello/</span></span>
+<span class="line"><span style="color:#F47067">const</span><span style="color:#6CB6FF"> msg</span><span style="color:#F47067"> =</span><span style="color:#96D0FF"> 'Hello World'</span></span>
+<span class="line"><span style="color:#ADBAC7">console.</span><span style="color:#DCBDFB">log</span><span style="color:#ADBAC7">(msg)</span></span>
+<span class="line"><span style="color:#ADBAC7">console.</span><span style="color:#DCBDFB">log</span><span style="color:#ADBAC7">(msg) </span><span style="color:#768390">// prints Hello World</span></span>
+<span class="line"><span style="color:#ADBAC7">\`\`\`</span></span></code></pre>
+<p>Results in</p>
+<pre class="shiki github-dark-dimmed" style="background-color:#22272e;color:#adbac7" tabindex="0"><code><span class="line"><span style="color:#F47067">const</span><span style="color:#6CB6FF"> msg</span><span style="color:#F47067"> =</span><span style="color:#96D0FF"> '</span><span style="color:#96D0FF" class="highlighted-word">Hello</span><span style="color:#96D0FF"> World'</span></span>
+<span class="line"><span style="color:#ADBAC7">console.</span><span style="color:#DCBDFB">log</span><span style="color:#ADBAC7">(msg) </span><span style="color:#768390">// prints </span><span style="color:#768390" class="highlighted-word">Hello</span><span style="color:#768390"> World</span></span></code></pre>
+"
+`;
