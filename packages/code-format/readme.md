@@ -150,4 +150,4 @@ git add . && git cz
 
 ![GitHub](https://img.shields.io/github/license/bent10/marked-extensions)
 
-A project by [Stilearning](https://stilearning.com) &copy; 2023.
+A project by [Stilearning](https://stilearning.com) &copy; 2023-2024.
