@@ -46,7 +46,7 @@
     "format": "prettier . --write --cache-location ../../node_modules/.prettier --ignore-path ../../.prettierignore"
   },
   "devDependencies": {
-    "@shikijs/transformers": "1.1.6",
+    "@shikijs/transformers": "1.1.7",
     "shiki": "1.1.7"
   },
   "peerDependencies": {
