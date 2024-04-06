@@ -47,7 +47,7 @@
   },
   "devDependencies": {
     "@shikijs/transformers": "1.2.4",
-    "shiki": "1.2.3"
+    "shiki": "1.2.4"
   },
   "peerDependencies": {
     "marked": ">=7.0.0",
