@@ -1,3 +1,10 @@
+# marked-shiki [1.1.0](https://github.com/bent10/marked-extensions/compare/marked-shiki@1.0.1...marked-shiki@1.1.0) (2024-04-14)
+
+
+### Features
+
+* update container replacement logic to include language variable (`%l`) alongside highlighted code (`%s`) and original code (`%t`) ([65fece0](https://github.com/bent10/marked-extensions/commit/65fece00268df939a0baead136f8e71ccf572b8c))
+
 ## marked-shiki [1.0.1](https://github.com/bent10/marked-extensions/compare/marked-shiki@1.0.0...marked-shiki@1.0.1) (2024-02-19)
 
 
