@@ -78,6 +78,7 @@ printImportant('ERROR', 'This is a message')
 <span class="line"></span>
 <span class="line"><span style="color:#DCBDFB">printImportant</span><span style="color:#ADBAC7">(</span><span style="color:#96D0FF">'ERROR'</span><span style="color:#ADBAC7">, </span><span style="color:#96D0FF">'This is a message'</span><span style="color:#ADBAC7">)</span></span>
 <span class="line"></span></code></pre></div>
+<div class="qux">TS</div>
 </div>
 "
 `;

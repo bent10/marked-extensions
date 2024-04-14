@@ -55,6 +55,7 @@ it('should correctly highlight code blocks with custom container', async () => {
         container: `<div class="foo">
 <div class="bar">%t</div>
 <div class="baz">%s</div>
+<div class="qux">%l</div>
 </div>`,
         async highlight(code, lang) {
           return highlighter.codeToHtml(code, {

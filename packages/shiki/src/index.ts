@@ -44,13 +44,16 @@ export default function markedShiki(options: Options = {}): MarkedExtension {
         return
 
       try {
-        const [lang, ...props] = token.lang.split(' ')
+        const [lang = 'text', ...props] = token.lang.split(' ')
 
         const { text } = token
         const highlightedText = await highlight(text, lang, props)
         const htmlText = !container
           ? highlightedText
-          : container.replace('%s', highlightedText).replace('%t', text)
+          : container
+              .replace('%l', String(lang).toUpperCase())
+              .replace('%s', highlightedText)
+              .replace('%t', text)
 
         // transforms token to html
         Object.assign(token, {

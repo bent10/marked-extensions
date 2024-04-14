@@ -575,11 +575,6 @@ pre.shiki code {
 
 This function creates a Marked extension that integrates Shiki for syntax highlighting.
 
-`options`: An object containing the following properties:
-
-- `highlight`: A function that formats and highlights the code according to a specific coding style or convention.
-- `container` (optional): A string representing the HTML container for the highlighted code. Default is `'%s'`.
-
 ```js
 import { marked } from 'marked'
 import markedShiki from 'marked-shiki'
@@ -598,6 +593,17 @@ const html = await marked.use(
   }).parse(md)
 )
 ```
+
+`options`: An object containing the following properties:
+
+- `highlight`: A function that formats and highlights the code according to a specific coding style or convention.
+- `container` (optional): A string representing the HTML container for the highlighted code. Default is `'%s'`.
+
+  Below are the available template placeholders:
+
+  - `%s`: Represents the highlighted code.
+  - `%t`: Represents the original code.
+  - `%l`: Represents the language.
 
 ## Related
 
