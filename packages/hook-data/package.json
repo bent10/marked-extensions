@@ -51,7 +51,7 @@
   },
   "dependencies": {
     "fast-glob": "^3.3.2",
-    "loadee": "^3.0.1"
+    "loadee": "^3.1.1"
   },
   "peerDependencies": {
     "marked": ">=7.0.0"
