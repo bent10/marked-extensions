@@ -1,0 +1,53 @@
+{
+  "name": "marked-plaintify",
+  "description": "A marked extension to convert Markdown to Plaintext",
+  "version": "0.0.0-development",
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Beni Arisandi (https://stilearning.com)",
+  "repository": "https://github.com/bent10/marked-extensions",
+  "homepage": "https://github.com/bent10/marked-extensions/tree/main/packages/plaintify",
+  "license": "MIT",
+  "keywords": [
+    "marked",
+    "marked-extension",
+    "markdown",
+    "plaintext",
+    "text",
+    "document",
+    "strip",
+    "nlp",
+    "stilearning-marked-extensions"
+  ],
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "browser": "./dist/index.umd.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "changelog.md",
+    "readme.md"
+  ],
+  "scripts": {
+    "start": "vite",
+    "dev": "vite build --watch",
+    "build": "vite build && npm run types",
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
+    "types": "tsc -d --emitDeclarationOnly --outDir ./dist",
+    "lint": "tsc --noEmit && eslint . --cache --cache-location ../../node_modules/.eslint",
+    "format": "prettier . --write --cache-location ../../node_modules/.prettier --ignore-path ../../.prettierignore"
+  },
+  "peerDependencies": {
+    "marked": ">=7.0.0"
+  }
+}
