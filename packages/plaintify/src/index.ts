@@ -20,6 +20,7 @@ export default function markedPlaintify(
   const plainTextRenderer: Options = {}
   const mdIgnores: string[] = ['constructor', 'hr', 'checkbox', 'br']
   const mdInlines: string[] = ['strong', 'em', 'codespan', 'del', 'text']
+  const mdEscapes: string[] = ['html', 'code', 'codespan']
 
   let currentTableHeader: string[] = []
 
@@ -30,6 +31,9 @@ export default function markedPlaintify(
     } else if (mdInlines.includes(prop)) {
       // preserve inline elements
       plainTextRenderer[prop] = text => text
+    } else if (mdEscapes.includes(prop)) {
+      // escaped elements
+      plainTextRenderer[prop] = text => escapeHTML(text) + '\n\n'
     } else if (prop === 'list') {
       // handle list element
       plainTextRenderer[prop] = text => '\n' + text.trim() + '\n\n'
@@ -79,4 +83,19 @@ export default function markedPlaintify(
       ...options
     }
   }
+}
+
+/**
+ * Escapes HTML characters in a string.
+ */
+function escapeHTML(html: string): string {
+  const escapeMap: { [key: string]: string } = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;'
+  }
+
+  return html.replace(/[&<>"']/g, match => escapeMap[match])
 }

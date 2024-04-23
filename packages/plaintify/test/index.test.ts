@@ -89,10 +89,10 @@ it('should handle complex Markdown content', () => {
     8. Code blocks
 
     function greet(name) {
-      console.log('Hello, ' + name + '!')
+      console.log(&#39;Hello, &#39; + name + &#39;!&#39;)
     }
 
-    greet('World')
+    greet(&#39;World&#39;)
 
     9. Strikethrough
 
@@ -148,7 +148,7 @@ it('should handle complex Markdown content', () => {
     18. Fenced code blocks with language syntax highlighting
 
     def hello():
-        print("Hello, World!")
+        print(&quot;Hello, World!&quot;)
 
     19. Disabling line breaks in paragraphs
 
