@@ -18,8 +18,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Check PR Title
-        uses: clowdhaus/actions/pr-title@v0.5.0
+        uses: amannn/action-semantic-pull-request@v5
         with:
-          on-fail-message: "Your PR title doesn't match the required format. The title should be in the conventional commit (https://www.conventionalcommits.org) format. e.g.\n\n```\nchore(plugin-name): add pr title workflow\n```"
-          title-regex: '^(build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test)(\([\w|,|\-|\|]+\))?(!)?\:\s.*$'
-          github-token: ${{ secrets.GH_TOKEN }}
+          subjectPattern: ^(?![A-Z]).+$
+          subjectPatternError: |
+            The subject "{subject}" found in the pull request title "{title}"
+            didn't match the configured pattern. Please ensure that the subject
+            doesn't start with an uppercase character.
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
