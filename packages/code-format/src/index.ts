@@ -50,7 +50,9 @@ export default function markedCodeFormat(
             ? (inlineOptions as prettier.Options)
             : {})
         })
-      } catch {}
+      } catch (e) {
+        console.error(e)
+      }
     }
   }
 }
