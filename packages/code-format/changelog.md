@@ -1,3 +1,10 @@
+## marked-code-format [1.1.5](https://github.com/bent10/marked-extensions/compare/marked-code-format@1.1.4...marked-code-format@1.1.5) (2024-05-16)
+
+
+### Bug Fixes
+
+* **marked-format:** add console.error to catch clause ([e9de263](https://github.com/bent10/marked-extensions/commit/e9de263ccf93dd1fa3b3ed0e43d5c5bf247de9cd))
+
 ## marked-code-format [1.1.4](https://github.com/bent10/marked-extensions/compare/marked-code-format@1.1.3...marked-code-format@1.1.4) (2024-02-03)
 
 
