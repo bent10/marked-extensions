@@ -18,7 +18,7 @@ export default function markedPlaintify(
   options: Options = {}
 ): MarkedExtension {
   const plainTextRenderer: Options = {}
-  const mdIgnores: string[] = ['constructor', 'hr', 'checkbox', 'br']
+  const mdIgnores: string[] = ['constructor', 'hr', 'checkbox ', 'br', 'space']
   const mdInlines: string[] = ['strong', 'em', 'codespan', 'del', 'text']
   const mdEscapes: string[] = ['html', 'code', 'codespan']
 
