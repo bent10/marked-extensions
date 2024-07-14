@@ -23,7 +23,8 @@ _This will also be italic_
 - Item 1
 - Item 2
   - Item 2a
-  - Item 2b
+  - **Item 2b** (bold)
+- _Item 3_ (italics)
 
 ### Ordered List
 

@@ -145,7 +145,11 @@ export default function markedPlaintify(
       }
     } else {
       // handle other elements
-      plainTextRenderer[prop] = token => token.text
+      plainTextRenderer[prop] = token => {
+        return 'tokens' in token && token.tokens
+          ? parser.parseInline(token.tokens)
+          : token.text
+      }
     }
   })
 

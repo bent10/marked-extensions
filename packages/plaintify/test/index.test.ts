@@ -59,7 +59,8 @@ it('should handle complex Markdown content', () => {
     Item 1
     Item 2
     Item 2a
-    Item 2b
+    Item 2b (bold)
+    Item 3 (italics)
 
     Ordered List
 
