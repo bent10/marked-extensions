@@ -1,4 +1,10 @@
-import { Renderer, MarkedExtension, RendererObject } from 'marked'
+import {
+  Renderer,
+  MarkedExtension,
+  RendererObject,
+  Marked,
+  marked
+} from 'marked'
 
 /**
  * Options for configuring the markedPlaintify extension.
@@ -15,8 +21,10 @@ export type Options = RendererObject & {
  * A [marked](https://marked.js.org/) extension to convert Markdown to Plaintext.
  */
 export default function markedPlaintify(
+  instance: Marked | typeof marked,
   options: Options = {}
 ): MarkedExtension {
+  const parser = instance.Parser
   const plainTextRenderer: Options = {}
   const mdIgnores: string[] = ['constructor', 'hr', 'checkbox ', 'br', 'space']
   const mdInlines: string[] = ['strong', 'em', 'codespan', 'del', 'text']
