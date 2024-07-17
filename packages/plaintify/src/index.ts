@@ -54,6 +54,11 @@ export default function markedPlaintify(
         let text = ''
         for (let j = 0; j < token.items.length; j++) {
           const item = token.items[j]
+          // @ts-expect-error In my opinion, 'listitem' will ever be
+          // undefined nor the 'this' issue has any implications. We're
+          // declaring functions and passing them to Marked for later use.
+          // When the function is executed this object will have everything
+          // it needs to work well.
           text += plainTextRenderer.listitem(item).replace(/\n{2,}/g, '\n')
         }
 
@@ -78,6 +83,7 @@ export default function markedPlaintify(
 
         // parsing headers
         for (let j = 0; j < token.header.length; j++) {
+          // @ts-expect-error See 'list' function error
           plainTextRenderer.tablecell(token.header[j])
         }
 
@@ -87,8 +93,10 @@ export default function markedPlaintify(
           const row = token.rows[j]
           let cell = ''
           for (let k = 0; k < row.length; k++) {
+            // @ts-expect-error See 'list' function error
             cell += plainTextRenderer.tablecell(row[k])
           }
+          // @ts-expect-error See 'list' function error
           body += plainTextRenderer.tablerow({ text: cell })
         }
 
