@@ -1,3 +1,13 @@
+## marked-hook-data [1.3.5](https://github.com/bent10/marked-extensions/compare/marked-hook-data@1.3.4...marked-hook-data@1.3.5) (2024-07-30)
+
+
+
+
+
+### Dependencies
+
+* **marked-sequential-hooks:** upgraded to 1.2.2
+
 ## marked-hook-data [1.3.4](https://github.com/bent10/marked-extensions/compare/marked-hook-data@1.3.3...marked-hook-data@1.3.4) (2024-04-21)
 
 
