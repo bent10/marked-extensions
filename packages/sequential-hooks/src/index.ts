@@ -22,11 +22,11 @@ export default function markedSequentialHooks(
 
   return {
     hooks: {
-      preprocess(this: HooksWithData, markdown) {
-        return reducer.call(this, markdownHooks, markdown)
+      preprocess(markdown) {
+        return reducer.call(this as HooksWithData, markdownHooks, markdown)
       },
-      postprocess(this: HooksWithData, html) {
-        return reducer.call(this, htmlHooks, html)
+      postprocess(html) {
+        return reducer.call(this as HooksWithData, htmlHooks, html)
       }
     }
   }
