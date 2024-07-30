@@ -1,3 +1,10 @@
+## marked-sequential-hooks [1.2.2](https://github.com/bent10/marked-extensions/compare/marked-sequential-hooks@1.2.1...marked-sequential-hooks@1.2.2) (2024-07-30)
+
+
+### Bug Fixes
+
+* resolve types errors ([28b0e70](https://github.com/bent10/marked-extensions/commit/28b0e7024077eba4561c4f3180045c52ac3bd680))
+
 ## marked-sequential-hooks [1.2.1](https://github.com/bent10/marked-extensions/compare/marked-sequential-hooks@1.2.0...marked-sequential-hooks@1.2.1) (2023-10-26)
 
 
