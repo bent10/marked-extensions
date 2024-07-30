@@ -48,6 +48,6 @@
     "format": "prettier . --write --cache-location ../../node_modules/.prettier --ignore-path ../../.prettierignore"
   },
   "peerDependencies": {
-    "marked": ">=7.0.0"
+    "marked": ">=13.0.0"
   }
 }
