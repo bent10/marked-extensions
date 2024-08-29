@@ -1,3 +1,10 @@
+## marked-hook-frontmatter [1.4.5](https://github.com/bent10/marked-extensions/compare/marked-hook-frontmatter@1.4.4...marked-hook-frontmatter@1.4.5) (2024-08-29)
+
+
+### Bug Fixes
+
+* lint code ([c75dfc9](https://github.com/bent10/marked-extensions/commit/c75dfc94eb2fc61d258d2e36caf20d4a91e06a16))
+
 ## marked-hook-frontmatter [1.4.4](https://github.com/bent10/marked-extensions/compare/marked-hook-frontmatter@1.4.3...marked-hook-frontmatter@1.4.4) (2024-07-30)
 
 
