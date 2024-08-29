@@ -1,3 +1,10 @@
+## marked-hook-layout [1.2.3](https://github.com/bent10/marked-extensions/compare/marked-hook-layout@1.2.2...marked-hook-layout@1.2.3) (2024-08-29)
+
+
+### Bug Fixes
+
+* lint code ([c75dfc9](https://github.com/bent10/marked-extensions/commit/c75dfc94eb2fc61d258d2e36caf20d4a91e06a16))
+
 ## marked-hook-layout [1.2.2](https://github.com/bent10/marked-extensions/compare/marked-hook-layout@1.2.1...marked-hook-layout@1.2.2) (2024-07-30)
 
 
