@@ -1,6 +1,7 @@
 /// <reference types="vitest/globals" />
 
 import { Marked } from 'marked'
+import prettierSvelte from 'prettier-plugin-svelte'
 import markedCodeFormat from '../src/index.js'
 
 it('should format code blocks using Prettier with default options', async () => {
@@ -41,7 +42,7 @@ it('should handle extended language mappings', async () => {
   const html = await new Marked()
     .use(
       markedCodeFormat({
-        plugins: [require('prettier-plugin-svelte')]
+        plugins: [prettierSvelte]
       })
     )
     .parse(md)

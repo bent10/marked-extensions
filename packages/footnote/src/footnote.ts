@@ -44,9 +44,7 @@ export function createFootnote(lexer: LexerTokens, description: string) {
         content +=
           // add lines after list, blockquote, codefence, and table
           contentLastLine &&
-          /^[ \t]*?[>\-\*][ ]|[`]{3,}$|^[ \t]*?[\|].+[\|]$/.test(
-            contentLastLine
-          )
+          /^[ \t]*?[>\-*][ ]|[`]{3,}$|^[ \t]*?[|].+[|]$/.test(contentLastLine)
             ? '\n\n'
             : ''
 

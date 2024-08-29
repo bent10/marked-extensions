@@ -25,7 +25,6 @@ type DataWithAdditionalProps = {
  * @returns A `MarkdownHook` function that processes the Markdown and attaches additional data.
  */
 export default function markedHookData(
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   source: string | string[] | { [key: string]: unknown } = {},
   merge = true
 ): MarkdownHook {

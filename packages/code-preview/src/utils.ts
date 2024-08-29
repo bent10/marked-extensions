@@ -27,7 +27,7 @@ export function normalizeCodeText(text: string) {
   const lexer = moo
     .compile({
       placeholder: {
-        match: /{[ \t]*?(?:[a-zA-Z_][\w\d\.]*?|[\d][\w\d\.]+)[ \t]*?}/,
+        match: /{[ \t]*?(?:[a-zA-Z_][\w\d.]*?|[\d][\w\d.]+)[ \t]*?}/,
         value(x) {
           return x.replace(/[ \t]+/g, '')
         }

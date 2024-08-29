@@ -11,7 +11,7 @@ export default defineConfig({
       fileName: 'index'
     },
     rollupOptions: {
-      external: ['marked', /\@babel/, 'attributes-parser']
+      external: ['marked', /@babel/, 'attributes-parser']
     }
   },
   test: {

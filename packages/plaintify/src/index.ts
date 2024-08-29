@@ -150,7 +150,6 @@ export default function markedPlaintify(
   })
 
   return {
-    useNewRenderer: true,
     renderer: {
       ...plainTextRenderer,
       ...options
