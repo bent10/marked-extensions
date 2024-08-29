@@ -1,3 +1,11 @@
+## marked-code-format [1.1.6](https://github.com/bent10/marked-extensions/compare/marked-code-format@1.1.5...marked-code-format@1.1.6) (2024-08-29)
+
+
+### Bug Fixes
+
+* **deps:** update `attribute-parser` to `v2.2.3` ([e5d270a](https://github.com/bent10/marked-extensions/commit/e5d270af3ffe7aa559806515f63ab26918b7e2b5))
+* lint code ([c75dfc9](https://github.com/bent10/marked-extensions/commit/c75dfc94eb2fc61d258d2e36caf20d4a91e06a16))
+
 ## marked-code-format [1.1.5](https://github.com/bent10/marked-extensions/compare/marked-code-format@1.1.4...marked-code-format@1.1.5) (2024-05-16)
 
 
