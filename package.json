@@ -32,8 +32,8 @@
     "@types/moo": "^0.5.9",
     "@types/react-dom": "^18.3.0",
     "@types/set-value": "^4.0.3",
-    "doogu": "^3.2.13",
-    "marked": "^13.0.3",
+    "doogu": "^4.0.4",
+    "marked": "^14.1.0",
     "prettier-plugin-svelte": "^3.2.6",
     "pupa": "^3.1.0",
     "react-dom": "^18.3.1",
@@ -45,10 +45,7 @@
       "path": "cz-conventional-changelog"
     }
   },
-  "eslintConfig": {
-    "extends": "./node_modules/doogu/eslint"
-  },
-  "prettier": "doogu/prettier.json",
+  "prettier": "doogu/prettier.config.js",
   "release": {
     "extends": "doogu/release.config.js"
   }
