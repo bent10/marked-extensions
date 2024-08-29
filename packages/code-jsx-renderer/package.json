@@ -50,7 +50,7 @@
   "dependencies": {
     "@babel/core": "^7.25.2",
     "@babel/preset-react": "^7.24.7",
-    "attributes-parser": "^2.2.2"
+    "attributes-parser": "^2.2.3"
   },
   "peerDependencies": {
     "marked": ">=7.0.0"
