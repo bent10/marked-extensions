@@ -47,7 +47,7 @@
     }
   },
   "prettier": "doogu/prettier.config.js",
-  "release": {
+  "multi-release": {
     "extends": "doogu/release.config.js"
   }
 }
