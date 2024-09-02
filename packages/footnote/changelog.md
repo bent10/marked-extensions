@@ -1,3 +1,10 @@
+## marked-footnote [1.2.4](https://github.com/bent10/marked-extensions/compare/marked-footnote@1.2.3...marked-footnote@1.2.4) (2024-09-02)
+
+
+### Bug Fixes
+
+* **footnote:** resolves footnote links for repeated, out-of-order references ([7e48c89](https://github.com/bent10/marked-extensions/commit/7e48c8911e4fb2c174778c2a46310454213e6736)), closes [#109](https://github.com/bent10/marked-extensions/issues/109)
+
 ## marked-footnote [1.2.3](https://github.com/bent10/marked-extensions/compare/marked-footnote@1.2.2...marked-footnote@1.2.3) (2024-08-29)
 
 
