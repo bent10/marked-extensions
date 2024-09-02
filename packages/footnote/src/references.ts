@@ -33,7 +33,7 @@ export function createFootnoteRef(prefixId: string, refMarkers = false) {
         }
 
         if (footnote) {
-          ref.id = `${order}:${footnote.refs.length + 1}`
+          ref.id = footnote.refs[0].id
           footnote.refs.push(ref)
         } else {
           order++

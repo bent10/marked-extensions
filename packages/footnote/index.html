@@ -38,12 +38,16 @@
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked-footnote/dist/index.umd.min.js"></script>
-    <script>
+    <script type="module">
+      // import markedFootnote from "./src/index.ts"
+
       const md = `# Example
 
 [^1]: This is a footnote content.
 
 Here is a simple footnote[^1]. With some additional text after it[^@#$%] and without disrupting the blocks[^bignote].
+
+_Navigating to the first footnote_ [^1]
 
 [^bignote]: The first paragraph of the definition.
 

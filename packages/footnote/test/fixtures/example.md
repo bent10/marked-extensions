@@ -4,6 +4,8 @@
 
 Here is a simple footnote[^1]. With some additional text after it[^@#$%] and without disrupting the blocks[^bignote].
 
+_Navigating to the first footnote_ [^1]
+
 [^bignote]: The first paragraph of the definition.
 
     Paragraph two of the definition.

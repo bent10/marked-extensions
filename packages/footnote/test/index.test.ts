@@ -171,7 +171,7 @@ This is a sentence with multiple references to the same footnote[^1][^1].
   const html = marked.use(markedFootnote()).parse(md)
 
   expect(html).toMatchInlineSnapshot(`
-    "<p>This is a sentence with multiple references to the same footnote<sup><a id="footnote-ref-1" href="#footnote-1" data-footnote-ref aria-describedby="footnote-label">1</a></sup><sup><a id="footnote-ref-1" href="#footnote-1" data-footnote-ref aria-describedby="footnote-label">1:2</a></sup>.</p>
+    "<p>This is a sentence with multiple references to the same footnote<sup><a id="footnote-ref-1" href="#footnote-1" data-footnote-ref aria-describedby="footnote-label">1</a></sup><sup><a id="footnote-ref-1" href="#footnote-1" data-footnote-ref aria-describedby="footnote-label">1</a></sup>.</p>
     <section class="footnotes" data-footnotes>
     <h2 id="footnote-label" class="sr-only">Footnotes</h2>
     <ol>
@@ -402,11 +402,12 @@ it('should handle complex content within footnotes', () => {
   expect(html).toMatchInlineSnapshot(`
     "<h1>Example</h1>
     <p>Here is a simple footnote<sup><a id="footnote-ref-1" href="#footnote-1" data-footnote-ref aria-describedby="footnote-label">1</a></sup>. With some additional text after it<sup><a id="footnote-ref-%40%23%24%25" href="#footnote-%40%23%24%25" data-footnote-ref aria-describedby="footnote-label">2</a></sup> and without disrupting the blocks<sup><a id="footnote-ref-bignote" href="#footnote-bignote" data-footnote-ref aria-describedby="footnote-label">3</a></sup>.</p>
+    <p><em>Navigating to the first footnote</em> <sup><a id="footnote-ref-1" href="#footnote-1" data-footnote-ref aria-describedby="footnote-label">1</a></sup></p>
     <section class="footnotes" data-footnotes>
     <h2 id="footnote-label" class="sr-only">Footnotes</h2>
     <ol>
     <li id="footnote-1">
-    <p>This is a footnote content. <a href="#footnote-ref-1" data-footnote-backref aria-label="Back to reference 1">↩</a></p>
+    <p>This is a footnote content. <a href="#footnote-ref-1" data-footnote-backref aria-label="Back to reference 1">↩</a> <a href="#footnote-ref-1" data-footnote-backref aria-label="Back to reference 1">↩<sup>2</sup></a></p>
     </li>
     <li id="footnote-%40%23%24%25">
     <p>A footnote on the label: &quot;@#$%&quot;. <a href="#footnote-ref-%40%23%24%25" data-footnote-backref aria-label="Back to reference @#$%">↩</a></p>
