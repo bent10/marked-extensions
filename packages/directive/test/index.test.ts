@@ -35,13 +35,31 @@ describe('createDirectives', () => {
 \`\`\`
 :::
 ::::
+
+:::{.foo}
+
++++{.bar}
+### Title
+
+Content ![Image](/image.jpg), with code:
+
+~~~python
+num1 = 5
+num2 = 3
+sum = num1 + num2
+print(f"The sum of {num1} and {num2} is {sum}")
+~~~
++++
+
+:::
 `
 
     const html = new Marked()
       .use(
         createDirectives([
           ...presetDirectiveConfigs,
-          { level: 'container', marker: '::::' }
+          { level: 'container', marker: '::::' },
+          { level: 'container', marker: '[+]{3}' }
         ])
       )
       .parse(markdown)
@@ -55,6 +73,17 @@ describe('createDirectives', () => {
       </code></pre>
       </file>
       </example>
+      <div class="foo">
+      <div class="bar">
+      <h3>Title</h3>
+      <p>Content <img src="/image.jpg" alt="Image">, with code:</p>
+      <pre><code class="language-python">num1 = 5
+      num2 = 3
+      sum = num1 + num2
+      print(f&quot;The sum of {num1} and {num2} is {sum}&quot;)
+      </code></pre>
+      </div>
+      </div>
       "
     `)
   })
