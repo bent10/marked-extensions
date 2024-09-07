@@ -1,3 +1,10 @@
+## marked-directive [1.0.7](https://github.com/bent10/marked-extensions/compare/marked-directive@1.0.6...marked-directive@1.0.7) (2024-09-07)
+
+
+### Bug Fixes
+
+* update tests for nested directives approach ([31752c2](https://github.com/bent10/marked-extensions/commit/31752c214cca2586f8aaeb1fd2c0eb684e05c107))
+
 ## marked-directive [1.0.6](https://github.com/bent10/marked-extensions/compare/marked-directive@1.0.5...marked-directive@1.0.6) (2024-08-29)
 
 
