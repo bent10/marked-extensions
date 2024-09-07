@@ -16,8 +16,6 @@ yarn add marked-directive
 
 [![Try marked-directive on RunKit](https://badge.runkitcdn.com/marked-directive.svg)](https://untitled-zniiqipcb1b2.runkit.sh/)
 
-Once you've installed this extension, you can use it in your marked configuration. Here's an example of how to configure it:
-
 Say we have the following file `example.md`:
 
 ```md
@@ -165,6 +163,69 @@ console.log(html)
 ```
 
 [![Try marked-directive on RunKit](https://badge.runkitcdn.com/marked-directive.svg)](https://untitled-owlc7cxj7jxp.runkit.sh/)
+
+## Nested Directives
+
+When working with nested directives, it’s important to ensure proper distinction between different levels of nesting. If both the container and its nested items use the same marker character (e.g., `:`), the number of marker characters should increment with each level of nesting to avoid conflicts and ensure correct parsing.
+
+For example, in the following Markdown snippet, the `.container` uses four colons (`::::`) to define its boundaries, while the nested `.item` uses three colons (`:::`):
+
+```md
+::::{.container}
+
+:::{.item}
+Title
+Description
+
+![Image](/image.jpg)
+:::
+
+::::
+```
+
+Alternatively, you can also use different markers for each level. For example, the `.container` uses colons (`:::`), and the `.item` uses plus signs (`+++`):
+
+````md
+:::{.container}
+
++++{.item}
+
+### Title
+
+Content ![Image](/image.jpg), with code:
+
+```python
+num1 = 5
+num2 = 3
+sum = num1 + num2
+print(f"The sum of {num1} and {num2} is {sum}")
+```
+
++++
+
+:::
+````
+
+To handle these custom markers, set up the directives like this:
+
+```js
+import { Marked } from 'marked'
+import { createDirectives, presetDirectiveConfigs } from 'marked-directive'
+
+const md = `` // markdown above
+const html = new Marked()
+  .use(
+    createDirectives([
+      ...presetDirectiveConfigs,
+      // custom directives
+      { level: 'container', marker: '::::' },
+      { level: 'container', marker: '\\+\\+\\+' }
+    ])
+  )
+  .parse(md)
+
+console.log(html)
+```
 
 ## Related
 
