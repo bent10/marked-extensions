@@ -1,3 +1,10 @@
+# marked-alert [2.1.0](https://github.com/bent10/marked-extensions/compare/marked-alert@2.0.2...marked-alert@2.1.0) (2024-09-26)
+
+
+### Features
+
+* improve alert token handling ([867b011](https://github.com/bent10/marked-extensions/commit/867b0111a8f2be8dede66bdcc8b7ea6309bc28c2)), closes [#120](https://github.com/bent10/marked-extensions/issues/120)
+
 ## marked-alert [2.0.2](https://github.com/bent10/marked-extensions/compare/marked-alert@2.0.1...marked-alert@2.0.2) (2024-08-29)
 
 
