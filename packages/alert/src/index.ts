@@ -1,4 +1,4 @@
-import type { Marked, MarkedExtension, Tokens } from 'marked'
+import type { MarkedExtension, Tokens } from 'marked'
 import type { Alert, AlertVariantItem, Options } from './types.js'
 import { createSyntaxPattern, resolveVariants, ucfirst } from './utils.js'
 
@@ -44,10 +44,17 @@ export default function markedAlert(options: Options = {}): MarkedExtension {
           .trim()
 
         if (firstLineText) {
-          firstLine.tokens = (this as unknown as Marked).Lexer.lexInline(
-            firstLineText
-          )
-          token.tokens?.splice(0, 1, firstLine)
+          const patternToken = firstLine.tokens[0] as Tokens.Text
+          Object.assign(patternToken, {
+            raw: patternToken.raw.replace(
+              new RegExp(createSyntaxPattern(variantType)),
+              ''
+            ),
+            text: patternToken.text.replace(
+              new RegExp(createSyntaxPattern(variantType)),
+              ''
+            )
+          })
         } else {
           token.tokens?.shift()
         }
