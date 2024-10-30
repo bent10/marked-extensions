@@ -48,8 +48,7 @@ export function resolveVariants(variants: AlertVariantItem[]) {
  * Returns regex pattern to match alert syntax.
  */
 export function createSyntaxPattern(type: string) {
-  // eslint-disable-next-line no-useless-escape
-  return `^(?:\\[\\!${type.toUpperCase()}\\])\s*?\n?`
+  return `^(?:\\[!${type.toUpperCase()}])\\s*?\n*`
 }
 
 /**

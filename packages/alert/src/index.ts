@@ -26,6 +26,7 @@ export default function markedAlert(options: Options = {}): MarkedExtension {
           title = ucfirst(variantType),
           titleClassName = `${className}-title`
         } = matchedVariant
+        const typeRegexp = new RegExp(createSyntaxPattern(variantType))
 
         Object.assign(token, {
           type: 'alert',
@@ -39,21 +40,16 @@ export default function markedAlert(options: Options = {}): MarkedExtension {
         })
 
         const firstLine = token.tokens?.[0] as Tokens.Paragraph
-        const firstLineText = firstLine.raw
-          ?.replace(new RegExp(createSyntaxPattern(variantType)), '')
-          .trim()
+        const firstLineText = firstLine.raw?.replace(typeRegexp, '').trim()
 
         if (firstLineText) {
+          firstLine.tokens = firstLine.tokens.filter(
+            token => token.type !== 'br'
+          )
           const patternToken = firstLine.tokens[0] as Tokens.Text
           Object.assign(patternToken, {
-            raw: patternToken.raw.replace(
-              new RegExp(createSyntaxPattern(variantType)),
-              ''
-            ),
-            text: patternToken.text.replace(
-              new RegExp(createSyntaxPattern(variantType)),
-              ''
-            )
+            raw: patternToken.raw.replace(typeRegexp, ''),
+            text: patternToken.text.replace(typeRegexp, '')
           })
         } else {
           token.tokens?.shift()
