@@ -1,3 +1,10 @@
+## marked-alert [2.1.1](https://github.com/bent10/marked-extensions/compare/marked-alert@2.1.0...marked-alert@2.1.1) (2024-10-30)
+
+
+### Bug Fixes
+
+* correctly handle extra spaces on first line ([f68d1e0](https://github.com/bent10/marked-extensions/commit/f68d1e0675d60f08d5ba786f9ec505f736a52347)), closes [#120](https://github.com/bent10/marked-extensions/issues/120)
+
 # marked-alert [2.1.0](https://github.com/bent10/marked-extensions/compare/marked-alert@2.0.2...marked-alert@2.1.0) (2024-09-26)
 
 
