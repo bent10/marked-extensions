@@ -33,7 +33,7 @@
     "@types/moo": "^0.5.9",
     "@types/react-dom": "^18.3.1",
     "@types/set-value": "^4.0.3",
-    "doogu": "^4.1.1",
+    "doogu": "^4.1.2",
     "marked": "^14.1.3",
     "prettier-plugin-svelte": "^3.2.7",
     "pupa": "^3.1.0",
