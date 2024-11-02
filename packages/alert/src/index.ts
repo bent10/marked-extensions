@@ -43,14 +43,16 @@ export default function markedAlert(options: Options = {}): MarkedExtension {
         const firstLineText = firstLine.raw?.replace(typeRegexp, '').trim()
 
         if (firstLineText) {
-          firstLine.tokens = firstLine.tokens.filter(
-            token => token.type !== 'br'
-          )
           const patternToken = firstLine.tokens[0] as Tokens.Text
+
           Object.assign(patternToken, {
             raw: patternToken.raw.replace(typeRegexp, ''),
             text: patternToken.text.replace(typeRegexp, '')
           })
+
+          if (firstLine.tokens[1]?.type === 'br') {
+            firstLine.tokens.splice(1, 1)
+          }
         } else {
           token.tokens?.shift()
         }

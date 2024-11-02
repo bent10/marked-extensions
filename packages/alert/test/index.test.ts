@@ -24,14 +24,16 @@ it('should parse first-line content correctly', () => {
   `)
 })
 
-it('should parse first-line content with extra spaces correctly', () => {
-  const md = '> [!NOTE]  \n> This is a `note`!\n'
+it('should parse first-line content with hard line breaks correctly', () => {
+  const md =
+    '> [!NOTE]  \n> Line 1 (note the two extra spaces at the end)  \n> Line 2\\\n> Line 3\n> \n> foo       \n> bar  \n> baz\n'
   const html = marked.use(markedAlert()).parse(md)
 
   expect(html).toMatchInlineSnapshot(`
     "<div class="markdown-alert markdown-alert-note">
     <p class="markdown-alert-title"><svg class="octicon octicon-info mr-2" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
-    <p>This is a <code>note</code>!</p>
+    <p>Line 1 (note the two extra spaces at the end)<br>Line 2<br>Line 3</p>
+    <p>foo<br>bar<br>baz</p>
     </div>
     "
   `)
