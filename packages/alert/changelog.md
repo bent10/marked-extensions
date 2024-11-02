@@ -1,3 +1,10 @@
+## marked-alert [2.1.2](https://github.com/bent10/marked-extensions/compare/marked-alert@2.1.1...marked-alert@2.1.2) (2024-11-02)
+
+
+### Bug Fixes
+
+* handle hard line breaks correctly ([5ab5f81](https://github.com/bent10/marked-extensions/commit/5ab5f8189478df4add7b20a2b2f2be7da2bcd26e)), closes [#120](https://github.com/bent10/marked-extensions/issues/120)
+
 ## marked-alert [2.1.1](https://github.com/bent10/marked-extensions/compare/marked-alert@2.1.0...marked-alert@2.1.1) (2024-10-30)
 
 
