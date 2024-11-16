@@ -34,7 +34,7 @@
     "@types/react-dom": "^18.3.1",
     "@types/set-value": "^4.0.3",
     "doogu": "^4.1.2",
-    "marked": "^14.1.3",
+    "marked": "^15.0.0",
     "prettier-plugin-svelte": "^3.2.7",
     "pupa": "^3.1.0",
     "react-dom": "^18.3.1",
