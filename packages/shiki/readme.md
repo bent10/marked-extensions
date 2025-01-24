@@ -226,7 +226,7 @@ And our module `example.js` looks as follows:
 import { readFileSync } from 'node:fs'
 import { Marked } from 'marked'
 import markedShiki from 'marked-shiki'
-import { getHighlighter } from 'shiki'
+import { createHighlighter } from 'shiki'
 // npm i @shikijs/transformers
 import {
   transformerNotationDiff,
@@ -238,7 +238,7 @@ import {
   transformerMetaWordHighlight
 } from '@shikijs/transformers'
 
-const highlighter = await getHighlighter({
+const highlighter = await createHighlighter({
   // In this case, we include the "js" language specifier to ensure that
   // Shiki applies the appropriate syntax highlighting for Markdown code
   // blocks.
@@ -255,11 +255,21 @@ const html = await new Marked()
           theme: 'github-dark-dimmed',
           meta: { __raw: props.join(' ') }, // required by `transformerMeta*`
           transformers: [
-            transformerNotationDiff(),
-            transformerNotationHighlight(),
-            transformerNotationWordHighlight(),
-            transformerNotationFocus(),
-            transformerNotationErrorLevel(),
+            transformerNotationDiff({
+              matchAlgorithm: 'v3'
+            }),
+            transformerNotationHighlight({
+              matchAlgorithm: 'v3'
+            }),
+            transformerNotationWordHighlight({
+              matchAlgorithm: 'v3'
+            }),
+            transformerNotationFocus({
+              matchAlgorithm: 'v3'
+            }),
+            transformerNotationErrorLevel({
+              matchAlgorithm: 'v3'
+            }),
             transformerMetaHighlight(),
             transformerMetaWordHighlight()
           ]

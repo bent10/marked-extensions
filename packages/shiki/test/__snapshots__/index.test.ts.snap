@@ -152,6 +152,7 @@ exports[`should handle complex content 1`] = `
 <span class="line"><span style="color:#ADBAC7">\`\`\`</span></span></code></pre>
 <p>Results in</p>
 <pre class="shiki github-dark-dimmed" style="background-color:#22272e;color:#adbac7" tabindex="0"><code><span class="line"><span style="color:#F47067">export</span><span style="color:#F47067"> function</span><span style="color:#DCBDFB"> foo</span><span style="color:#ADBAC7">() {</span></span>
+
 <span class="line"><span style="color:#F47067">  const</span><span style="color:#6CB6FF"> msg</span><span style="color:#F47067"> =</span><span style="color:#96D0FF"> '</span><span style="color:#96D0FF" class="highlighted-word">Hello</span><span style="color:#96D0FF"> World'</span></span>
 <span class="line"><span style="color:#ADBAC7">  console.</span><span style="color:#DCBDFB">log</span><span style="color:#ADBAC7">(msg) </span><span style="color:#768390">// prints </span><span style="color:#768390" class="highlighted-word">Hello</span><span style="color:#768390"> World</span></span>
 <span class="line"><span style="color:#ADBAC7">}</span></span></code></pre>
@@ -162,7 +163,8 @@ exports[`should handle complex content 1`] = `
 <span class="line"><span style="color:#ADBAC7">options.foo </span><span style="color:#F47067">=</span><span style="color:#96D0FF"> 'baz'</span></span>
 <span class="line"><span style="color:#ADBAC7">console.</span><span style="color:#DCBDFB">log</span><span style="color:#ADBAC7">(options.foo) </span><span style="color:#768390">// this one will not be highlighted</span></span>
 <span class="line"><span style="color:#ADBAC7">\`\`\`</span></span></code></pre>
-<pre class="shiki github-dark-dimmed" style="background-color:#22272e;color:#adbac7" tabindex="0"><code><span class="line"><span style="color:#F47067">const</span><span style="color:#6CB6FF"> </span><span style="color:#6CB6FF" class="highlighted-word">options</span><span style="color:#F47067"> =</span><span style="color:#ADBAC7"> { foo: </span><span style="color:#96D0FF">'bar'</span><span style="color:#ADBAC7"> }</span></span>
+<pre class="shiki github-dark-dimmed" style="background-color:#22272e;color:#adbac7" tabindex="0"><code>
+<span class="line"><span style="color:#F47067">const</span><span style="color:#6CB6FF"> </span><span style="color:#6CB6FF" class="highlighted-word">options</span><span style="color:#F47067"> =</span><span style="color:#ADBAC7"> { foo: </span><span style="color:#96D0FF">'bar'</span><span style="color:#ADBAC7"> }</span></span>
 <span class="line"><span style="color:#ADBAC7" class="highlighted-word">options</span><span style="color:#ADBAC7">.foo </span><span style="color:#F47067">=</span><span style="color:#96D0FF"> 'baz'</span></span>
 <span class="line"><span style="color:#ADBAC7">console.</span><span style="color:#DCBDFB">log</span><span style="color:#ADBAC7">(options.foo) </span><span style="color:#768390">// this one will not be highlighted</span></span></code></pre>
 <h3><code>transformerNotationFocus</code></h3>

@@ -106,7 +106,7 @@
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked-shiki/dist/index.umd.min.js"></script>
     <script type="module">
-      import { getHighlighter } from "https://esm.sh/shiki@1.1.5"
+      import { createHighlighter } from "https://esm.sh/shiki@2.1.0"
       import {
         transformerNotationDiff,
         transformerNotationHighlight,
@@ -115,7 +115,7 @@
         transformerNotationErrorLevel,
         transformerMetaHighlight,
         transformerMetaWordHighlight
-      } from "https://esm.sh/@shikijs/transformers@1.1.5"
+      } from "https://esm.sh/@shikijs/transformers@2.1.0"
 
       const md = `# Example
 
@@ -295,7 +295,7 @@ console.log(msg) // prints Hello World
 \`\`\`
 `
 
-      const highlighter = await getHighlighter({
+      const highlighter = await createHighlighter({
         langs: ["md", "js"],
         themes: ["github-dark-dimmed"]
       })
@@ -309,11 +309,21 @@ console.log(msg) // prints Hello World
                 theme: "github-dark-dimmed",
                 meta: { __raw: props.join(" ") },
                 transformers: [
-                  transformerNotationDiff(),
-                  transformerNotationHighlight(),
-                  transformerNotationWordHighlight(),
-                  transformerNotationFocus(),
-                  transformerNotationErrorLevel(),
+                  transformerNotationDiff({
+                    matchAlgorithm: "v3"
+                  }),
+                  transformerNotationHighlight({
+                    matchAlgorithm: "v3"
+                  }),
+                  transformerNotationWordHighlight({
+                    matchAlgorithm: "v3"
+                  }),
+                  transformerNotationFocus({
+                    matchAlgorithm: "v3"
+                  }),
+                  transformerNotationErrorLevel({
+                    matchAlgorithm: "v3"
+                  }),
                   transformerMetaHighlight(),
                   transformerMetaWordHighlight()
                 ]

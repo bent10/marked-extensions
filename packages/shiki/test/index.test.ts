@@ -2,7 +2,7 @@
 
 import { readFile } from 'node:fs/promises'
 import { Marked } from 'marked'
-import { getHighlighter } from 'shiki'
+import { createHighlighter } from 'shiki'
 import {
   transformerNotationDiff,
   transformerNotationHighlight,
@@ -15,7 +15,7 @@ import {
 import markedShiki from '../src/index.js'
 
 const [highlighter, example, tsContent] = await Promise.all([
-  getHighlighter({
+  createHighlighter({
     langs: ['md', 'ts', 'js'],
     themes: ['github-dark-dimmed']
   }),
@@ -71,7 +71,7 @@ it('should correctly highlight code blocks with custom container', async () => {
 })
 
 it('should handle errors thrown by the highlight function', async () => {
-  expect(() =>
+  await expect(() =>
     new Marked()
       .use(
         markedShiki({
@@ -94,11 +94,21 @@ it('should handle complex content', async () => {
             theme: 'github-dark-dimmed',
             meta: { __raw: props.join(' ') },
             transformers: [
-              transformerNotationDiff(),
-              transformerNotationHighlight(),
-              transformerNotationWordHighlight(),
-              transformerNotationFocus(),
-              transformerNotationErrorLevel(),
+              transformerNotationDiff({
+                matchAlgorithm: 'v3'
+              }),
+              transformerNotationHighlight({
+                matchAlgorithm: 'v3'
+              }),
+              transformerNotationWordHighlight({
+                matchAlgorithm: 'v3'
+              }),
+              transformerNotationFocus({
+                matchAlgorithm: 'v3'
+              }),
+              transformerNotationErrorLevel({
+                matchAlgorithm: 'v3'
+              }),
               transformerMetaHighlight(),
               transformerMetaWordHighlight()
             ]
