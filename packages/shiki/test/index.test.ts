@@ -48,6 +48,27 @@ it('should correctly highlight code blocks with shiki', async () => {
   expect(html).toMatchSnapshot()
 })
 
+it('should correctly highlight undefined lang', async () => {
+  const md = '```\nplain text\n```'
+  const html = await new Marked()
+    .use(
+      markedShiki({
+        highlight(code, lang) {
+          return highlighter.codeToHtml(code, {
+            lang,
+            theme: 'github-dark-dimmed'
+          })
+        }
+      })
+    )
+    .parse(md)
+
+  expect(html).toMatchInlineSnapshot(`
+    "<pre class="shiki github-dark-dimmed" style="background-color:#22272e;color:#adbac7" tabindex="0"><code><span class="line"><span>plain text</span></span></code></pre>
+    "
+  `)
+})
+
 it('should correctly highlight code blocks with custom container', async () => {
   const html = await new Marked()
     .use(

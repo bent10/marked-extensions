@@ -36,12 +36,7 @@ export default function markedShiki(options: Options = {}): MarkedExtension {
   return {
     async: true,
     async walkTokens(token) {
-      if (
-        token.type !== 'code' ||
-        !token.lang ||
-        typeof highlight !== 'function'
-      )
-        return
+      if (token.type !== 'code' || typeof highlight !== 'function') return
 
       const [lang = 'text', ...props] = token.lang.split(' ')
 
