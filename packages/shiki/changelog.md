@@ -1,3 +1,15 @@
+# marked-shiki [1.2.0](https://github.com/bent10/marked-extensions/compare/marked-shiki@1.1.1...marked-shiki@1.2.0) (2025-01-24)
+
+
+### Bug Fixes
+
+* fallback undefined lang to `text` ([10b2b6b](https://github.com/bent10/marked-extensions/commit/10b2b6bfffd2917b8921a2dca47460f481ee979f)), closes [#164](https://github.com/bent10/marked-extensions/issues/164)
+
+
+### Features
+
+* support shiki v2 ([d38c8da](https://github.com/bent10/marked-extensions/commit/d38c8dac374cad349e896d69cb78a4ccf55186ca))
+
 ## marked-shiki [1.1.1](https://github.com/bent10/marked-extensions/compare/marked-shiki@1.1.0...marked-shiki@1.1.1) (2024-08-29)
 
 
