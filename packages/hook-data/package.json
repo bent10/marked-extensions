@@ -50,7 +50,7 @@
     "format": "prettier . --write --cache-location ../../node_modules/.prettier --ignore-path ../../.prettierignore"
   },
   "dependencies": {
-    "fast-glob": "^3.3.2",
+    "fast-glob": "^3.3.3",
     "loadee": "^3.1.2"
   },
   "peerDependencies": {
