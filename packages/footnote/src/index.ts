@@ -10,8 +10,13 @@ import type { LexerTokens, Options } from './types.js'
 export default function markedFootnote(options: Options = {}): MarkedExtension {
   const {
     prefixId = 'footnote-',
+    prefixData = '',
     description = 'Footnotes',
-    refMarkers
+    refMarkers = false,
+    footnoteDivider = false,
+    sectionClass = 'footnotes',
+    headingClass = 'sr-only',
+    backRefLabel = 'Back to reference {0}'
   } = options
   const lexer: LexerTokens = { hasFootnotes: false, tokens: [] }
 
@@ -19,7 +24,14 @@ export default function markedFootnote(options: Options = {}): MarkedExtension {
     extensions: [
       createFootnote(lexer, description),
       createFootnoteRef(prefixId, refMarkers),
-      createFootnotes(prefixId)
+      createFootnotes(
+        prefixId,
+        prefixData,
+        footnoteDivider,
+        sectionClass,
+        headingClass,
+        backRefLabel
+      )
     ],
     walkTokens(token) {
       if (

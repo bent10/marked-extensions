@@ -4,7 +4,14 @@ import type { Footnotes } from './types.js'
 /**
  * Returns an extension object for rendering the list of footnotes.
  */
-export function createFootnotes(prefixId: string) {
+export function createFootnotes(
+  prefixId: string,
+  prefixData: string,
+  footnoteDivider: boolean,
+  sectionClass: string,
+  headingClass: string,
+  backRefLabel: string
+) {
   return {
     name: 'footnotes',
     renderer(this: RendererThis, { raw, items = [] }: Footnotes) {
@@ -22,7 +29,8 @@ export function createFootnotes(prefixId: string) {
             : parsedContent
 
           refs.forEach((_, i) => {
-            footnoteItem += ` <a href="#${prefixId}ref-${encodedLabel}" data-${prefixId}backref aria-label="Back to reference ${label}">${
+            const ariaLabel = backRefLabel.replace('{0}', label)
+            footnoteItem += ` <a href="#${prefixId}ref-${encodedLabel}" data-${prefixId}backref aria-label="${ariaLabel}">${
               i > 0 ? `↩<sup>${i + 1}</sup>` : '↩'
             }</a>`
           })
@@ -35,8 +43,20 @@ export function createFootnotes(prefixId: string) {
         ''
       )
 
-      let footnotesHTML = '<section class="footnotes" data-footnotes>\n'
-      footnotesHTML += `<h2 id="${prefixId}label" class="sr-only">${raw.trimEnd()}</h2>\n`
+      let footnotesHTML = ''
+      if (footnoteDivider) {
+        footnotesHTML += `<hr data-${prefixData}footnotes>\n`
+      }
+      let sectionAttrs = ''
+      if (sectionClass) {
+        sectionAttrs = ` class="${sectionClass}"`
+      }
+      let headingAttrs = ''
+      if (headingClass) {
+        headingAttrs = ` class="${headingClass}"`
+      }
+      footnotesHTML += `<section${sectionAttrs} data-${prefixData}footnotes>\n`
+      footnotesHTML += `<h2 id="${prefixId}label"${headingAttrs}>${raw.trimEnd()}</h2>\n`
       footnotesHTML += `<ol>\n${footnotesItemsHTML}</ol>\n`
       footnotesHTML += '</section>\n'
 

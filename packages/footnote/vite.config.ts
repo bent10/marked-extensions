@@ -3,7 +3,7 @@ import { defineConfig } from 'vite'
 import cacheDir from 'vite-plugin-cachedir'
 import umdFormatResolver from 'vite-plugin-resolve-umd-format'
 
-export default defineConfig({
+export default defineConfig(configEnv => ({
   plugins: [cacheDir(), umdFormatResolver()],
   build: {
     lib: {
@@ -14,10 +14,12 @@ export default defineConfig({
     },
     rollupOptions: {
       external: ['marked']
-    }
+    },
+    minify: configEnv.mode !== 'development',
+    sourcemap: true
   },
   test: {
     globals: true,
     include: ['test/*.test.ts']
   }
-})
+}))
