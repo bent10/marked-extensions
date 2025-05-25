@@ -24,15 +24,18 @@ This is a sentence with custom options footnote[^1].
     .use(
       markedFootnote({
         prefixId: 'fn-',
+        prefixData: 'fn-',
         description: 'My footnotes',
-        refMarkers: true
+        refMarkers: true,
+        footnoteDivider: true
       })
     )
     .parse(md)
 
   expect(html).toMatchInlineSnapshot(`
     "<p>This is a sentence with custom options footnote<sup><a id="fn-ref-1" href="#fn-1" data-fn-ref aria-describedby="fn-label">[1]</a></sup>.</p>
-    <section class="footnotes" data-footnotes>
+    <hr data-fn-footnotes>
+    <section class="footnotes" data-fn-footnotes>
     <h2 id="fn-label" class="sr-only">My footnotes</h2>
     <ol>
     <li id="fn-1">

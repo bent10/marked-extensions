@@ -1,1 +1,8 @@
-export { default } from 'doogu/eslint.config.js'
+import configs from 'doogu/eslint.config.js'
+
+export default [
+  ...configs,
+  {
+    ignores: ['**/dist/']
+  }
+]

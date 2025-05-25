@@ -287,9 +287,19 @@ The marked-footnote extension accepts the following configuration options:
 
 - `prefixId`: The prefix ID for footnotes. Defaults to `'footnote-'`.
 
+- `prefixData`: The prefix for the main data attribute for footnotes. Defaults to `''`, an empty string, making the attribute equal `data-footnotes`.
+
 - `description`: The description of footnotes, used by `aria-labeledby` attribute. Defaults to `'Footnotes'`.
 
 - `refMarkers`: If set to `true`, it will place footnote reference in square brackets, like this: `[1]`. Defaults to `false`.
+
+- `footnoteDivider`: If set to `true`, it will insert a horizontal rule above the footnotes at the bottom of the page. Defaults to `false`.
+
+- `sectionClass`: The CSS class set to the element wrapping all footnotes at the bottom of the page. Can be set to an empty string to remove the CSS class. Defaults to `'footnotes'`.
+
+- `headingClass`: The CSS class set to the heading element introducing the footnotes at the bottom of the page for screen reader users. Can be set to an empty string to remove the CSS class. Defaults to `'sr-only'`.
+
+- `backRefLabel`: ARIA label of the links referring back to the location in the text of the page where the footnote has been referred from. Defaults to `'Back to reference {0}'`. The placeholder `{0}` will be replaced by the footnote marker text.
 
 ## Limitations
 
