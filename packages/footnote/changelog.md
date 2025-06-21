@@ -1,3 +1,10 @@
+# marked-footnote [1.3.0](https://github.com/bent10/marked-extensions/compare/marked-footnote@1.2.4...marked-footnote@1.3.0) (2025-06-21)
+
+
+### Features
+
+* Enable custom CSS classes, footnote divider, localisation, source ([d56e749](https://github.com/bent10/marked-extensions/commit/d56e7494d1946b33e780635b20080ba30f887a42))
+
 ## marked-footnote [1.2.4](https://github.com/bent10/marked-extensions/compare/marked-footnote@1.2.3...marked-footnote@1.2.4) (2024-09-02)
 
 
