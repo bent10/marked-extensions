@@ -295,6 +295,8 @@ The marked-footnote extension accepts the following configuration options:
 
 - `footnoteDivider`: If set to `true`, it will insert a horizontal rule above the footnotes at the bottom of the page. Defaults to `false`.
 
+- `keepLabels`: If set to `true`, it will keep the original labels of footnote references in the generated HTML output. If not, the references will be labelled by numbers starting with 1 and incremented by 1 from left to right, top to down. Defaults to `false`.
+
 - `sectionClass`: The CSS class set to the element wrapping all footnotes at the bottom of the page. Can be set to an empty string to remove the CSS class. Defaults to `'footnotes'`.
 
 - `headingClass`: The CSS class set to the heading element introducing the footnotes at the bottom of the page for screen reader users. Can be set to an empty string to remove the CSS class. Defaults to `'sr-only'`.

@@ -30,9 +30,17 @@ export function createFootnotes(
 
           refs.forEach((_, i) => {
             const ariaLabel = backRefLabel.replace('{0}', label)
-            footnoteItem += ` <a href="#${prefixId}ref-${encodedLabel}" data-${prefixId}backref aria-label="${ariaLabel}">${
-              i > 0 ? `↩<sup>${i + 1}</sup>` : '↩'
-            }</a>`
+            let textLabel: string
+            let idSuffix: string
+            if (i > 0) {
+              const displayIndex = i + 1
+              textLabel = `↩<sup>${displayIndex}</sup>`
+              idSuffix = `-${displayIndex}`
+            } else {
+              textLabel = '↩'
+              idSuffix = ''
+            }
+            footnoteItem += ` <a href="#${prefixId}ref-${encodedLabel}${idSuffix}" data-${prefixId}backref aria-label="${ariaLabel}">${textLabel}</a>`
           })
 
           footnoteItem += isEndsWithP ? '</p>\n' : '\n'

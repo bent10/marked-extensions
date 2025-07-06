@@ -27,7 +27,8 @@ This is a sentence with custom options footnote[^1].
         prefixData: 'fn-',
         description: 'My footnotes',
         refMarkers: true,
-        footnoteDivider: true
+        footnoteDivider: true,
+        keepLabels: true
       })
     )
     .parse(md)
@@ -139,7 +140,7 @@ This is a sentence with an empty footnote[^1].
   expect(result2).toMatch(result1)
 })
 
-it('should handle footnote content with link', () => {
+it('should handle footnote content with link (and generate numeric reference labels)', () => {
   const md = `
 This is a sentence[^2] with an empty footnote[^1].
 
@@ -165,6 +166,32 @@ This is a sentence[^2] with an empty footnote[^1].
   `)
 })
 
+it('should handle footnote content with link (and keep the original reference labels)', () => {
+  const md = `
+This is a sentence[^2] with an empty footnote[^1].
+
+[^1]: foo <https://example.com>
+[^2]: bar [Foo](https://example.com)
+`
+  const html = marked.use(markedFootnote({ keepLabels: true })).parse(md)
+
+  expect(html).toMatchInlineSnapshot(`
+    "<p>This is a sentence<sup><a id="footnote-ref-2" href="#footnote-2" data-footnote-ref aria-describedby="footnote-label">2</a></sup> with an empty footnote<sup><a id="footnote-ref-1" href="#footnote-1" data-footnote-ref aria-describedby="footnote-label">1</a></sup>.</p>
+    <section class="footnotes" data-footnotes>
+    <h2 id="footnote-label" class="sr-only">Footnotes</h2>
+    <ol>
+    <li id="footnote-2">
+    <p>bar <a href="https://example.com">Foo</a> <a href="#footnote-ref-2" data-footnote-backref aria-label="Back to reference 2">↩</a></p>
+    </li>
+    <li id="footnote-1">
+    <p>foo <a href="https://example.com">https://example.com</a> <a href="#footnote-ref-1" data-footnote-backref aria-label="Back to reference 1">↩</a></p>
+    </li>
+    </ol>
+    </section>
+    "
+  `)
+})
+
 it('should handle multiple references to the same footnote', () => {
   const md = `
 This is a sentence with multiple references to the same footnote[^1][^1].
@@ -174,12 +201,12 @@ This is a sentence with multiple references to the same footnote[^1][^1].
   const html = marked.use(markedFootnote()).parse(md)
 
   expect(html).toMatchInlineSnapshot(`
-    "<p>This is a sentence with multiple references to the same footnote<sup><a id="footnote-ref-1" href="#footnote-1" data-footnote-ref aria-describedby="footnote-label">1</a></sup><sup><a id="footnote-ref-1" href="#footnote-1" data-footnote-ref aria-describedby="footnote-label">1</a></sup>.</p>
+    "<p>This is a sentence with multiple references to the same footnote<sup><a id="footnote-ref-1" href="#footnote-1" data-footnote-ref aria-describedby="footnote-label">1</a></sup><sup><a id="footnote-ref-1-2" href="#footnote-1" data-footnote-ref aria-describedby="footnote-label">1</a></sup>.</p>
     <section class="footnotes" data-footnotes>
     <h2 id="footnote-label" class="sr-only">Footnotes</h2>
     <ol>
     <li id="footnote-1">
-    <p>Content of the common footnote. <a href="#footnote-ref-1" data-footnote-backref aria-label="Back to reference 1">↩</a> <a href="#footnote-ref-1" data-footnote-backref aria-label="Back to reference 1">↩<sup>2</sup></a></p>
+    <p>Content of the common footnote. <a href="#footnote-ref-1" data-footnote-backref aria-label="Back to reference 1">↩</a> <a href="#footnote-ref-1-2" data-footnote-backref aria-label="Back to reference 1">↩<sup>2</sup></a></p>
     </li>
     </ol>
     </section>
@@ -398,19 +425,73 @@ This is the end of the file[^2].
   `)
 })
 
-it('should handle complex content within footnotes', () => {
+it('should handle complex content within footnotes (and generate numeric reference labels)', () => {
   const md = readFileSync('./test/fixtures/example.md', 'utf8')
   const html = marked.use(markedFootnote()).parse(md)
 
   expect(html).toMatchInlineSnapshot(`
     "<h1>Example</h1>
     <p>Here is a simple footnote<sup><a id="footnote-ref-1" href="#footnote-1" data-footnote-ref aria-describedby="footnote-label">1</a></sup>. With some additional text after it<sup><a id="footnote-ref-%40%23%24%25" href="#footnote-%40%23%24%25" data-footnote-ref aria-describedby="footnote-label">2</a></sup> and without disrupting the blocks<sup><a id="footnote-ref-bignote" href="#footnote-bignote" data-footnote-ref aria-describedby="footnote-label">3</a></sup>.</p>
-    <p><em>Navigating to the first footnote</em> <sup><a id="footnote-ref-1" href="#footnote-1" data-footnote-ref aria-describedby="footnote-label">1</a></sup></p>
+    <p><em>Navigating to the first footnote</em> <sup><a id="footnote-ref-1-2" href="#footnote-1" data-footnote-ref aria-describedby="footnote-label">1</a></sup></p>
     <section class="footnotes" data-footnotes>
     <h2 id="footnote-label" class="sr-only">Footnotes</h2>
     <ol>
     <li id="footnote-1">
-    <p>This is a footnote content. <a href="#footnote-ref-1" data-footnote-backref aria-label="Back to reference 1">↩</a> <a href="#footnote-ref-1" data-footnote-backref aria-label="Back to reference 1">↩<sup>2</sup></a></p>
+    <p>This is a footnote content. <a href="#footnote-ref-1" data-footnote-backref aria-label="Back to reference 1">↩</a> <a href="#footnote-ref-1-2" data-footnote-backref aria-label="Back to reference 1">↩<sup>2</sup></a></p>
+    </li>
+    <li id="footnote-%40%23%24%25">
+    <p>A footnote on the label: &quot;@#$%&quot;. <a href="#footnote-ref-%40%23%24%25" data-footnote-backref aria-label="Back to reference @#$%">↩</a></p>
+    </li>
+    <li id="footnote-bignote">
+    <p>The first paragraph of the definition.</p>
+    <p>Paragraph two of the definition.</p>
+    <blockquote>
+    <p>A blockquote with
+    multiple lines.</p>
+    </blockquote>
+    <pre><code>a code block
+    </code></pre>
+    <table>
+    <thead>
+    <tr>
+    <th>Header 1</th>
+    <th>Header 2</th>
+    </tr>
+    </thead>
+    <tbody><tr>
+    <td>Cell 1</td>
+    <td>Cell 2</td>
+    </tr>
+    </tbody></table>
+    <p>A <code>final</code> paragraph before list.</p>
+    <ul>
+    <li>Item 1</li>
+    <li>Item 2<ul>
+    <li>Subitem 1</li>
+    <li>Subitem 2</li>
+    </ul>
+    </li>
+    </ul> <a href="#footnote-ref-bignote" data-footnote-backref aria-label="Back to reference bignote">↩</a>
+    </li>
+    </ol>
+    </section>
+    "
+  `)
+})
+
+it('should handle complex content within footnotes (and keep the original reference labels)', () => {
+  const md = readFileSync('./test/fixtures/example.md', 'utf8')
+  const html = marked.use(markedFootnote({ keepLabels: true })).parse(md)
+
+  expect(html).toMatchInlineSnapshot(`
+    "<h1>Example</h1>
+    <p>Here is a simple footnote<sup><a id="footnote-ref-1" href="#footnote-1" data-footnote-ref aria-describedby="footnote-label">1</a></sup>. With some additional text after it<sup><a id="footnote-ref-%40%23%24%25" href="#footnote-%40%23%24%25" data-footnote-ref aria-describedby="footnote-label">@#$%</a></sup> and without disrupting the blocks<sup><a id="footnote-ref-bignote" href="#footnote-bignote" data-footnote-ref aria-describedby="footnote-label">bignote</a></sup>.</p>
+    <p><em>Navigating to the first footnote</em> <sup><a id="footnote-ref-1-2" href="#footnote-1" data-footnote-ref aria-describedby="footnote-label">1</a></sup></p>
+    <section class="footnotes" data-footnotes>
+    <h2 id="footnote-label" class="sr-only">Footnotes</h2>
+    <ol>
+    <li id="footnote-1">
+    <p>This is a footnote content. <a href="#footnote-ref-1" data-footnote-backref aria-label="Back to reference 1">↩</a> <a href="#footnote-ref-1-2" data-footnote-backref aria-label="Back to reference 1">↩<sup>2</sup></a></p>
     </li>
     <li id="footnote-%40%23%24%25">
     <p>A footnote on the label: &quot;@#$%&quot;. <a href="#footnote-ref-%40%23%24%25" data-footnote-backref aria-label="Back to reference @#$%">↩</a></p>

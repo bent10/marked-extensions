@@ -41,6 +41,13 @@ export interface Options {
   footnoteDivider?: boolean
 
   /**
+   * If set to `true`, it will keep the original labels of footnote references in the generated HTML output. If not, the references will be labelled by numbers starting with 1 and incremented by 1 from left to right, top to down.
+   *
+   * @default false
+   */
+  keepLabels?: boolean
+
+  /**
    * The CSS class set to the element wrapping all footnotes at the bottom of the page. Can be set to an empty string to remove the CSS class.
    *
    * @default 'footnotes'
@@ -89,6 +96,7 @@ export type Footnote = {
 export type FootnoteRef = {
   type: 'footnoteRef'
   raw: string
+  index: number
   id: string
   label: string
 }
