@@ -14,6 +14,7 @@ export default function markedFootnote(options: Options = {}): MarkedExtension {
     description = 'Footnotes',
     refMarkers = false,
     footnoteDivider = false,
+    keepLabels = false,
     sectionClass = 'footnotes',
     headingClass = 'sr-only',
     backRefLabel = 'Back to reference {0}'
@@ -23,7 +24,7 @@ export default function markedFootnote(options: Options = {}): MarkedExtension {
   return {
     extensions: [
       createFootnote(lexer, description),
-      createFootnoteRef(prefixId, refMarkers),
+      createFootnoteRef(prefixId, refMarkers, keepLabels),
       createFootnotes(
         prefixId,
         prefixData,

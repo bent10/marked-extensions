@@ -2,9 +2,23 @@ import type { TokenizerAndRendererExtension, TokenizerThis } from 'marked'
 import type { FootnoteRef, Footnotes } from './types.js'
 
 /**
+ * Escapes special HTML characters in a text to be inserted to an element body.
+ */
+function escapeTextContent(text: string): string {
+  return text
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+}
+
+/**
  * Returns an extension object for parsing inline footnote references.
  */
-export function createFootnoteRef(prefixId: string, refMarkers = false) {
+export function createFootnoteRef(
+  prefixId: string,
+  refMarkers = false,
+  keepLabels = false
+) {
   let order = 0
 
   return {
@@ -28,6 +42,7 @@ export function createFootnoteRef(prefixId: string, refMarkers = false) {
         const ref: FootnoteRef = {
           type: 'footnoteRef',
           raw,
+          index: rawFootnote.refs.length,
           id: '',
           label
         }
@@ -45,14 +60,16 @@ export function createFootnoteRef(prefixId: string, refMarkers = false) {
         return ref
       }
     },
-    renderer({ id, label }: FootnoteRef) {
+    renderer({ index, id, label }: FootnoteRef) {
       order = 0 // reset order
       const encodedLabel = encodeURIComponent(label)
+      const textLabel = keepLabels ? escapeTextContent(label) : id
+      const idSuffix = index > 0 ? `-${index + 1}` : ''
 
-      return `<sup><a id="${prefixId}ref-${encodedLabel}" href="#${
+      return `<sup><a id="${prefixId}ref-${encodedLabel}${idSuffix}" href="#${
         prefixId + encodedLabel
       }" data-${prefixId}ref aria-describedby="${prefixId}label">${
-        refMarkers ? `[${id}]` : id
+        refMarkers ? `[${textLabel}]` : textLabel
       }</a></sup>`
     }
   } as TokenizerAndRendererExtension
