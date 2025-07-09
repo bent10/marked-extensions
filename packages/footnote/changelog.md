@@ -1,3 +1,10 @@
+# marked-footnote [1.4.0](https://github.com/bent10/marked-extensions/compare/marked-footnote@1.3.0...marked-footnote@1.4.0) (2025-07-09)
+
+
+### Features
+
+* Allow keeping original footnote references, fix links in back-references ([82a6c02](https://github.com/bent10/marked-extensions/commit/82a6c022d93e3f38ca1f364fb10eec4836d0cf8d))
+
 # marked-footnote [1.3.0](https://github.com/bent10/marked-extensions/compare/marked-footnote@1.2.4...marked-footnote@1.3.0) (2025-06-21)
 
 
