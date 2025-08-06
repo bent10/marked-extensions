@@ -1,3 +1,10 @@
+## marked-shiki [1.2.1](https://github.com/bent10/marked-extensions/compare/marked-shiki@1.2.0...marked-shiki@1.2.1) (2025-08-06)
+
+
+### Bug Fixes
+
+* cannot read properties of undefined (reading 'split') [#180](https://github.com/bent10/marked-extensions/issues/180) ([2efbc0d](https://github.com/bent10/marked-extensions/commit/2efbc0d34008933d95fb37fed1d45ae1bf54cae6))
+
 # marked-shiki [1.2.0](https://github.com/bent10/marked-extensions/compare/marked-shiki@1.1.1...marked-shiki@1.2.0) (2025-01-24)
 
 
