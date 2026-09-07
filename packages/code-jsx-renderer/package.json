@@ -48,8 +48,8 @@
     "format": "prettier . --write --cache-location ../../node_modules/.prettier --ignore-path ../../.prettierignore"
   },
   "dependencies": {
-    "@babel/core": "^7.26.0",
-    "@babel/preset-react": "^7.26.3",
+    "@babel/core": "^8.0.0",
+    "@babel/preset-react": "^8.0.0",
     "attributes-parser": "^2.2.3"
   },
   "peerDependencies": {
