@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marked Figure</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.3.0/github-markdown-dark.css"
+    />
+
+    <style>
+      .markdown-body {
+        background: #22272e;
+        color: #adbac7;
+      }
+
+      #content {
+        margin: 0 auto;
+        padding: 1rem;
+        max-width: 928px;
+      }
+
+      figcaption {
+        font-size: 0.875em;
+        color: #768390;
+      }
+    </style>
+  </head>
+
+  <body class="markdown-body">
+    <div id="content"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked-figure/dist/index.umd.min.js"></script>
+    <script>
+      const md = `# Example
+
+![A *placeholder* image](https://placehold.co/600x200)
+
+![](https://placehold.co/600x20)
+
+An inline ![icon](https://placehold.co/16x16) stays in its paragraph.
+`
+
+      document.getElementById("content").innerHTML = new marked.Marked()
+        .use(markedFigure())
+        .parse(md)
+    </script>
+  </body>
+</html>
