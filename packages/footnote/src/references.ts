@@ -17,7 +17,8 @@ function escapeTextContent(text: string): string {
 export function createFootnoteRef(
   prefixId: string,
   refMarkers = false,
-  keepLabels = false
+  keepLabels = false,
+  heading = true
 ) {
   let order = 0
 
@@ -68,9 +69,9 @@ export function createFootnoteRef(
 
       return `<sup><a id="${prefixId}ref-${encodedLabel}${idSuffix}" href="#${
         prefixId + encodedLabel
-      }" data-${prefixId}ref aria-describedby="${prefixId}label">${
-        refMarkers ? `[${textLabel}]` : textLabel
-      }</a></sup>`
+      }" data-${prefixId}ref${
+        heading ? ` aria-describedby="${prefixId}label"` : ''
+      }>${refMarkers ? `[${textLabel}]` : textLabel}</a></sup>`
     }
   } as TokenizerAndRendererExtension
 }

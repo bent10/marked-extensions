@@ -1,7 +1,7 @@
 /// <reference types="vitest/globals" />
 
 import { readFileSync } from 'node:fs'
-import { marked } from 'marked'
+import { marked, Marked } from 'marked'
 import markedFootnote from '../src/index.js'
 
 it('should handle no footnotes in the input Markdown', () => {
@@ -41,6 +41,29 @@ This is a sentence with custom options footnote[^1].
     <ol>
     <li id="fn-1">
     <p>Content of the footnote. <a href="#fn-ref-1" data-fn-backref aria-label="Back to reference 1">↩</a></p>
+    </li>
+    </ol>
+    </section>
+    "
+  `)
+})
+
+it('should not render the heading when `heading` is false', () => {
+  const md = `
+This is a sentence with a footnote[^1].
+
+[^1]: Content of the footnote.
+`
+  const html = new Marked().use(markedFootnote({ heading: false })).parse(md)
+
+  expect(html).not.toContain('<h2')
+  expect(html).not.toContain('aria-describedby')
+  expect(html).toMatchInlineSnapshot(`
+    "<p>This is a sentence with a footnote<sup><a id="footnote-ref-1" href="#footnote-1" data-footnote-ref>1</a></sup>.</p>
+    <section class="footnotes" data-footnotes>
+    <ol>
+    <li id="footnote-1">
+    <p>Content of the footnote. <a href="#footnote-ref-1" data-footnote-backref aria-label="Back to reference 1">↩</a></p>
     </li>
     </ol>
     </section>

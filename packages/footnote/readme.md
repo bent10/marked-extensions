@@ -299,6 +299,8 @@ The marked-footnote extension accepts the following configuration options:
 
 - `sectionClass`: The CSS class set to the element wrapping all footnotes at the bottom of the page. Can be set to an empty string to remove the CSS class. Defaults to `'footnotes'`.
 
+- `heading`: If set to `false`, the heading element introducing the footnotes (the `<h2>` containing the `description` text) will not be rendered at all, and the `aria-describedby` attribute pointing to it will be omitted from the footnote references. Defaults to `true`.
+
 - `headingClass`: The CSS class set to the heading element introducing the footnotes at the bottom of the page for screen reader users. Can be set to an empty string to remove the CSS class. Defaults to `'sr-only'`.
 
 - `backRefLabel`: ARIA label of the links referring back to the location in the text of the page where the footnote has been referred from. Defaults to `'Back to reference {0}'`. The placeholder `{0}` will be replaced by the footnote marker text.

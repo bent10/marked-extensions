@@ -55,6 +55,13 @@ export interface Options {
   sectionClass?: string
 
   /**
+   * If set to `false`, the heading element introducing the footnotes at the bottom of the page will not be rendered at all, and the `aria-describedby` attribute pointing to it will be omitted from the footnote references.
+   *
+   * @default true
+   */
+  heading?: boolean
+
+  /**
    * The CSS class set to the heading element introducing the footnotes at the bottom of the page for screen reader users. Can be set to an empty string to remove the CSS class.
    *
    * @default 'sr-only'
