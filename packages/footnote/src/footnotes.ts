@@ -9,6 +9,7 @@ export function createFootnotes(
   prefixData: string,
   footnoteDivider: boolean,
   sectionClass: string,
+  heading: boolean,
   headingClass: string,
   backRefLabel: string
 ) {
@@ -64,7 +65,9 @@ export function createFootnotes(
         headingAttrs = ` class="${headingClass}"`
       }
       footnotesHTML += `<section${sectionAttrs} data-${prefixData}footnotes>\n`
-      footnotesHTML += `<h2 id="${prefixId}label"${headingAttrs}>${raw.trimEnd()}</h2>\n`
+      if (heading) {
+        footnotesHTML += `<h2 id="${prefixId}label"${headingAttrs}>${raw.trimEnd()}</h2>\n`
+      }
       footnotesHTML += `<ol>\n${footnotesItemsHTML}</ol>\n`
       footnotesHTML += '</section>\n'
 
